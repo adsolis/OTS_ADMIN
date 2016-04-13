@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="NAR" pageWidth="890" pageHeight="792" columnWidth="850" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="120"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#000000">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#E6CFCF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#F8F3F3"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#000000">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#000000">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#E6CFCF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#000000">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#E6CFCF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="New Dataset 1"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:\\jessicaLeon\\workspace\\AVON_OTS_ADMIN\\WebContent\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGEN_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:\\jessicaLeon\\workspace\\AVON_OTS_ADMIN\\WebContent\\img\\headerAvon.gif"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMG_LDC_LOGO_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:\\jessicaLeon\\workspace\\AVON_OTS_ADMIN\\WebContent\\img\\ldc_logo.jpg"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="descCampania" class="java.lang.String">
+		<fieldDescription><![CDATA[descCampania]]></fieldDescription>
+	</field>
+	<field name="descZona" class="java.lang.String">
+		<fieldDescription><![CDATA[descZona]]></fieldDescription>
+	</field>
+	<field name="idCampania" class="java.lang.String">
+		<fieldDescription><![CDATA[idCampania]]></fieldDescription>
+	</field>
+	<field name="idZona" class="java.lang.String">
+		<fieldDescription><![CDATA[idZona]]></fieldDescription>
+	</field>
+	<field name="lstNoAceptacionReparto" class="java.util.List">
+		<fieldDescription><![CDATA[lstNoAceptacionReparto]]></fieldDescription>
+	</field>
+	<field name="miVentaNAR" class="java.lang.String">
+		<fieldDescription><![CDATA[miVentaNAR]]></fieldDescription>
+	</field>
+	<field name="ordenPendienteEntregar" class="java.lang.String">
+		<fieldDescription><![CDATA[ordenPendienteEntregar]]></fieldDescription>
+	</field>
+	<field name="porcentaAceptacion" class="java.lang.String">
+		<fieldDescription><![CDATA[porcentaAceptacion]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="76">
+			<textField>
+				<reportElement x="576" y="13" width="123" height="11"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Fecha de impresión:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="576" y="25" width="123" height="12"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Hora de impresión:"]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="699" y="13" width="71" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="699" y="25" width="71" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="226" y="13" width="133" height="12"/>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Order Tracking System"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="226" y="25" width="175" height="12"/>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["LISTA DE NO ACEPTACIÓN EN REPARTO "]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement x="3" y="0" width="116" height="67"/>
+				<imageExpression><![CDATA[$P{IMAGEN_DIR}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement mode="Transparent" x="134" y="13" width="92" height="12" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Sistema:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="134" y="25" width="92" height="12" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="8" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Reporte :]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="77" splitType="Stretch">
+			<textField>
+				<reportElement x="129" y="0" width="485" height="23"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["LISTA DE NO ACEPTACIÓN EN REPARTO (N.A.R.)"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="32" width="69" height="13"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Zona :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="45" width="69" height="13"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Campaña :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="32" width="96" height="13"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descZona}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="45" width="96" height="13"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descCampania}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="45" width="116" height="13"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{porcentaAceptacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="576" y="32" width="213" height="13"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Mi Venta No Aceptada en Reparto:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="576" y="45" width="213" height="13"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[( new Boolean($F{miVentaNAR} != null) ? new DecimalFormat("$ #,##0.00").format(new Double($F{miVentaNAR})) : "$ 0.00" )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="58" width="166" height="13"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ordenPendienteEntregar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="226" y="58" width="174" height="13"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ordenes Pendientes por Entregar"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="460" y="32" width="116" height="13"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[% Aceptación]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="44" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="850" height="44"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{lstNoAceptacionReparto})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR}+"listaNoAceptacionReparto.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<lastPageFooter>
+		<band height="17"/>
+	</lastPageFooter>
+</jasperReport>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.ajax4jsf.org/rich"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<body>
+
+	<ui:composition>
+		<h:form>
+			<table class="principal"> <tr> 
+				<td align="left" width="80%" style="padding-left: 20px; padding-right: 20px;">
+					<a href="#{facesContext.externalContext.requestContextPath}/faces/Paginas/template.jsp" title="Inicio">
+					<img src="#{facesContext.externalContext.requestContextPath}/img/headerAvon.gif" alt="Inicio"
+						height="80px"/>
+					</a>
+				</td>
+				<td align="left" width="10%" valign="bottom">
+					<h:outputLabel value="Usuario: " style="font-family: Arial; font-size: 8pt; font-weight: bold;"></h:outputLabel>
+					<h:outputLabel value="#{login.name}" style="font-family: Arial; font-size: 8pt; font-weight: bold;"></h:outputLabel>
+				</td>
+				</tr></table>
+			<a4j:outputPanel ajaxRendered="true" rendered="true"
+				id="a4jPanelSeccion1">
+				<table width="80%" align="center">
+					<tr>
+						<td><rich:toolBar>
+								<table>
+									<tr>
+										<td><rich:dropDownMenu binding="#{login.menuDinamic[0]}"></rich:dropDownMenu></td>
+										<td><rich:dropDownMenu binding="#{login.menuDinamic[1]}"></rich:dropDownMenu></td>
+										<td><rich:dropDownMenu binding="#{login.menuDinamic[2]}"></rich:dropDownMenu></td>
+										<td><rich:dropDownMenu binding="#{login.menuDinamic[3]}"></rich:dropDownMenu></td>
+										<td><rich:dropDownMenu binding="#{login.menuDinamic[4]}"></rich:dropDownMenu></td>
+										<td><rich:dropDownMenu binding="#{login.menuDinamic[5]}"></rich:dropDownMenu></td>
+										<td><rich:dropDownMenu binding="#{login.menuDinamic[6]}"></rich:dropDownMenu></td>
+										<td><rich:dropDownMenu binding="#{login.menuDinamic[7]}"></rich:dropDownMenu></td>
+										<td><rich:dropDownMenu binding="#{login.menuDinamic[8]}"></rich:dropDownMenu></td>
+										<td><rich:dropDownMenu binding="#{login.menuDinamic[9]}"></rich:dropDownMenu></td>
+										<td><rich:dropDownMenu binding="#{login.menuDinamic[10]}"></rich:dropDownMenu></td>
+										<td><rich:dropDownMenu binding="#{login.menuDinamic[11]}"></rich:dropDownMenu></td>
+										<td><rich:dropDownMenu binding="#{login.menuDinamic[12]}"></rich:dropDownMenu></td>
+										<td><rich:dropDownMenu binding="#{login.menuDinamic[13]}"></rich:dropDownMenu></td>
+										<td><rich:dropDownMenu binding="#{login.menuDinamic[14]}"></rich:dropDownMenu></td>
+										<td align="right"><rich:dropDownMenu value="Sesión">
+												<rich:menuItem>
+													<h:commandButton action="#{login.TerminarSesion}"
+														value="Terminar Sesión">
+													</h:commandButton>
+												</rich:menuItem>
+											</rich:dropDownMenu>
+										</td>
+									</tr>
+
+								</table>
+							</rich:toolBar></td>
+					</tr>
+				</table>
+			</a4j:outputPanel>
+		</h:form>
+	</ui:composition>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteConsultaOrdenes" pageWidth="1300" pageHeight="612" orientation="Landscape" columnWidth="1260" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a3aadf22-78cd-4fab-93dd-683fc0ef5f7d">
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="30"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="IMAGE_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:\\workspacefreelance\\OTSe\\WebContent\\img\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fecha" class="java.lang.String"/>
+	<parameter name="hora" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="estatus" class="java.lang.String">
+		<fieldDescription><![CDATA[estatus]]></fieldDescription>
+	</field>
+	<field name="ruta" class="java.lang.String">
+		<fieldDescription><![CDATA[ruta]]></fieldDescription>
+	</field>
+	<field name="recibido" class="java.lang.String">
+		<fieldDescription><![CDATA[recibido]]></fieldDescription>
+	</field>
+	<field name="fecha" class="java.lang.String">
+		<fieldDescription><![CDATA[fecha]]></fieldDescription>
+	</field>
+	<field name="registro" class="java.lang.String">
+		<fieldDescription><![CDATA[registro]]></fieldDescription>
+	</field>
+	<field name="campania" class="java.lang.String">
+		<fieldDescription><![CDATA[campania]]></fieldDescription>
+	</field>
+	<field name="recolectar" class="java.lang.String">
+		<fieldDescription><![CDATA[recolectar]]></fieldDescription>
+	</field>
+	<field name="zona" class="java.lang.String">
+		<fieldDescription><![CDATA[zona]]></fieldDescription>
+	</field>
+	<field name="comentarios" class="java.lang.String">
+		<fieldDescription><![CDATA[comentarios]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="132" splitType="Stretch">
+			<image>
+				<reportElement uuid="1b2ca750-158e-41be-861c-1d3c6c9e62e9" x="0" y="0" width="256" height="84"/>
+				<imageExpression><![CDATA[$P{IMAGE_DIR}+"headerAvon.gif"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="5b09c311-097d-49b3-a3f7-84ecb25af580" mode="Opaque" x="0" y="112" width="103" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ruta"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4b8c368c-c4e2-4fbe-8799-a2e4fe9ac464" mode="Opaque" x="103" y="112" width="127" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Campaña a Recolectar"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1c3207c0-8162-4e4f-bcbb-5881c564ccbe" mode="Opaque" x="230" y="112" width="94" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Registro"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="fbb6f7ae-efa1-4bfa-ac4b-901e93f789c0" mode="Opaque" x="324" y="112" width="137" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Cantidad a Recolectar"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="bbb8b983-4b53-4f57-a1aa-cef3b3de0a17" mode="Opaque" x="461" y="112" width="180" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Fecha / Hora Recolección Remito"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="200aaf4e-dd6e-443d-a3b1-a6d13374a910" mode="Opaque" x="641" y="112" width="134" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Cantidad recibida"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="72e2f753-0ed6-456d-ba54-a34e4f379454" mode="Opaque" x="775" y="112" width="161" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Estatus"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ca16ec1a-6151-4bc5-bbb9-5680e2a02e07" mode="Opaque" x="936" y="112" width="161" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Fecha Estatus"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2b061ba4-a2cf-410e-9ace-b520a7376522" mode="Opaque" x="1097" y="112" width="161" height="20" forecolor="#FFFFFF" backcolor="#666666"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Comentarios"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="7045cf00-0f56-435e-86f3-053eb7c0774c" x="324" y="35" width="52" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{zona}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cf220a58-2d57-4e6b-8148-ced34659611b" x="324" y="19" width="283" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Reporte Recolección y Devolución de Ajustes (Remitos)"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e61e999d-2704-4a0d-b3c5-84386bbc64d1" x="272" y="19" width="62" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Reporte"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4b6c0826-9bac-4d6c-b28e-5d15d5104318" x="272" y="35" width="52" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Zona"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ea0a900b-97d5-49ff-9c3e-f970707ce220" x="324" y="3" width="135" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Order Tracking System"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0f7f8a2a-905c-4a4d-b254-d91b51b57e2d" x="262" y="3" width="62" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Sistema"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8de03987-5f40-4cf3-b6ca-0e0dadfd75f2" x="1097" y="-1" width="86" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="67c013be-5f2d-4987-a6cc-8f6c3ba8044c" x="1097" y="19" width="86" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{hora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f589e3de-e5da-486e-abb0-d1fa39bca8ac" x="987" y="39" width="110" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página: "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cf39fd3f-5295-4048-824d-bdeaed3b83e3" x="1097" y="39" width="58" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="92719967-1592-402d-bed2-b5009e955b9e" x="987" y="-1" width="110" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Fecha Impresión:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="95472e9a-db15-4d61-9ddb-d1735e0f53f0" x="987" y="19" width="110" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Hora de Impresión: "]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="cede5a03-38a9-4d63-b031-64d723165f47" x="1155" y="39" width="28" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["- "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement uuid="5a3000b6-6fed-4376-b9e1-951630d08ee3" x="0" y="0" width="103" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ruta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f193b404-1b2e-4dfe-b401-c6a3a9824414" x="103" y="1" width="127" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{campania}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="353902ee-c634-43ed-ba86-bba21d26295f" x="230" y="1" width="94" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{registro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="811ddfae-6456-4539-b7a0-ee614e63543a" x="324" y="0" width="137" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{recolectar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2332693e-ba9d-4b2c-96b1-7ce5cb573c39" x="461" y="1" width="180" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3761ea19-6d6c-41fa-8371-59f81b8b1a02" x="641" y="0" width="134" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{recibido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5673969d-8ddc-4e2c-b90d-660a39ba5659" x="775" y="0" width="161" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estatus}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a40bd595-8131-4cc4-80dd-4fa3e75c88e8" x="936" y="0" width="161" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="bd0860a6-1a07-4802-a570-1c9e475b46d2" x="1097" y="0" width="161" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comentarios}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="40">
+			<image>
+				<reportElement uuid="bdda4999-cfb2-4041-bf1d-9a0a1c891e6a" x="1075" y="2" width="183" height="38"/>
+				<imageExpression><![CDATA[$P{IMAGE_DIR}+"ldc_logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+</jasperReport>

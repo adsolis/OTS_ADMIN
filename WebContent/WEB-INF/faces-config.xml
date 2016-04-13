@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+    version="1.2">
+    <application>
+    	<view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+    </application>
+    <managed-bean>
+		<description>Operaciones de Reportes</description>
+		<managed-bean-name>report</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.reports.ControllerGeneradorReportes</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+    <!-- CU001 INICIO -->
+	<managed-bean>
+		<description>Operaciones de Catalogo Rutas</description>
+		<managed-bean-name>person</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.cu001.ControllerPersona</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>ruta</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.Rutas</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Request de las operaciones de Mto Elemento</description>
+		<managed-bean-name>mto</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.cu001.ControllerCU001MantenimientoElemento</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Mapeo de Modelo</description>
+		<managed-bean-name>modelo</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.Modelo</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<navigation-rule>
+		<display-name>Paginas/cu001/mtoElemento/frmMantenimientoElemento</display-name>
+		<from-view-id>/Paginas/cu001/mtoElemento/frmMantenimientoElemento.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>generar</from-outcome>
+			<to-view-id>/Paginas/cu002/ImprimirCodigosBarras.jsp</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<!-- CU001 FIN -->
+	
+	<!-- INICIO OPERACIONES CU02 -->
+	<managed-bean>
+		<managed-bean-name>cu002RecAjustes</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.cu002.ControllerCU002RecepcionAjustes</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<navigation-rule>
+		<display-name>Paginas/cu002/frmRecepcionAjustes</display-name>
+		<from-view-id>/Paginas/cu002/frmRecepcionAjustes.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>generar</from-outcome>
+			<to-view-id>/Paginas/cu002/ImprimirCodigosBarras.jsp</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<managed-bean>
+		<managed-bean-name>controllerCU002ImprimirCodigosBarras</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.cu002.ControllerCU002ImprimirCodigosBarras</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>cu002LiqSubBodega</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.cu002.ControllerCU002LiquidacionSubBodega</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Operaciones de la vista del CU002</description>
+		<managed-bean-name>recepcion</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.cu002.ControllerCU002RecepcionVEAS</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Atributos de Zona</description>
+		<managed-bean-name>zona</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.Zona</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Atributos de la Campania</description>
+		<managed-bean-name>campania</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.Campania</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Modelo del Objeto</description>
+		<managed-bean-name>receps</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.RecepcionVeasREACO</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Modelo del Objeto</description>
+		<managed-bean-name>recep</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.RecepcionVeasREACODetalle</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Bean de Unidad de Reparto</description>
+		<managed-bean-name>unidad</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.UnidadReparto</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Bean para el CU002.02.01- cerrar zona</description>
+		<managed-bean-name>cierreZona</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.cu002.ControllerCU002CerrarZona</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<!-- FIN OPERACIONES CU02 -->
+	
+	<!-- INICIO OPERACIONES Utils -->
+	<navigation-rule>
+		<display-name>Paginas/login</display-name>
+		<from-view-id>/Paginas/login.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>exitoso</from-outcome>
+			<to-view-id>/Paginas/template.jsp</to-view-id>
+			<redirect/>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>Paginas/cu002/frmRecepcionVeas</display-name>
+		<from-view-id>/Paginas/cu002/frmRecepcionVeas.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>generar</from-outcome>
+			<to-view-id>/Paginas/cu002/ImprimirCodigosBarras.jsp</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<managed-bean>
+		<managed-bean-name>login</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.utils.Login</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>preenrutado</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.cu003.ControllerCU003PreenrutadoRepresentantes</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>representante</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.Representante</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Mapa de Marca</description>
+		<managed-bean-name>marca</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.Marca</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>asignacion</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.AsignacionUnidadReparto</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>tipoRuta</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.TipoRuta</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>empleado</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.Empleado</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>representanteRuta</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.RepresentantesPorRuta</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>asignaRutaChofer</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.AsignacionRutaChofer</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Bean del Objeto</description>
+		<managed-bean-name>dispositivoMovil</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.DispositivoMovil</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>puesto</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.Puesto</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>lineaTransporte</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.LineaTransporte</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>informante</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.Informante</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>subBodegaAlmacen</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.SubBodegaAlmacen</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>destinatario</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.Destinatario</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>tipoDestinatario</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.TipoDestinatario</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>reporteTipoDestinatario</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.ReporteTipoDestinatario</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>reporte</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.Reporte</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>ldc</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.ParametrosLDC</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>usuario</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.Usuario</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>perfil</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.Perfil</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>denominacion</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.Denominaciones</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>bean para la entrega en ventanilla</description>
+		<managed-bean-name>entregaVentanilla</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.cu002.ControllerCU002EntregaVentanilla</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Controller De Operaciones Consultar Catalogos de AVON</description>
+		<managed-bean-name>catAvon</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.cu001.ControllerConsultarCatalogosAVON</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>banco</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.Bancos</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>division</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.Division</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>orden</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.Orden</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>secuenciaEntregaEnRuta</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.cu003.ControllerCU003CambiarSecEntregaRuta</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>test</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.cu002.TEST</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>actualizarCatalogos</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.cu001.actualizacion_catalogos.ControllerActualizarCatalogos</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>barraProgreso</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.cu001.actualizacion_catalogos.BarraProgreso</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>catalogo</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.model.Catalogo</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+	    <description>bean para la entrega en ventanilla masiva</description>
+		<managed-bean-name>entregaVentanillaMasiva</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.cu002.ControllerEntregaVentanillaMasiva</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+	    <description>bean para la liquidacion de ventanilla masiva</description>
+		<managed-bean-name>liquidacionVentanillaMasiva</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.cu002.ControllerLiquidacionVentanillaMasiva</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+	    <description>Liquidacion Reparto Web</description>
+		<managed-bean-name>liquidacionRepartoWeb</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.cu002.ControllerLiquidacionRepartoWeb</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+	    <description>Entrega de Faltantes</description>
+		<managed-bean-name>entregaFaltantes</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.cu002.ControllerEntregaFaltantes</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+	    <description>Recolectar Remitos en Ventanilla</description>
+		<managed-bean-name>remitosVentanilla</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.cu002.ControllerRecolectarRemitosVentanilla</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<!-- FIN OPERACIONES Utils -->
+	<managed-bean>
+		<description>Armado Rutas Especiales</description>
+		<managed-bean-name>armRE</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.armadoRutasEspeciales.ControllerArmadoRutasEspeciales</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+</faces-config>

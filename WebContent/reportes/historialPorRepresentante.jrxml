@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="representantePorRuta" pageWidth="2950" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="2910" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="30"/>
+	<style name="encabezadoColumnas" hAlign="Center" vAlign="Middle" fontName="Arial" fontSize="9" isBold="true" isItalic="false" isUnderline="false">
+		<box>
+			<pen lineWidth="0.5"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:\\jessicaLeon\\workspace\\AVON_OTS_ADMIN\\WebContent\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IMAGEN_DIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:\\jessicaLeon\\workspace\\AVON_OTS_ADMIN\\WebContent\\img\\headerAvon.gif"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="direccion" class="java.lang.String">
+		<fieldDescription><![CDATA[direccion]]></fieldDescription>
+	</field>
+	<field name="direccion1" class="java.lang.String">
+		<fieldDescription><![CDATA[direccion1]]></fieldDescription>
+	</field>
+	<field name="direccion2" class="java.lang.String">
+		<fieldDescription><![CDATA[direccion2]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[nombre]]></fieldDescription>
+	</field>
+	<field name="red" class="java.lang.String">
+		<fieldDescription><![CDATA[red]]></fieldDescription>
+	</field>
+	<field name="registro" class="java.lang.String">
+		<fieldDescription><![CDATA[registro]]></fieldDescription>
+	</field>
+	<field name="zona" class="java.lang.String">
+		<fieldDescription><![CDATA[zona]]></fieldDescription>
+	</field>
+	<field name="detalleRepresentante" class="java.util.List">
+		<fieldDescription><![CDATA[detalleRepresentante]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="121" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="152" height="70"/>
+				<imageExpression><![CDATA[$P{IMAGEN_DIR}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="200" y="0" width="100" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sistema:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="10" width="100" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="30" width="100" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Zona:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="40" width="100" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="50" width="100" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dirección:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="70" width="100" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dirección 2:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="80" width="100" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Red (sección):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="300" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Local Delivery System]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="10" width="300" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Historial de representante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="20" width="100" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Registro (Account):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="60" width="100" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dirección 1:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="300" y="20" width="300" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{registro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="30" width="300" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{zona}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="300" y="40" width="300" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="300" y="50" width="300" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="300" y="60" width="300" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direccion1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="300" y="70" width="300" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direccion2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="300" y="80" width="300" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{red}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1150" y="0" width="100" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Fecha de impresión:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1150" y="10" width="100" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Hora de impresión:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="1250" y="0" width="100" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH.mm">
+				<reportElement x="1250" y="10" width="100" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="99" width="2907" height="10" forecolor="#FFFFFF" backcolor="#990000"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="400" y="109" width="150" height="11"/>
+				<textElement/>
+				<text><![CDATA[Georeferencia Domicilio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="2295" y="109" width="192" height="11"/>
+				<textElement/>
+				<text><![CDATA[Fecha de Devolución Final (reaco)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="1845" y="109" width="100" height="11"/>
+				<textElement/>
+				<text><![CDATA[Return]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="950" y="109" width="100" height="11"/>
+				<textElement/>
+				<text><![CDATA[Fecha de Entrega]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="2095" y="109" width="100" height="11"/>
+				<textElement/>
+				<text><![CDATA[Return value]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="1350" y="109" width="169" height="11"/>
+				<textElement/>
+				<text><![CDATA[Georeferencia de entrega]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="550" y="109" width="100" height="11"/>
+				<textElement/>
+				<text><![CDATA[Tipo de pago]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="1050" y="109" width="100" height="11"/>
+				<textElement/>
+				<text><![CDATA[Fecha de Pago]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="1150" y="109" width="100" height="11"/>
+				<textElement/>
+				<text><![CDATA[Entregado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="1745" y="109" width="100" height="11"/>
+				<textElement/>
+				<text><![CDATA[Hijack]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="2487" y="109" width="140" height="11"/>
+				<textElement/>
+				<text><![CDATA[Observaciones]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="0" y="109" width="100" height="11"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Campaña]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="750" y="109" width="100" height="11"/>
+				<textElement/>
+				<text><![CDATA[Pagó]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="2195" y="109" width="100" height="11"/>
+				<textElement/>
+				<text><![CDATA[Fecha de cierre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="850" y="109" width="100" height="11"/>
+				<textElement/>
+				<text><![CDATA[Diferencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="200" y="109" width="100" height="11"/>
+				<textElement/>
+				<text><![CDATA[Modificación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="1250" y="109" width="100" height="11"/>
+				<textElement/>
+				<text><![CDATA[SlipValue]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="1519" y="109" width="100" height="11"/>
+				<textElement/>
+				<text><![CDATA[Devuelto a]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="300" y="109" width="100" height="11"/>
+				<textElement/>
+				<text><![CDATA[Cajas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="1945" y="109" width="150" height="11"/>
+				<textElement/>
+				<text><![CDATA[Causa de Devolución final]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="100" y="109" width="100" height="11"/>
+				<textElement/>
+				<text><![CDATA[A pagar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="1619" y="109" width="126" height="11"/>
+				<textElement/>
+				<text><![CDATA[Causa de Devolución]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="650" y="109" width="100" height="11"/>
+				<textElement/>
+				<text><![CDATA[Folios]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="2767" y="109" width="140" height="11"/>
+				<textElement/>
+				<text><![CDATA[Foto identificación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="encabezadoColumnas" x="2627" y="109" width="140" height="11"/>
+				<textElement/>
+				<text><![CDATA[Foto domicilio]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<subreport>
+				<reportElement x="-1" y="0" width="2907" height="50"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{detalleRepresentante})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "listaHistorialPorRepresentante.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

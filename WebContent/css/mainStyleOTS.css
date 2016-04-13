@@ -1,0 +1,325 @@
+/* table.todo  {
+	border: 1px solid #CCCCCC;
+	}
+	
+table.todo th {
+	background: #EFEFEF none repeat scroll 0 0;
+	border-top: 1px solid #CCCCCC;
+	font-size: small;
+	padding-left: 5px;
+	padding-right: 4px;
+	padding-top: 4px;
+	vertical-align: top;
+}
+
+table td:first-child {
+	font-weight:bold;
+	}
+
+table .first {
+	width: 120px;
+	}
+	
+table .rest {
+	width: 400px;
+	}
+	
+table.todo {
+	
+	border-top: 1px solid #CCCCCC;
+	font-size: small;
+	padding-left: 5px;
+	padding-right: 4px;
+	padding-top: 4px;
+	vertical-align: top;
+} */
+
+/*Estilos para Avon a partrir de aqui*/
+table.principal {
+	margin-left: 10%;
+	margin-right: 10%;
+	width: 80%;
+	background: #FFFFFF none repeat scroll 0 0;
+	border-top: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+	padding: 4px;
+	vertical-align: middle;
+}
+
+table.codigosBarras {
+	width: 100%;
+	background: #FFFFFF none repeat scroll 0 0;
+	padding: 4px;
+	vertical-align: middle;
+}
+
+.celdaCodigoBarras {
+	height: 210px;
+	/*Ayuda a definir tamaño de celdas, ayuda para el espacio en blanco entre páginas*/
+	padding-bottom: 10px;
+	/*Los padding definen el espacio entre etiquetas a imprimir*/
+	padding-top: 5px;
+}
+
+table.forma {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table.gridDatos {
+	border-top: 1px solid #CCCCCC;
+	font-size: small;
+	padding-left: 5px;
+	padding-right: 4px;
+	padding-top: 4px;
+	vertical-align: top;
+}
+
+table.gridDatos th {
+	background: #EFEFEF none repeat scroll 0 0;
+	border-top: 1px solid #CCCCCC;
+	font-size: small;
+	padding-left: 5px;
+	padding-right: 4px;
+	padding-top: 4px;
+	vertical-align: top;
+	width: 10%;
+}
+
+table.gridDatosScrollable {
+	border-top: 1px solid #CCCCCC;
+	font-size: small;
+	vertical-align: top;
+}
+
+table.gridDatosScrollable th {
+	background: #EFEFEF none repeat scroll 0 0;
+	border-top: 1px solid #CCCCCC;
+	font-size: small;
+	vertical-align: top;
+	color: black;
+}
+
+.gridDatoIzquierda {
+	text-align: left;
+}
+
+.gridDatoCentro {
+	text-align: center;
+}
+
+.gridDatoCentroSinOrdenamiento {
+	text-align: center;
+	color: black;
+}
+
+.headerGridDatosScrollable {
+	text-align: center;
+}
+
+.footerGridDatosScrollable {
+	text-align: center;
+}
+
+.gridDatoDerecha {
+	text-align: right;
+}
+
+.error {
+	color: red;
+}
+
+.mensajeErrorReparto {
+	color: red;
+	font-size: 14px;
+	font-weight: bold; 
+}
+
+.detalleItemsCodigoBarras {
+	width: 12%;
+	text-align: center;
+}
+.detalleItemsFSC {
+	width: 10%;
+	text-align: center;
+}
+.detalleItemsEAN13 {
+	width: 13%;
+	text-align: center;
+}
+.detalleItemsEstatus {
+	width: 20%;
+	text-align: center;
+}
+.detalleItemsDescripcion {
+	width: 30%;
+	text-align: center;
+}
+.detalleItemsTipo {
+	width: 10%;
+	text-align: center;
+}
+.detalleItemsEntregar {
+	width: 5%;
+	text-align: center;
+}
+
+.fieldlabel{
+	font-family: sans-serif;
+	font-size: x-small;
+	text-align: right;
+	font-weight: bold;
+	color: #000000;
+}
+
+.tituloPagina {
+	font-family: Arial;
+	font-size: 23px;
+	color: #EC008C;
+}
+
+.label {
+	font-family: sans-serif;
+	font-size: x-small;
+	text-align: right;
+	font-weight: bold;
+}
+
+.caja {
+	text-align: left;
+}
+
+body {
+	text-align: center;
+}
+
+.inputText {
+	background-color: #FFFFFF;
+	float: left;
+	color: #3A3A3A;
+	font-family: Arial;
+	font-size: 9pt;
+}
+
+input[type="text"] {
+	color: #3A3A3A;
+	font-family: Arial;
+	font-size: 9pt;
+	background-color: #FFFFFF;
+	float: left;
+}
+
+.inputTextNumero {
+	background-color: #FFFFFF;
+	color: #3A3A3A;
+	font-family: Arial;
+	font-size: 9pt;
+	text-align: center;
+}
+
+.formLabel {
+	color: #330000;
+	font-family: Verdana;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.select {
+	background-color: #FFFFFF;
+	border: 1px solid #284279;
+	color: #646464;
+	font: 11px Arial;
+}
+
+fieldset {
+	border: 1px solid #284279;
+}
+
+legend {
+	font-size: 13px;
+	font-weight: bold;
+	text-align: left;
+}
+
+.botonPrincipal {
+	background-color: #000000;
+	color: #FFFFFF;
+}
+
+.botonGrid {
+	background: transparent;
+	color: #000000;
+	font-style: italic;
+}
+
+table.inicioSesion {
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
+	background: #FFFFFF;
+	border: 1px solid #CCCCCC;
+	padding: 4px;
+	vertical-align: middle;
+}
+
+.headerTabla{
+	background-color: #FB76F9;
+	color: #000000;
+	font-weight: bold;
+}
+
+select:disabled {
+	color: #989898 !important;
+	background-color: #EBEBEB !important;
+	border-color: #EBEBEB !important;
+	background-position: bottom !important;
+	background-image: none !important;
+}
+
+body:disabled {
+	color: #989898 !important;
+	background-color: #EBEBEB !important;
+	border-color: #EBEBEB !important;
+	background-position: bottom !important;
+	background-image: none !important;
+}
+
+input[type="text"]:disabled {
+	color: #989898 !important;
+	background-color: #EBEBEB !important;
+	border-color: #EBEBEB !important;
+	background-position: bottom !important;
+	background-image: none !important;
+}
+
+input[type="button"]:disabled {
+	color: #989898 !important;
+	background-color: #EBEBEB !important;
+	border-color: #EBEBEB !important;
+	background-position: bottom !important;
+	background-image: none !important;
+}
+
+input[type="submit"]:disabled {
+	color: #989898 !important;
+	background-color: #EBEBEB !important;
+	border-color: #EBEBEB !important;
+	background-position: bottom !important;
+	background-image: none !important;
+}
+
+button:disabled {
+	color: #989898 !important;
+	background-color: #EBEBEB !important;
+	border-color: #EBEBEB !important;
+	background-position: bottom !important;
+	background-image: none !important;
+}
+
+textarea:disabled {
+	color: #989898 !important;
+	background-color: #EBEBEB !important;
+	border-color: #EBEBEB !important;
+	background-position: bottom !important;
+	background-image: none !important;
+}
