@@ -1,0 +1,150 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://avon_ots_ws.datacode.com" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ax241="http://model.avon_ots_ws.datacode.com/xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://avon_ots_ws.datacode.com">
+<wsdl:documentation>
+Web service retorna datos para el armado de rutas especiales remitos
+</wsdl:documentation>
+<wsdl:types>
+<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://model.avon_ots_ws.datacode.com/xsd">
+<xs:complexType name="ModelRutaEspecialRemitos">
+<xs:sequence>
+<xs:element minOccurs="0" name="cantidadRecolectar" type="xs:int"/>
+<xs:element minOccurs="0" name="escaneada" type="xs:boolean"/>
+<xs:element minOccurs="0" name="idRemito" type="xs:long"/>
+<xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="registro" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+<xs:schema xmlns:ax242="http://model.avon_ots_ws.datacode.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://avon_ots_ws.datacode.com">
+<xs:import namespace="http://model.avon_ots_ws.datacode.com/xsd"/>
+<xs:element name="obtieneRemitos">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="idUsuario" type="xs:int"/>
+<xs:element minOccurs="0" name="registro" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="orden" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="obtieneRemitosResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax242:ModelRutaEspecialRemitos"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="actualizarRamitos">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="idUsuario" type="xs:int"/>
+<xs:element minOccurs="0" name="tipo" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="idRemito" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="actualizarRamitosResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax242:ModelRutaEspecialRemitos"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:schema>
+</wsdl:types>
+<wsdl:message name="actualizarRamitosRequest">
+<wsdl:part name="parameters" element="ns:actualizarRamitos"/>
+</wsdl:message>
+<wsdl:message name="actualizarRamitosResponse">
+<wsdl:part name="parameters" element="ns:actualizarRamitosResponse"/>
+</wsdl:message>
+<wsdl:message name="obtieneRemitosRequest">
+<wsdl:part name="parameters" element="ns:obtieneRemitos"/>
+</wsdl:message>
+<wsdl:message name="obtieneRemitosResponse">
+<wsdl:part name="parameters" element="ns:obtieneRemitosResponse"/>
+</wsdl:message>
+<wsdl:portType name="ArmadoRutasEspecialesRemitosControllerPortType">
+<wsdl:operation name="actualizarRamitos">
+<wsdl:input message="ns:actualizarRamitosRequest" wsaw:Action="urn:actualizarRamitos"/>
+<wsdl:output message="ns:actualizarRamitosResponse" wsaw:Action="urn:actualizarRamitosResponse"/>
+</wsdl:operation>
+<wsdl:operation name="obtieneRemitos">
+<wsdl:input message="ns:obtieneRemitosRequest" wsaw:Action="urn:obtieneRemitos"/>
+<wsdl:output message="ns:obtieneRemitosResponse" wsaw:Action="urn:obtieneRemitosResponse"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="ArmadoRutasEspecialesRemitosControllerSoap11Binding" type="ns:ArmadoRutasEspecialesRemitosControllerPortType">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<wsdl:operation name="actualizarRamitos">
+<soap:operation soapAction="urn:actualizarRamitos" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="obtieneRemitos">
+<soap:operation soapAction="urn:obtieneRemitos" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="ArmadoRutasEspecialesRemitosControllerSoap12Binding" type="ns:ArmadoRutasEspecialesRemitosControllerPortType">
+<soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<wsdl:operation name="actualizarRamitos">
+<soap12:operation soapAction="urn:actualizarRamitos" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="obtieneRemitos">
+<soap12:operation soapAction="urn:obtieneRemitos" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="ArmadoRutasEspecialesRemitosControllerHttpBinding" type="ns:ArmadoRutasEspecialesRemitosControllerPortType">
+<http:binding verb="POST"/>
+<wsdl:operation name="actualizarRamitos">
+<http:operation location="actualizarRamitos"/>
+<wsdl:input>
+<mime:content type="text/xml" part="parameters"/>
+</wsdl:input>
+<wsdl:output>
+<mime:content type="text/xml" part="parameters"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="obtieneRemitos">
+<http:operation location="obtieneRemitos"/>
+<wsdl:input>
+<mime:content type="text/xml" part="parameters"/>
+</wsdl:input>
+<wsdl:output>
+<mime:content type="text/xml" part="parameters"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="ArmadoRutasEspecialesRemitosController">
+<wsdl:port name="ArmadoRutasEspecialesRemitosControllerHttpSoap11Endpoint" binding="ns:ArmadoRutasEspecialesRemitosControllerSoap11Binding">
+<soap:address location="http://localhost:8080/axis2/services/ArmadoRutasEspecialesRemitosController.ArmadoRutasEspecialesRemitosControllerHttpSoap11Endpoint/"/>
+</wsdl:port>
+<wsdl:port name="ArmadoRutasEspecialesRemitosControllerHttpSoap12Endpoint" binding="ns:ArmadoRutasEspecialesRemitosControllerSoap12Binding">
+<soap12:address location="http://localhost:8080/axis2/services/ArmadoRutasEspecialesRemitosController.ArmadoRutasEspecialesRemitosControllerHttpSoap12Endpoint/"/>
+</wsdl:port>
+<wsdl:port name="ArmadoRutasEspecialesRemitosControllerHttpEndpoint" binding="ns:ArmadoRutasEspecialesRemitosControllerHttpBinding">
+<http:address location="http://localhost:8080/axis2/services/ArmadoRutasEspecialesRemitosController.ArmadoRutasEspecialesRemitosControllerHttpEndpoint/"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

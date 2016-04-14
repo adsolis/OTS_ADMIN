@@ -10,6 +10,9 @@ import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.axis2.AxisFault;
+
+import com.datacode.avon_ots_admin.model.ModelRemito;
 import com.datacode.avon_ots_admin.model.RutaEspecial;
 import com.datacode.avon_ots_admin.reports.model.RutaEspecialItems;
 import com.datacode.avon_ots_admin.utils.Configuracion;
@@ -27,6 +30,7 @@ public class ControllerArmadoRutasEspeciales {
 	private String campaniaMaxima;
 	private List<SelectItem> campanias;
 	private List<RutaEspecial> registros;
+	private List<ModelRemito> remitos;
 	private List<RutaEspecial> ordenes;
 	private List<RutaEspecialItems> cajas;
 	private List<RutaEspecialItems> unitarios;
@@ -439,6 +443,9 @@ public class ControllerArmadoRutasEspeciales {
 		if (ordenes == null) {
 			ordenes = new ArrayList<RutaEspecial>();
 		}
+		if(remitos == null) {
+			remitos = new ArrayList<ModelRemito>();
+		}
 		if (registros.size() > 0) {
 			// se tiene que validar si no esta ya dentro
 			for (RutaEspecial r : registros) {
@@ -481,6 +488,13 @@ public class ControllerArmadoRutasEspeciales {
 
 							ordenes.addAll(resReg);
 							registros.addAll(agregar);
+							/*try {
+								remitos = dat.consultaRemitos(agregar.get(0).getClaveOrden(), 
+										configuracion.getIdUsuario(), registroRep);
+							} catch (AxisFault e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}*/
 
 							// de cada registro de agregar consultamos sus items
 							// y
@@ -785,5 +799,13 @@ public class ControllerArmadoRutasEspeciales {
 		codigoBarras = "";
 		codigoUnitario = "";
 
+	}
+
+	public List<ModelRemito> getRemitos() {
+		return remitos;
+	}
+
+	public void setRemitos(List<ModelRemito> remitos) {
+		this.remitos = remitos;
 	}
 }

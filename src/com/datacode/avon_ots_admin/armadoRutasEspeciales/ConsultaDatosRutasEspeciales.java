@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.databinding.types.soapencoding.Array;
 
+import com.datacode.avon_ots_admin.model.ModelRemito;
 import com.datacode.avon_ots_admin.model.RutaEspecial;
 import com.datacode.avon_ots_admin.reports.model.RutaEspecialItems;
 import com.datacode.avon_ots_admin.utils.Utils;
@@ -14,6 +15,10 @@ import com.datacode.avon_ots_ws.ArmadoRutasEspecialesControllerStub;
 import com.datacode.avon_ots_ws.ArmadoRutasEspecialesControllerStub.Campania;
 import com.datacode.avon_ots_ws.ArmadoRutasEspecialesControllerStub.ModelRutaEspecial;
 import com.datacode.avon_ots_ws.ArmadoRutasEspecialesControllerStub.ModelRutasEspecialesItems;
+import com.datacode.avon_ots_ws.ArmadoRutasEspecialesRemitosControllerStub;
+import com.datacode.avon_ots_ws.ModelRutaEspecialRemitos;
+import com.datacode.avon_ots_ws.ObtieneRemitos;
+import com.datacode.avon_ots_ws.ObtieneRemitosResponse;
 
 public class ConsultaDatosRutasEspeciales {
 
@@ -61,7 +66,7 @@ public class ConsultaDatosRutasEspeciales {
 		List<RutaEspecial> regs = new ArrayList<RutaEspecial>();
 		try {
 			ArmadoRutasEspecialesControllerStub stub = new ArmadoRutasEspecialesControllerStub();
-
+	
 			// Obtiene y asigna url de configuración de web services
 			String url = Utils.modificarUrlServicioWeb(stub._getServiceClient()
 					.getOptions().getTo().getAddress());
@@ -77,7 +82,8 @@ public class ConsultaDatosRutasEspeciales {
 			param.setIdUsuario(idUsuario);
 			ArmadoRutasEspecialesControllerStub.ObtieneRegistrosResponse response = stub
 					.obtieneRegistros(param);
-
+			
+		
 			ModelRutaEspecial[] rs = response.get_return();
 			if (rs != null) {
 				for (ModelRutaEspecial d : rs) {
@@ -91,6 +97,7 @@ public class ConsultaDatosRutasEspeciales {
 				}
 
 			}
+			
 		} catch (AxisFault e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -99,6 +106,56 @@ public class ConsultaDatosRutasEspeciales {
 			e.printStackTrace();
 		}
 		return regs;
+	}
+	
+	/**
+	 * Se agrega consulta de remitos
+	 * @throws AxisFault 
+	 */
+	public List<ModelRemito> consultaRemitos(String orden, int idUsuario, String registro) throws AxisFault {
+		ArmadoRutasEspecialesRemitosControllerStub stubRemitos = new ArmadoRutasEspecialesRemitosControllerStub();
+		List<ModelRemito> registrosRemitos = new ArrayList<ModelRemito>();
+		
+		// Obtiene y asigna url de configuración de web services
+		String url = Utils.modificarUrlServicioWeb(stubRemitos._getServiceClient()
+				.getOptions().getTo().getAddress());
+		stubRemitos
+				._getServiceClient()
+				.getOptions()
+				.setTo(new org.apache.axis2.addressing.EndpointReference(
+						url));
+		stubRemitos._getServiceClient().getOptions()
+				.setTimeOutInMilliSeconds(180000);
+
+		ObtieneRemitos paramRem = new ObtieneRemitos();
+		paramRem.setRegistro(registro);
+		paramRem.setOrden(orden);
+		paramRem.setIdUsuario(idUsuario);
+		ObtieneRemitosResponse responseRemitos = null;
+		try {
+			responseRemitos = stubRemitos
+					.obtieneRemitos(paramRem);
+		} catch (AxisFault e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		ModelRutaEspecialRemitos[] rsRemitos = responseRemitos.get_return();
+		if(rsRemitos != null) {
+			for(ModelRutaEspecialRemitos modelRemitos: rsRemitos) {
+				ModelRemito modelRemito = new ModelRemito();
+				modelRemito.setRegistro(modelRemitos.getRegistro());
+				modelRemito.setCantidadRecolectar(modelRemitos.getCantidadRecolectar());
+				modelRemito.setStatus(modelRemitos.getEscaneada());
+			    modelRemito.setNombre(modelRemitos.getNombre());
+			    registrosRemitos.add(modelRemito);
+			}
+		}
+		
+		return registrosRemitos;
 	}
 
 	public List<RutaEspecialItems> obtieneItems(int idUsuario,

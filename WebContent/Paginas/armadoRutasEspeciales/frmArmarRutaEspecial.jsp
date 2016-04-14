@@ -306,7 +306,7 @@
 											</tr>
 											<tr>
 												<td><rich:dataTable value="#{armRE.registros}"
-														var="reg" id="tablaRemitos" border="1">
+														var="rem" id="tablaRemitos" border="1">
 														<f:facet name="header">
 															<rich:columnGroup>
 																<rich:column>
@@ -325,16 +325,16 @@
 															</rich:columnGroup>
 														</f:facet>
 														<rich:column>
-															<h:outputText value="#{reg.registro}"></h:outputText>
+															<h:outputText value="#{rem.registro}"></h:outputText>
 														</rich:column>
 														<rich:column>
-															<h:outputText value="#{reg.nombre}"></h:outputText>
+															<h:outputText value="#{rem.nombre}"></h:outputText>
 														</rich:column>
 														<rich:column>
-															<h:outputText value="#{reg.claveOrden}"></h:outputText>
+															<h:outputText value="#{rem.claveOrden}"></h:outputText>
 														</rich:column>
 														<rich:column>
-															<h:outputText value="#{reg.blocked}"></h:outputText>
+															<h:outputText value="#{rem.status}"></h:outputText>
 														</rich:column>
 
 
