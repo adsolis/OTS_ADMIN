@@ -187,7 +187,7 @@
 											</tr>
 										</table>
 									</t:fieldset></td>
-								<td valign="top" rowspan="2"><t:fieldset
+								<td valign="top" rowspan="1"><t:fieldset
 										legend="Unitarios / Premios">
 										<table>
 											<tr>
@@ -249,7 +249,56 @@
 											</tr>
 										</table>
 									</t:fieldset></td>
-								<td colspan="2" align="center" valign="top"><t:fieldset
+							</tr>
+							<tr>
+								<td colspan="2"><t:fieldset
+										legend="Unitarios / Premios Informativa">
+										<table>
+
+											<tr>
+												<td><rich:dataTable value="#{armRE.unitarios}"
+														var="reg" id="tablaUnitarios2" border="1">
+														<f:facet name="header">
+															<rich:columnGroup>
+																<rich:column>
+																	<h:outputText value="Registro" />
+																</rich:column>
+																<rich:column>
+																	<h:outputText value="Clave Orden" />
+																</rich:column>
+																<rich:column>
+																	<h:outputText value="Código FSC" />
+																</rich:column>
+																<rich:column>
+																	<h:outputText value="Código EAN13" />
+																</rich:column>
+																<rich:column>
+																	<h:outputText value="Descripción" />
+																</rich:column>
+
+															</rich:columnGroup>
+														</f:facet>
+														<rich:column>
+															<h:outputText value="#{reg.registro}"></h:outputText>
+														</rich:column>
+														<rich:column>
+															<h:outputText value="#{reg.claveOrden}"></h:outputText>
+														</rich:column>
+														<rich:column>
+															<h:outputText value="#{reg.codigoFSC}"></h:outputText>
+														</rich:column>
+														<rich:column>
+															<h:outputText value="#{reg.codigoEAN13}"></h:outputText>
+														</rich:column>
+														<rich:column>
+															<h:outputText value="#{reg.descripcion}"></h:outputText>
+														</rich:column>
+													</rich:dataTable></td>
+											</tr>
+										</table>
+									</t:fieldset></td>
+									
+									<td colspan="1" align="left" valign="top"><t:fieldset
 										legend="Remitos" style="overflow: auto; height: 80px">
 
 										<table id="tablaRemitos" width="100%">
@@ -314,65 +363,12 @@
 														<rich:column>
 														<input type="checkbox" name="checkbox" value="#{rem.idRemito }"></input>
 														</rich:column>
-
-
-
-
-
 													</rich:dataTable></td>
 
 											</tr>
 
 										</table>
 
-									</t:fieldset></td>
-							</tr>
-							<tr>
-								<td colspan="2"><t:fieldset
-										legend="Unitarios / Premios Informativa">
-										<table>
-
-											<tr>
-												<td><rich:dataTable value="#{armRE.unitarios}"
-														var="reg" id="tablaUnitarios2" border="1">
-														<f:facet name="header">
-															<rich:columnGroup>
-																<rich:column>
-																	<h:outputText value="Registro" />
-																</rich:column>
-																<rich:column>
-																	<h:outputText value="Clave Orden" />
-																</rich:column>
-																<rich:column>
-																	<h:outputText value="Código FSC" />
-																</rich:column>
-																<rich:column>
-																	<h:outputText value="Código EAN13" />
-																</rich:column>
-																<rich:column>
-																	<h:outputText value="Descripción" />
-																</rich:column>
-
-															</rich:columnGroup>
-														</f:facet>
-														<rich:column>
-															<h:outputText value="#{reg.registro}"></h:outputText>
-														</rich:column>
-														<rich:column>
-															<h:outputText value="#{reg.claveOrden}"></h:outputText>
-														</rich:column>
-														<rich:column>
-															<h:outputText value="#{reg.codigoFSC}"></h:outputText>
-														</rich:column>
-														<rich:column>
-															<h:outputText value="#{reg.codigoEAN13}"></h:outputText>
-														</rich:column>
-														<rich:column>
-															<h:outputText value="#{reg.descripcion}"></h:outputText>
-														</rich:column>
-													</rich:dataTable></td>
-											</tr>
-										</table>
 									</t:fieldset></td>
 							</tr>
 							<tr>
