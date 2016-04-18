@@ -81,7 +81,7 @@
 										legend="Registros">
 										<table width="100%">
 											<tr>
-												<td>Registro: <h:inputText value="#{armRE.registroRep}"
+												<td>Registro: <h:inputText id="registroRepInput" value="#{armRE.registroRep}"
 														disabled="#{armRE.mostrarPanelNuevaDeshabilitado}"
 														onkeypress="return validaEnter(event, 'formNormal:btnConsultarRegistro');"></h:inputText>
 													<a4j:commandButton action="#{armRE.validaNR}"
@@ -91,8 +91,8 @@
 													</a4j:commandButton> <a4j:commandButton action="#{armRE.consultarRegistro}"
 														id="btnConsultarRegistro2" style="display: none;"
 														onclick="Richfaces.showModalPanel('mp')"
-														oncomplete="Richfaces.hideModalPanel('mp')"
-														value="Nueva" reRender="formNormal">
+														oncomplete="Richfaces.hideModalPanel('mp')" value="Nueva"
+														reRender="formNormal">
 													</a4j:commandButton></td>
 											</tr>
 											<tr>
@@ -249,6 +249,83 @@
 											</tr>
 										</table>
 									</t:fieldset></td>
+								<td colspan="2" align="center" valign="top"><t:fieldset
+										legend="Remitos" style="overflow: auto; height: 80px">
+
+										<table id="tablaRemitos" width="100%">
+
+											<tr>
+
+												<td>Registro: <h:inputText value="#{armRE.registroRep}" /></td>
+
+											</tr>
+
+											<tr>
+
+												<td><rich:dataTable value="#{armRE.remitos}"
+														var="rem" id="tablaRemitos" border="1">
+
+														<f:facet name="header">
+
+															<rich:columnGroup>
+
+																<rich:column>
+
+																	<h:outputText value="Registro" />
+
+																</rich:column>
+
+																<rich:column>
+
+																	<h:outputText value="Nombre" />
+
+																</rich:column>
+
+																<rich:column>
+
+																	<h:outputText value="Cantidad a Recolectar" />
+
+																</rich:column>
+
+																<rich:column>
+
+																	<h:outputText value="Escaneada" />
+
+																</rich:column>
+
+
+
+															</rich:columnGroup>
+
+														</f:facet>
+
+														<rich:column max-height="5">
+															<h:outputText value="#{rem.registro}"></h:outputText>
+														</rich:column>
+
+														<rich:column>
+															<h:outputText value="#{rem.nombre}"></h:outputText>
+														</rich:column>
+
+														<rich:column>
+															<h:outputText value="#{rem.cantidadRecolectar}"></h:outputText>
+														</rich:column>
+
+														<rich:column>
+														<input type="checkbox" name="checkbox" value="#{rem.idRemito }"></input>
+														</rich:column>
+
+
+
+
+
+													</rich:dataTable></td>
+
+											</tr>
+
+										</table>
+
+									</t:fieldset></td>
 							</tr>
 							<tr>
 								<td colspan="2"><t:fieldset
@@ -293,51 +370,6 @@
 														<rich:column>
 															<h:outputText value="#{reg.descripcion}"></h:outputText>
 														</rich:column>
-													</rich:dataTable></td>
-											</tr>
-										</table>
-									</t:fieldset></td>
-									
-									<td align="center" valign="top"><t:fieldset
-										legend="Remitos">
-										<table width="100%">
-											<tr>
-												<td>Registro: <h:inputText value="#{armRE.registroRep}"/></td>
-											</tr>
-											<tr>
-												<td><rich:dataTable value="#{armRE.registros}"
-														var="rem" id="tablaRemitos" border="1">
-														<f:facet name="header">
-															<rich:columnGroup>
-																<rich:column>
-																	<h:outputText value="Registro" />
-																</rich:column>
-																<rich:column>
-																	<h:outputText value="Nombre" />
-																</rich:column>
-																<rich:column>
-																	<h:outputText value="Cantidad a Recolectar" />
-																</rich:column>
-																<rich:column>
-																	<h:outputText value="Escaneada" />
-																</rich:column>
-
-															</rich:columnGroup>
-														</f:facet>
-														<rich:column>
-															<h:outputText value="#{rem.registro}"></h:outputText>
-														</rich:column>
-														<rich:column>
-															<h:outputText value="#{rem.nombre}"></h:outputText>
-														</rich:column>
-														<rich:column>
-															<h:outputText value="#{rem.claveOrden}"></h:outputText>
-														</rich:column>
-														<rich:column>
-															<h:outputText value="#{rem.status}"></h:outputText>
-														</rich:column>
-
-
 													</rich:dataTable></td>
 											</tr>
 										</table>

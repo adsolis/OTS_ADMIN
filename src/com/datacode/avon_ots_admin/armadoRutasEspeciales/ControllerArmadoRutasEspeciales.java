@@ -1,17 +1,14 @@
 package com.datacode.avon_ots_admin.armadoRutasEspeciales;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.axis2.AxisFault;
-
 import com.datacode.avon_ots_admin.model.ModelRemito;
 import com.datacode.avon_ots_admin.model.RutaEspecial;
 import com.datacode.avon_ots_admin.reports.model.RutaEspecialItems;
@@ -370,6 +367,7 @@ public class ControllerArmadoRutasEspeciales {
 		ordenes = new ArrayList<RutaEspecial>();
 		registros = new ArrayList<RutaEspecial>();
 		unitarios = new ArrayList<RutaEspecialItems>();
+		remitos = new ArrayList<ModelRemito>();
 	}
 
 	public void nueva() {
@@ -396,6 +394,8 @@ public class ControllerArmadoRutasEspeciales {
 	}
 
 	public void validaNR() {
+		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		registroRep = request.getParameter("formNormal:registroRepInput");
 		if (registros == null) {
 			registros = new ArrayList<RutaEspecial>();
 		}
@@ -413,6 +413,15 @@ public class ControllerArmadoRutasEspeciales {
 			ConsultaDatosRutasEspeciales dat = new ConsultaDatosRutasEspeciales();
 			List<RutaEspecial> resReg = dat.obtieneRegistros(
 					configuracion.getIdUsuario(), registroRep);
+			
+			try {
+				if(resReg != null && !resReg.isEmpty()) {
+					remitos = dat.consultaRemitos(resReg.get(0).getClaveOrden(), 
+							configuracion.getIdUsuario(), registroRep);
+				}
+			} catch (AxisFault e) {
+				e.printStackTrace();
+			}
 			if (resReg != null && resReg.size() > 0) {
 				if ("N".equals(resReg.get(0).getBlocked())) {
 					valorNR = "EVALUAR";
@@ -488,13 +497,6 @@ public class ControllerArmadoRutasEspeciales {
 
 							ordenes.addAll(resReg);
 							registros.addAll(agregar);
-							/*try {
-								remitos = dat.consultaRemitos(agregar.get(0).getClaveOrden(), 
-										configuracion.getIdUsuario(), registroRep);
-							} catch (AxisFault e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}*/
 
 							// de cada registro de agregar consultamos sus items
 							// y
@@ -671,6 +673,9 @@ public class ControllerArmadoRutasEspeciales {
 	 */
 	public void guardarRuta() {
 		mensajeError = "";
+		boolean exitoRemito = false;
+		HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		String [] checked = request.getParameterValues("checkbox");
 		ConsultaDatosRutasEspeciales dat = new ConsultaDatosRutasEspeciales();
 		if (!"0".equals(idCampania)) {
 			if (ordenes != null && cajas != null && cajas.size() > 0
@@ -728,6 +733,12 @@ public class ControllerArmadoRutasEspeciales {
 								Integer.parseInt(idRutaEspecial),
 								rutaespecialNID, idCampaniaS,
 								ordenesComa.toString(), cajasComa.toString());
+						for(ModelRemito remito: remitos) {
+							for(int contador = 0; contador < checked.length; contador++) {
+								if(checked[contador].equals(Long.toString(remito.getIdRemito())))
+									exitoRemito = dat.actualizaEstatusRemitos("VALIDADO", remito.getIdRemito(), configuracion.getIdUsuario(), registroRep);
+							}
+						}
 
 						if (exito) {
 							if (unitarios != null && unitarios.size() > 0) {
@@ -751,7 +762,15 @@ public class ControllerArmadoRutasEspeciales {
 								mensajeError = "Ocurrió un error al guardar"
 										+ " los unitarios, por favor verifique";
 							}
-						} else {
+							if (exitoRemito) {
+								dejarEnBlanco();
+								mensajeError = "¡Reparto Especial Creado!";
+							} else {
+								mensajeError = "Ocurrió un error al actualizar el estatus del remito"
+										+ "por favor verifique";
+							}
+						} 
+						else {
 							mensajeError = "Ocurrió un error al guardar"
 									+ " la ruta, por favor verifique";
 						}
@@ -808,4 +827,5 @@ public class ControllerArmadoRutasEspeciales {
 	public void setRemitos(List<ModelRemito> remitos) {
 		this.remitos = remitos;
 	}
+
 }

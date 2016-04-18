@@ -19,6 +19,8 @@ import com.datacode.avon_ots_ws.ArmadoRutasEspecialesRemitosControllerStub;
 import com.datacode.avon_ots_ws.ModelRutaEspecialRemitos;
 import com.datacode.avon_ots_ws.ObtieneRemitos;
 import com.datacode.avon_ots_ws.ObtieneRemitosResponse;
+import com.datacode.avon_ots_ws.ActualizarRamitos;
+import com.datacode.avon_ots_ws.ActualizarRamitosResponse;
 
 public class ConsultaDatosRutasEspeciales {
 
@@ -109,7 +111,8 @@ public class ConsultaDatosRutasEspeciales {
 	}
 	
 	/**
-	 * Se agrega consulta de remitos
+	 *Metodo para realizar la recuperacion de remitos relacionados con un registro 
+	 *previamente recuperado
 	 * @throws AxisFault 
 	 */
 	public List<ModelRemito> consultaRemitos(String orden, int idUsuario, String registro) throws AxisFault {
@@ -136,10 +139,8 @@ public class ConsultaDatosRutasEspeciales {
 			responseRemitos = stubRemitos
 					.obtieneRemitos(paramRem);
 		} catch (AxisFault e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -156,6 +157,49 @@ public class ConsultaDatosRutasEspeciales {
 		}
 		
 		return registrosRemitos;
+	}
+	
+	/**
+	 * Metodo para actualizar el remito correspondiente al registro de la ruta especial
+	 * @param estatus
+	 * @param idRemito
+	 * @return booleano si se realizo con exito
+	 */
+	public boolean actualizaEstatusRemitos(String tipo, long idRemito, int idUsuario, String codigo) {
+		boolean respuesta = true;
+		try {
+			ArmadoRutasEspecialesRemitosControllerStub stubRemitos = new ArmadoRutasEspecialesRemitosControllerStub();
+			ActualizarRamitos paramRemitosActualizar = new ActualizarRamitos();
+			ActualizarRamitosResponse actualizarRamitosResponse = null;
+			paramRemitosActualizar.setIdRemito(idRemito);
+			paramRemitosActualizar.setIdUsuario(idUsuario);
+			paramRemitosActualizar.setCodigo(codigo);
+			paramRemitosActualizar.setTipo(tipo);
+			
+			// Obtiene y asigna url de configuración de web services
+			String url = Utils.modificarUrlServicioWeb(stubRemitos._getServiceClient()
+					.getOptions().getTo().getAddress());
+			stubRemitos
+					._getServiceClient()
+					.getOptions()
+					.setTo(new org.apache.axis2.addressing.EndpointReference(
+							url));
+			stubRemitos._getServiceClient().getOptions()
+					.setTimeOutInMilliSeconds(180000);
+			
+			actualizarRamitosResponse = stubRemitos.actualizarRamitos(paramRemitosActualizar);
+			
+			
+		} catch (AxisFault e) {
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			respuesta = false;
+			e.printStackTrace();
+		}
+		
+		
+		
+		return respuesta;
 	}
 
 	public List<RutaEspecialItems> obtieneItems(int idUsuario,
