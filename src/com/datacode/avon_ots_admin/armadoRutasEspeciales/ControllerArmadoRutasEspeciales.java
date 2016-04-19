@@ -733,11 +733,8 @@ public class ControllerArmadoRutasEspeciales {
 								Integer.parseInt(idRutaEspecial),
 								rutaespecialNID, idCampaniaS,
 								ordenesComa.toString(), cajasComa.toString());
-						for(ModelRemito remito: remitos) {
-							for(int contador = 0; contador < checked.length; contador++) {
-								if(checked[contador].equals(Long.toString(remito.getIdRemito())))
-									exitoRemito = dat.actualizaEstatusRemitos("VALIDADO", remito.getIdRemito(), configuracion.getIdUsuario(), registroRep);
-							}
+						for(String remitoEscaneado: checked) {
+							exitoRemito = dat.actualizaEstatusRemitos("VALIDADO", Long.parseLong(remitoEscaneado), configuracion.getIdUsuario(), registroRep);
 						}
 
 						if (exito) {
