@@ -152,6 +152,7 @@ public class ConsultaDatosRutasEspeciales {
 				modelRemito.setCantidadRecolectar(modelRemitos.getCantidadRecolectar());
 				modelRemito.setStatus(modelRemitos.getEscaneada());
 			    modelRemito.setNombre(modelRemitos.getNombre());
+			    modelRemito.setIdRemito(modelRemitos.getIdRemito());
 			    registrosRemitos.add(modelRemito);
 			}
 		}

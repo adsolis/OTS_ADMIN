@@ -416,12 +416,19 @@ public class ControllerArmadoRutasEspeciales {
 			
 			try {
 				if(resReg != null && !resReg.isEmpty()) {
-					remitos = dat.consultaRemitos(resReg.get(0).getClaveOrden(), 
-							configuracion.getIdUsuario(), registroRep);
+					if(remitos == null || (remitos != null && remitos.isEmpty())) {
+						remitos = dat.consultaRemitos(Integer.toString(resReg.get(0).getIdOrden()), 
+								configuracion.getIdUsuario(), registroRep);
+					}
+					else if(remitos != null && !remitos.isEmpty()) {
+						remitos.addAll(dat.consultaRemitos(Integer.toString(resReg.get(0).getIdOrden()), 
+								configuracion.getIdUsuario(), registroRep));
+					}
 				}
 			} catch (AxisFault e) {
 				e.printStackTrace();
 			}
+			
 			if (resReg != null && resReg.size() > 0) {
 				if ("N".equals(resReg.get(0).getBlocked())) {
 					valorNR = "EVALUAR";
@@ -437,6 +444,8 @@ public class ControllerArmadoRutasEspeciales {
 	}
 
 	public void consultarRegistro() {
+		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		registroRep = request.getParameter("formNormal:registroRepInput");
 		mensajeError = "";
 		boolean consultarItems = true;
 		mensajeError = "";
@@ -676,6 +685,7 @@ public class ControllerArmadoRutasEspeciales {
 		boolean exitoRemito = false;
 		HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
 		String [] checked = request.getParameterValues("checkbox");
+        registroRep = request.getParameter("formNormal:registroRepInput");
 		ConsultaDatosRutasEspeciales dat = new ConsultaDatosRutasEspeciales();
 		if (!"0".equals(idCampania)) {
 			if (ordenes != null && cajas != null && cajas.size() > 0
