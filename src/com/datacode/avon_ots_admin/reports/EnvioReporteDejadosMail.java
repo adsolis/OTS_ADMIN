@@ -15,6 +15,10 @@ import javax.activation.DataHandler;
 import org.apache.axis2.AxisFault;
 
 import com.datacode.avon_ots_admin.model.ArchivoCorreo;
+import com.datacode.avon_ots_admin.reports.model.ModelDetalleCajas;
+import com.datacode.avon_ots_admin.reports.model.ModelDetalleDocumento;
+import com.datacode.avon_ots_admin.reports.model.ModelDetallePremios;
+import com.datacode.avon_ots_admin.reports.model.ModelOrdenesDejadasRecolectadas;
 import com.datacode.avon_ots_admin.reports.model.ModelRepMailDejadosCajas;
 import com.datacode.avon_ots_admin.reports.model.ModelRepMailDejadosPremios;
 import com.datacode.avon_ots_admin.utils.Utils;
@@ -129,6 +133,28 @@ public class EnvioReporteDejadosMail {
 					e.getMessage() + e.getStackTrace(), 1);
 		}
 		return "";
+	}
+	
+	/**
+	 * Metodo para generar el reporte de las ordenes recolectadas
+	 */
+	private String generarReporteOrdenesRecolectadas() {
+		String status = null;
+		ArchivoCorreo archivoCorreo = null;
+		
+		List<ModelDetalleCajas> detalleCajas = null;
+		List<ModelDetallePremios> detallePremios = null;
+		List<ModelDetalleDocumento> detalleDocumento = null;
+		
+		//TODO consultar detalle de Cajas
+		
+		//TODO consultar detalle de Unitarios y Premios
+		
+		//TODO consultar detalle de Documentos
+		
+		
+		
+		return status;
 	}
 
 	private String mandarArchivosCorreo(List<ArchivoCorreo> archivos,
@@ -334,6 +360,12 @@ public class EnvioReporteDejadosMail {
 		archivos.add(archivo);
 		return archivos;
 
+	}
+	
+	private ArchivoCorreo generarReporteRecolectados(ModelOrdenesDejadasRecolectadas ordenes) {
+		
+		
+		return null;
 	}
 
 	private List<ArchivoCorreo> llenarModelosPremios(ItemSubBodega[] items,
