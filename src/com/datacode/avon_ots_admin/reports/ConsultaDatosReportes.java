@@ -94,6 +94,8 @@ import com.datacode.avon_ots_ws.ObtenerCajasOrdenDejadaRecolectada;
 import com.datacode.avon_ots_ws.ObtenerCajasOrdenDejadaRecolectadaResponse;
 import com.datacode.avon_ots_ws.ObtenerPUPOrdenesDejadasRecolectadas;
 import com.datacode.avon_ots_ws.ObtenerPUPOrdenesDejadasRecolectadasResponse;
+import com.datacode.avon_ots_ws.ObtenerPremiosUnitariosOrdenDejadaRecolectada;
+import com.datacode.avon_ots_ws.ObtenerPremiosUnitariosOrdenDejadaRecolectadaResponse;
 import com.datacode.avon_ots_ws.ObtieneRemitos;
 import com.datacode.avon_ots_ws.ObtieneRemitosResponse;
 import com.datacode.avon_ots_ws.OrdenesDejadasRecolectadasStub;
@@ -134,6 +136,7 @@ import com.datacode.avon_ots_ws.ZonaControllerStub.GetZonas;
 import com.datacode.avon_ots_ws.ZonaControllerStub.Zona;
 import com.datacode.avon_ots_ws.model.xsd.CajaOrdenDejadaRecolectadaPUPDTO;
 import com.datacode.avon_ots_ws.model.xsd.PUPDTO;
+import com.datacode.avon_ots_ws.model.xsd.PremioUnitarioOrdenDejadaRecolectadaPUPDTO;
 
 public class ConsultaDatosReportes {
 	// Obtiene variable de configuración
@@ -4365,59 +4368,18 @@ public class ConsultaDatosReportes {
 	 *previamente recuperado
 	 * @throws AxisFault 
 	 */
-	public List<ModelOrdenesDejadasRecolectadas> generarListaReportes(List<Integer> liquidaciones, int estatus, int idUsuario) throws AxisFault {
+	public List<ModelOrdenesDejadasRecolectadas> generarListaReportesOrdenesDejadasRecolectadas(List<Integer> liquidaciones, int estatus, int idUsuario) throws AxisFault {
 		OrdenesDejadasRecolectadasStub stubOrdenes = new OrdenesDejadasRecolectadasStub();
 		
 		List<ModelOrdenesDejadasRecolectadas> ordenesDejadasRecolectadas = null;
-		List<ModelDetalleCajas> detalleCajas = null;
-		List<ModelDetallePremios> detallePremios = null;
-		List<ModelDetalleDocumento> detalleDocumentos = null;
 		
 		ordenesDejadasRecolectadas = obtenerOrdenesPup(liquidaciones, estatus, stubOrdenes, idUsuario);
 		
-		if(ordenesDejadasRecolectadas!=null && ordenesDejadasRecolectadas.size()>0) {
-			detalleCajas = new ArrayList<ModelDetalleCajas>();
+		if(ordenesDejadasRecolectadas != null && ordenesDejadasRecolectadas.size()>0) {
 			for(ModelOrdenesDejadasRecolectadas orden: ordenesDejadasRecolectadas) {
-				
+				orden.setDetalleCajas(recuperarCajasPorOrdenPup(estatus, orden.getIdSalidaReparto(), orden.getIdPup(), idUsuario, stubOrdenes));
+				orden.setDetallePremios(recuperarPremiosPorOrdenPup(estatus, orden.getIdSalidaReparto(), orden.getIdPup(), idUsuario, stubOrdenes));
 			}
-		}
-		
-		// Obtiene y asigna url de configuración de web services
-		String url = Utils.modificarUrlServicioWeb(stubOrdenes._getServiceClient()
-				.getOptions().getTo().getAddress());
-		stubOrdenes
-				._getServiceClient()
-				.getOptions()
-				.setTo(new org.apache.axis2.addressing.EndpointReference(
-						url));
-		stubOrdenes._getServiceClient().getOptions()
-				.setTimeOutInMilliSeconds(180000);
-
-		ObtenerCajasOrdenDejadaRecolectada param = new ObtenerCajasOrdenDejadaRecolectada();
-		//param.setRegistro(registro);
-		//param.setOrden(orden);
-		//param.setIdUsuario(idUsuario);
-		ObtenerCajasOrdenDejadaRecolectadaResponse responseCajas = null;
-		try {
-			responseCajas = stubOrdenes
-					.obtenerCajasOrdenDejadaRecolectada(param);
-		} catch (AxisFault e) {
-			e.printStackTrace();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-
-		/*ModelRutaEspecialRemitos[] rsRemitos = responseRemitos.get_return();
-		if(rsRemitos != null) {
-			for(ModelRutaEspecialRemitos modelRemitos: rsRemitos) {
-				ModelRemito modelRemito = new ModelRemito();
-				modelRemito.setRegistro(modelRemitos.getRegistro());
-				modelRemito.setCantidadRecolectar(modelRemitos.getCantidadRecolectar());
-				modelRemito.setStatus(modelRemitos.getEscaneada());
-			    modelRemito.setNombre(modelRemitos.getNombre());
-			    modelRemito.setIdRemito(modelRemitos.getIdRemito());
-			    registrosRemitos.add(modelRemito);
-			}*/
 		}
 		
 		return ordenesDejadasRecolectadas;
@@ -4466,6 +4428,7 @@ public class ConsultaDatosReportes {
 						ordenPup = new ModelOrdenesDejadasRecolectadas();
 						ordenPup.setIdPup(pup.getIdPUP());
 						ordenPup.setCorreo(pup.getCorreo());
+						ordenPup.setIdSalidaReparto(salida);
 						ordenesPup.add(ordenPup);
 					}
 				}
@@ -4489,7 +4452,6 @@ public class ConsultaDatosReportes {
 	 * @param stubOrdenes
 	 * @return lista con el detalle de cajas
 	 */
-	//TODO complementar metodo con parametros de retorno faltantes
 	private List<ModelDetalleCajas> recuperarCajasPorOrdenPup(int estatus, long salidaReparto, long idPup, int idUsuario,
 			OrdenesDejadasRecolectadasStub stubOrdenes) {
 		List<ModelDetalleCajas> detalleCajas = new ArrayList<ModelDetalleCajas>();
@@ -4525,7 +4487,8 @@ public class ConsultaDatosReportes {
 					detalleCaja.setDejadoPup(caja.getDejadoPUP());
 					detalleCaja.setItem(caja.getItem());
 					detalleCaja.setOrden(caja.getOrden());
-					//detalleCaja.setRecolectadoPup()
+					detalleCaja.setNombre(caja.getNombre());
+					detalleCaja.setRecolectadoPup(caja.getRecolectadoPUP());
 					detalleCaja.setZona(caja.getZona());
 					detalleCajas.add(detalleCaja);
 				}
@@ -4540,8 +4503,48 @@ public class ConsultaDatosReportes {
 		return detalleCajas;
 	}
 	
-	private List<ModelDetallePremios> recuperarPremiosPorOrdenPup() {
+	private List<ModelDetallePremios> recuperarPremiosPorOrdenPup(int estatus, long salidaReparto, long idPup, int idUsuario,
+			OrdenesDejadasRecolectadasStub stubOrdenes) {
 		List<ModelDetallePremios> detallesPremio = new ArrayList<ModelDetallePremios>();
+		ObtenerPremiosUnitariosOrdenDejadaRecolectada param = new ObtenerPremiosUnitariosOrdenDejadaRecolectada();
+		ObtenerPremiosUnitariosOrdenDejadaRecolectadaResponse response = null;
+		PremioUnitarioOrdenDejadaRecolectadaPUPDTO [] premioDTO = null;
+		ModelDetallePremios detallePremio = null;
+		
+		try {
+			String url = Utils.modificarUrlServicioWeb(stubOrdenes._getServiceClient()
+					.getOptions().getTo().getAddress());
+			stubOrdenes
+					._getServiceClient()
+					.getOptions()
+					.setTo(new org.apache.axis2.addressing.EndpointReference(
+							url));
+			stubOrdenes._getServiceClient().getOptions()
+					.setTimeOutInMilliSeconds(180000);
+			
+			param.setIdEstatus(estatus);
+			param.setIdPUP(idPup);
+			param.setIdSalidaReparto(salidaReparto);
+			param.setIdUsuario(idUsuario);
+			response = stubOrdenes.obtenerPremiosUnitariosOrdenDejadaRecolectada(param);
+			premioDTO = response.get_return();
+			
+			if(premioDTO != null) {
+				for(PremioUnitarioOrdenDejadaRecolectadaPUPDTO premio: premioDTO) {
+					detallePremio = new ModelDetallePremios();
+					detallePremio.setCantidad(premio.getCantidad());
+					detallePremio.setDejadoPup(premio.getDejadoPUP());
+					detallePremio.setEan13(premio.getEan13());
+					detallePremio.setFsc(premio.getFsc());
+					detallePremio.setRecolectadoPup(premio.getRecolectadoPUP());
+					detallesPremio.add(detallePremio);
+				}
+			}
+		}catch (AxisFault e) {
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		
 		return detallesPremio;
 	}

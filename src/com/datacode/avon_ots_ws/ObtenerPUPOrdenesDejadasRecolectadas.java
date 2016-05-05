@@ -22,7 +22,14 @@ import javax.xml.stream.XMLStreamReader;
         public  class ObtenerPUPOrdenesDejadasRecolectadas
         implements org.apache.axis2.databinding.ADBBean{
         
-                public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
+                /**
+				 * 
+				 */
+				private static final long serialVersionUID = 2795464660512418936L;
+
+
+
+				public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://avon_ots_ws.datacode.com",
                 "obtenerPUPOrdenesDejadasRecolectadas",
                 "ns2");

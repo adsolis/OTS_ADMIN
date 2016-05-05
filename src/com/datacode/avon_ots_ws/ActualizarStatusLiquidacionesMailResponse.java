@@ -22,7 +22,14 @@ import javax.xml.stream.XMLStreamReader;
         public  class ActualizarStatusLiquidacionesMailResponse
         implements org.apache.axis2.databinding.ADBBean{
         
-                public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
+                /**
+				 * 
+				 */
+				private static final long serialVersionUID = 1095638807751789192L;
+
+
+
+				public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://avon_ots_ws.datacode.com",
                 "actualizarStatusLiquidacionesMailResponse",
                 "ns2");

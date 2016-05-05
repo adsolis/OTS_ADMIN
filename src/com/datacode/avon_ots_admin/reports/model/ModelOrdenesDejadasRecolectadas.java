@@ -6,6 +6,8 @@ public class ModelOrdenesDejadasRecolectadas {
 	
 	private long idPup;
 	
+	private long idSalidaReparto;
+	
 	private String correo;
 	
 	private List<ModelDetalleCajas> detalleCajas;
@@ -20,6 +22,14 @@ public class ModelOrdenesDejadasRecolectadas {
 
 	public void setIdPup(long idPup) {
 		this.idPup = idPup;
+	}
+
+	public long getIdSalidaReparto() {
+		return idSalidaReparto;
+	}
+
+	public void setIdSalidaReparto(long idSalidaReparto) {
+		this.idSalidaReparto = idSalidaReparto;
 	}
 
 	public String getCorreo() {

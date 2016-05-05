@@ -31,7 +31,7 @@ import javax.xml.stream.XMLStreamReader;
                         /**
 				 * 
 				 */
-				private static final long serialVersionUID = 7199357685879693711L;
+				private static final long serialVersionUID = 8852366507425414873L;
 
 						/**
                         * field for Campania
@@ -202,6 +202,48 @@ import javax.xml.stream.XMLStreamReader;
                             
 
                         /**
+                        * field for Nombre
+                        */
+
+                        
+                                    protected java.lang.String localNombre ;
+                                
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean localNombreTracker = false ;
+
+                           public boolean isNombreSpecified(){
+                               return localNombreTracker;
+                           }
+
+                           
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.lang.String
+                           */
+                           public  java.lang.String getNombre(){
+                               return localNombre;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param Nombre
+                               */
+                               public void setNombre(java.lang.String param){
+                            localNombreTracker = true;
+                                   
+                                            this.localNombre=param;
+                                       
+
+                               }
+                            
+
+                        /**
                         * field for Orden
                         */
 
@@ -238,6 +280,48 @@ import javax.xml.stream.XMLStreamReader;
                             localOrdenTracker = true;
                                    
                                             this.localOrden=param;
+                                       
+
+                               }
+                            
+
+                        /**
+                        * field for RecolectadoPUP
+                        */
+
+                        
+                                    protected int localRecolectadoPUP ;
+                                
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean localRecolectadoPUPTracker = false ;
+
+                           public boolean isRecolectadoPUPSpecified(){
+                               return localRecolectadoPUPTracker;
+                           }
+
+                           
+
+                           /**
+                           * Auto generated getter method
+                           * @return int
+                           */
+                           public  int getRecolectadoPUP(){
+                               return localRecolectadoPUP;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param RecolectadoPUP
+                               */
+                               public void setRecolectadoPUP(int param){
+                            localRecolectadoPUPTracker = true;
+                                   
+                                            this.localRecolectadoPUP=param;
                                        
 
                                }
@@ -450,6 +534,24 @@ import javax.xml.stream.XMLStreamReader;
                                           }
                                     
                                    xmlWriter.writeEndElement();
+                             } if (localNombreTracker){
+                                    namespace = "http://model.avon_ots_ws.datacode.com/xsd";
+                                    writeStartElement(null, namespace, "nombre", xmlWriter);
+                             
+
+                                          if (localNombre==null){
+                                              // write the nil attribute
+                                              
+                                                     writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localNombre);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
                              } if (localOrdenTracker){
                                     namespace = "http://model.avon_ots_ws.datacode.com/xsd";
                                     writeStartElement(null, namespace, "orden", xmlWriter);
@@ -460,6 +562,19 @@ import javax.xml.stream.XMLStreamReader;
                                                       
                                                } else {
                                                     xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localOrden));
+                                               }
+                                    
+                                   xmlWriter.writeEndElement();
+                             } if (localRecolectadoPUPTracker){
+                                    namespace = "http://model.avon_ots_ws.datacode.com/xsd";
+                                    writeStartElement(null, namespace, "recolectadoPUP", xmlWriter);
+                             
+                                               if (localRecolectadoPUP==java.lang.Integer.MIN_VALUE) {
+                                           
+                                                         writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
+                                                      
+                                               } else {
+                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localRecolectadoPUP));
                                                }
                                     
                                    xmlWriter.writeEndElement();
@@ -853,6 +968,34 @@ import javax.xml.stream.XMLStreamReader;
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","nombre").equals(reader.getName()) || new javax.xml.namespace.QName("","nombre").equals(reader.getName()) ){
+                                
+                                       nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                       if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setNombre(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                            
+                                       } else {
+                                           
+                                           
+                                           reader.getElementText(); // throw away text nodes if any.
+                                       }
+                                      
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                    else {
+                                        
+                                    }
+                                
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
                                     if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","orden").equals(reader.getName()) || new javax.xml.namespace.QName("","orden").equals(reader.getName()) ){
                                 
                                        nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
@@ -879,6 +1022,38 @@ import javax.xml.stream.XMLStreamReader;
                                     else {
                                         
                                                object.setOrden(java.lang.Long.MIN_VALUE);
+                                           
+                                    }
+                                
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","recolectadoPUP").equals(reader.getName()) || new javax.xml.namespace.QName("","recolectadoPUP").equals(reader.getName()) ){
+                                
+                                       nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                       if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setRecolectadoPUP(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
+                                            
+                                       } else {
+                                           
+                                           
+                                                   object.setRecolectadoPUP(java.lang.Integer.MIN_VALUE);
+                                               
+                                           reader.getElementText(); // throw away text nodes if any.
+                                       }
+                                      
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                    else {
+                                        
+                                               object.setRecolectadoPUP(java.lang.Integer.MIN_VALUE);
                                            
                                     }
                                 

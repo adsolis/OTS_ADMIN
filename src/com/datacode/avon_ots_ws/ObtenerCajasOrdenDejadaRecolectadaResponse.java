@@ -22,7 +22,14 @@ import javax.xml.stream.XMLStreamReader;
         public  class ObtenerCajasOrdenDejadaRecolectadaResponse
         implements org.apache.axis2.databinding.ADBBean{
         
-                public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
+                /**
+				 * 
+				 */
+				private static final long serialVersionUID = -7980895049652200357L;
+
+
+
+				public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://avon_ots_ws.datacode.com",
                 "obtenerCajasOrdenDejadaRecolectadaResponse",
                 "ns2");

@@ -29,11 +29,6 @@ import javax.xml.stream.XMLStreamReader;
             
 
                         /**
-				 * 
-				 */
-				private static final long serialVersionUID = -6768938618604782501L;
-
-						/**
                         * field for EstatusCorreo
                         */
 

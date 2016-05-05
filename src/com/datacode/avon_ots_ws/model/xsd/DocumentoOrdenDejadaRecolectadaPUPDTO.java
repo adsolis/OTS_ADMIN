@@ -31,7 +31,7 @@ import javax.xml.stream.XMLStreamReader;
                         /**
 				 * 
 				 */
-				private static final long serialVersionUID = 681564054735731891L;
+				private static final long serialVersionUID = -3594268436939496931L;
 
 						/**
                         * field for CodEnviado
@@ -112,6 +112,48 @@ import javax.xml.stream.XMLStreamReader;
                             localCodRecibidoTracker = true;
                                    
                                             this.localCodRecibido=param;
+                                       
+
+                               }
+                            
+
+                        /**
+                        * field for CodRecolectado
+                        */
+
+                        
+                                    protected int localCodRecolectado ;
+                                
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean localCodRecolectadoTracker = false ;
+
+                           public boolean isCodRecolectadoSpecified(){
+                               return localCodRecolectadoTracker;
+                           }
+
+                           
+
+                           /**
+                           * Auto generated getter method
+                           * @return int
+                           */
+                           public  int getCodRecolectado(){
+                               return localCodRecolectado;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param CodRecolectado
+                               */
+                               public void setCodRecolectado(int param){
+                            localCodRecolectadoTracker = true;
+                                   
+                                            this.localCodRecolectado=param;
                                        
 
                                }
@@ -243,6 +285,48 @@ import javax.xml.stream.XMLStreamReader;
                                }
                             
 
+                        /**
+                        * field for RemitoRecolectado
+                        */
+
+                        
+                                    protected int localRemitoRecolectado ;
+                                
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean localRemitoRecolectadoTracker = false ;
+
+                           public boolean isRemitoRecolectadoSpecified(){
+                               return localRemitoRecolectadoTracker;
+                           }
+
+                           
+
+                           /**
+                           * Auto generated getter method
+                           * @return int
+                           */
+                           public  int getRemitoRecolectado(){
+                               return localRemitoRecolectado;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param RemitoRecolectado
+                               */
+                               public void setRemitoRecolectado(int param){
+                            localRemitoRecolectadoTracker = true;
+                                   
+                                            this.localRemitoRecolectado=param;
+                                       
+
+                               }
+                            
+
      
      
         /**
@@ -325,6 +409,19 @@ import javax.xml.stream.XMLStreamReader;
                                                }
                                     
                                    xmlWriter.writeEndElement();
+                             } if (localCodRecolectadoTracker){
+                                    namespace = "http://model.avon_ots_ws.datacode.com/xsd";
+                                    writeStartElement(null, namespace, "codRecolectado", xmlWriter);
+                             
+                                               if (localCodRecolectado==java.lang.Integer.MIN_VALUE) {
+                                           
+                                                         writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
+                                                      
+                                               } else {
+                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCodRecolectado));
+                                               }
+                                    
+                                   xmlWriter.writeEndElement();
                              } if (localRegistroTracker){
                                     namespace = "http://model.avon_ots_ws.datacode.com/xsd";
                                     writeStartElement(null, namespace, "registro", xmlWriter);
@@ -361,6 +458,19 @@ import javax.xml.stream.XMLStreamReader;
                                                       
                                                } else {
                                                     xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localRemitoRecibido));
+                                               }
+                                    
+                                   xmlWriter.writeEndElement();
+                             } if (localRemitoRecolectadoTracker){
+                                    namespace = "http://model.avon_ots_ws.datacode.com/xsd";
+                                    writeStartElement(null, namespace, "remitoRecolectado", xmlWriter);
+                             
+                                               if (localRemitoRecolectado==java.lang.Integer.MIN_VALUE) {
+                                           
+                                                         writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
+                                                      
+                                               } else {
+                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localRemitoRecolectado));
                                                }
                                     
                                    xmlWriter.writeEndElement();
@@ -676,6 +786,38 @@ import javax.xml.stream.XMLStreamReader;
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","codRecolectado").equals(reader.getName()) || new javax.xml.namespace.QName("","codRecolectado").equals(reader.getName()) ){
+                                
+                                       nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                       if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setCodRecolectado(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
+                                            
+                                       } else {
+                                           
+                                           
+                                                   object.setCodRecolectado(java.lang.Integer.MIN_VALUE);
+                                               
+                                           reader.getElementText(); // throw away text nodes if any.
+                                       }
+                                      
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                    else {
+                                        
+                                               object.setCodRecolectado(java.lang.Integer.MIN_VALUE);
+                                           
+                                    }
+                                
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
                                     if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","registro").equals(reader.getName()) || new javax.xml.namespace.QName("","registro").equals(reader.getName()) ){
                                 
                                        nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
@@ -766,6 +908,38 @@ import javax.xml.stream.XMLStreamReader;
                                     else {
                                         
                                                object.setRemitoRecibido(java.lang.Integer.MIN_VALUE);
+                                           
+                                    }
+                                
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","remitoRecolectado").equals(reader.getName()) || new javax.xml.namespace.QName("","remitoRecolectado").equals(reader.getName()) ){
+                                
+                                       nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                       if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setRemitoRecolectado(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
+                                            
+                                       } else {
+                                           
+                                           
+                                                   object.setRemitoRecolectado(java.lang.Integer.MIN_VALUE);
+                                               
+                                           reader.getElementText(); // throw away text nodes if any.
+                                       }
+                                      
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                    else {
+                                        
+                                               object.setRemitoRecolectado(java.lang.Integer.MIN_VALUE);
                                            
                                     }
                                   

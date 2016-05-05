@@ -29,11 +29,6 @@ import javax.xml.stream.XMLStreamReader;
             
 
                         /**
-				 * 
-				 */
-				private static final long serialVersionUID = 699179333407883770L;
-
-						/**
                         * field for Cantidad
                         */
 
@@ -76,20 +71,20 @@ import javax.xml.stream.XMLStreamReader;
                             
 
                         /**
-                        * field for CantidadStatus
+                        * field for DejadoPUP
                         */
 
                         
-                                    protected int localCantidadStatus ;
+                                    protected int localDejadoPUP ;
                                 
                            /*  This tracker boolean wil be used to detect whether the user called the set method
                           *   for this attribute. It will be used to determine whether to include this field
                            *   in the serialized XML
                            */
-                           protected boolean localCantidadStatusTracker = false ;
+                           protected boolean localDejadoPUPTracker = false ;
 
-                           public boolean isCantidadStatusSpecified(){
-                               return localCantidadStatusTracker;
+                           public boolean isDejadoPUPSpecified(){
+                               return localDejadoPUPTracker;
                            }
 
                            
@@ -98,20 +93,20 @@ import javax.xml.stream.XMLStreamReader;
                            * Auto generated getter method
                            * @return int
                            */
-                           public  int getCantidadStatus(){
-                               return localCantidadStatus;
+                           public  int getDejadoPUP(){
+                               return localDejadoPUP;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param CantidadStatus
+                               * @param param DejadoPUP
                                */
-                               public void setCantidadStatus(int param){
-                            localCantidadStatusTracker = true;
+                               public void setDejadoPUP(int param){
+                            localDejadoPUPTracker = true;
                                    
-                                            this.localCantidadStatus=param;
+                                            this.localDejadoPUP=param;
                                        
 
                                }
@@ -201,6 +196,48 @@ import javax.xml.stream.XMLStreamReader;
                                }
                             
 
+                        /**
+                        * field for RecolectadoPUP
+                        */
+
+                        
+                                    protected int localRecolectadoPUP ;
+                                
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean localRecolectadoPUPTracker = false ;
+
+                           public boolean isRecolectadoPUPSpecified(){
+                               return localRecolectadoPUPTracker;
+                           }
+
+                           
+
+                           /**
+                           * Auto generated getter method
+                           * @return int
+                           */
+                           public  int getRecolectadoPUP(){
+                               return localRecolectadoPUP;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param RecolectadoPUP
+                               */
+                               public void setRecolectadoPUP(int param){
+                            localRecolectadoPUPTracker = true;
+                                   
+                                            this.localRecolectadoPUP=param;
+                                       
+
+                               }
+                            
+
      
      
         /**
@@ -270,16 +307,16 @@ import javax.xml.stream.XMLStreamReader;
                                                }
                                     
                                    xmlWriter.writeEndElement();
-                             } if (localCantidadStatusTracker){
+                             } if (localDejadoPUPTracker){
                                     namespace = "http://model.avon_ots_ws.datacode.com/xsd";
-                                    writeStartElement(null, namespace, "cantidadStatus", xmlWriter);
+                                    writeStartElement(null, namespace, "dejadoPUP", xmlWriter);
                              
-                                               if (localCantidadStatus==java.lang.Integer.MIN_VALUE) {
+                                               if (localDejadoPUP==java.lang.Integer.MIN_VALUE) {
                                            
                                                          writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
                                                       
                                                } else {
-                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCantidadStatus));
+                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localDejadoPUP));
                                                }
                                     
                                    xmlWriter.writeEndElement();
@@ -317,6 +354,19 @@ import javax.xml.stream.XMLStreamReader;
                                                    xmlWriter.writeCharacters(localFsc);
                                             
                                           }
+                                    
+                                   xmlWriter.writeEndElement();
+                             } if (localRecolectadoPUPTracker){
+                                    namespace = "http://model.avon_ots_ws.datacode.com/xsd";
+                                    writeStartElement(null, namespace, "recolectadoPUP", xmlWriter);
+                             
+                                               if (localRecolectadoPUP==java.lang.Integer.MIN_VALUE) {
+                                           
+                                                         writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
+                                                      
+                                               } else {
+                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localRecolectadoPUP));
+                                               }
                                     
                                    xmlWriter.writeEndElement();
                              }
@@ -599,7 +649,7 @@ import javax.xml.stream.XMLStreamReader;
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","cantidadStatus").equals(reader.getName()) || new javax.xml.namespace.QName("","cantidadStatus").equals(reader.getName()) ){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","dejadoPUP").equals(reader.getName()) || new javax.xml.namespace.QName("","dejadoPUP").equals(reader.getName()) ){
                                 
                                        nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
                                        if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
@@ -607,13 +657,13 @@ import javax.xml.stream.XMLStreamReader;
 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setCantidadStatus(
+                                              object.setDejadoPUP(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
                                             
                                        } else {
                                            
                                            
-                                                   object.setCantidadStatus(java.lang.Integer.MIN_VALUE);
+                                                   object.setDejadoPUP(java.lang.Integer.MIN_VALUE);
                                                
                                            reader.getElementText(); // throw away text nodes if any.
                                        }
@@ -624,7 +674,7 @@ import javax.xml.stream.XMLStreamReader;
                                 
                                     else {
                                         
-                                               object.setCantidadStatus(java.lang.Integer.MIN_VALUE);
+                                               object.setDejadoPUP(java.lang.Integer.MIN_VALUE);
                                            
                                     }
                                 
@@ -682,6 +732,38 @@ import javax.xml.stream.XMLStreamReader;
                                 
                                     else {
                                         
+                                    }
+                                
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","recolectadoPUP").equals(reader.getName()) || new javax.xml.namespace.QName("","recolectadoPUP").equals(reader.getName()) ){
+                                
+                                       nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                       if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setRecolectadoPUP(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
+                                            
+                                       } else {
+                                           
+                                           
+                                                   object.setRecolectadoPUP(java.lang.Integer.MIN_VALUE);
+                                               
+                                           reader.getElementText(); // throw away text nodes if any.
+                                       }
+                                      
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                    else {
+                                        
+                                               object.setRecolectadoPUP(java.lang.Integer.MIN_VALUE);
+                                           
                                     }
                                   
                             while (!reader.isStartElement() && !reader.isEndElement())
