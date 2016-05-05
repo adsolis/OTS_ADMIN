@@ -92,6 +92,8 @@ import com.datacode.avon_ots_ws.ArmadoRutasEspecialesRemitosControllerStub;
 import com.datacode.avon_ots_ws.ModelRutaEspecialRemitos;
 import com.datacode.avon_ots_ws.ObtenerCajasOrdenDejadaRecolectada;
 import com.datacode.avon_ots_ws.ObtenerCajasOrdenDejadaRecolectadaResponse;
+import com.datacode.avon_ots_ws.ObtenerDocumentosOrdenDejadaRecolectada;
+import com.datacode.avon_ots_ws.ObtenerDocumentosOrdenDejadaRecolectadaResponse;
 import com.datacode.avon_ots_ws.ObtenerPUPOrdenesDejadasRecolectadas;
 import com.datacode.avon_ots_ws.ObtenerPUPOrdenesDejadasRecolectadasResponse;
 import com.datacode.avon_ots_ws.ObtenerPremiosUnitariosOrdenDejadaRecolectada;
@@ -135,6 +137,7 @@ import com.datacode.avon_ots_ws.ZonaControllerStub;
 import com.datacode.avon_ots_ws.ZonaControllerStub.GetZonas;
 import com.datacode.avon_ots_ws.ZonaControllerStub.Zona;
 import com.datacode.avon_ots_ws.model.xsd.CajaOrdenDejadaRecolectadaPUPDTO;
+import com.datacode.avon_ots_ws.model.xsd.DocumentoOrdenDejadaRecolectadaPUPDTO;
 import com.datacode.avon_ots_ws.model.xsd.PUPDTO;
 import com.datacode.avon_ots_ws.model.xsd.PremioUnitarioOrdenDejadaRecolectadaPUPDTO;
 
@@ -4379,6 +4382,7 @@ public class ConsultaDatosReportes {
 			for(ModelOrdenesDejadasRecolectadas orden: ordenesDejadasRecolectadas) {
 				orden.setDetalleCajas(recuperarCajasPorOrdenPup(estatus, orden.getIdSalidaReparto(), orden.getIdPup(), idUsuario, stubOrdenes));
 				orden.setDetallePremios(recuperarPremiosPorOrdenPup(estatus, orden.getIdSalidaReparto(), orden.getIdPup(), idUsuario, stubOrdenes));
+				orden.setDetalleDocumentos(recuperarDocumentosPorOrdenPup(estatus, orden.getIdSalidaReparto(), orden.getIdPup(), idUsuario, stubOrdenes));
 			}
 		}
 		
@@ -4547,5 +4551,63 @@ public class ConsultaDatosReportes {
 		}
 		
 		return detallesPremio;
+	}
+	
+	/**
+	 * Metodo para recuperar los registros de documentos por orden pup para reportes de ordenes recolectas y dejadas
+	 * @param estatus
+	 * @param salidaReparto
+	 * @param idPup
+	 * @param idUsuario
+	 * @param stubOrdenes
+	 * @return
+	 */
+	private List<ModelDetalleDocumento> recuperarDocumentosPorOrdenPup(int estatus, long salidaReparto, long idPup, int idUsuario,
+			OrdenesDejadasRecolectadasStub stubOrdenes) {
+		List<ModelDetalleDocumento> detalleDocumentos = new ArrayList<ModelDetalleDocumento>();
+		ObtenerDocumentosOrdenDejadaRecolectada param = new ObtenerDocumentosOrdenDejadaRecolectada();
+		ObtenerDocumentosOrdenDejadaRecolectadaResponse response = null;
+		DocumentoOrdenDejadaRecolectadaPUPDTO [] documentosDTO = null;
+		ModelDetalleDocumento documentoModel = null;
+		
+		try {
+			String url = Utils.modificarUrlServicioWeb(stubOrdenes._getServiceClient()
+					.getOptions().getTo().getAddress());
+			stubOrdenes
+					._getServiceClient()
+					.getOptions()
+					.setTo(new org.apache.axis2.addressing.EndpointReference(
+							url));
+			stubOrdenes._getServiceClient().getOptions()
+					.setTimeOutInMilliSeconds(180000);
+			
+			param.setIdEstatus(estatus);
+			param.setIdPUP(idPup);
+			param.setIdSalidaReparto(salidaReparto);
+			param.setIdUsuario(idUsuario);
+			response = stubOrdenes.obtenerDocumentosOrdenDejadaRecolectada(param);
+			
+			documentosDTO = response.get_return();
+			if(documentosDTO != null) {
+				documentoModel = new ModelDetalleDocumento();
+				for(DocumentoOrdenDejadaRecolectadaPUPDTO documento: documentosDTO) {
+					documentoModel.setEnviadosCods(documento.getCodEnviado());
+					documentoModel.setEnviadosRemitos(documento.getRemitoEnviado());
+					documentoModel.setRecibidosCods(documento.getCodRecibido());
+					documentoModel.setRecibidosRemitos(documento.getRemitoRecibido());
+					documentoModel.setRecolectadosCods(documento.getCodRecolectado());
+					documentoModel.setRecolectadosRemitos(documento.getRemitoRecolectado());
+					documentoModel.setRegitro(documento.getRegistro());
+					detalleDocumentos.add(documentoModel);
+				}
+			}
+			
+		}catch (AxisFault e) {
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		
+		return detalleDocumentos;
 	}
 }
