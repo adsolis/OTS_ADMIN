@@ -89,11 +89,13 @@ import com.datacode.avon_ots_ws.CampaniaControllerStub.Campania;
 import com.datacode.avon_ots_ws.CampaniaControllerStub.GetCampanias;
 import com.datacode.avon_ots_ws.CampaniaControllerStub.GetUltimasCampaniasSinID;
 import com.datacode.avon_ots_ws.ArmadoRutasEspecialesRemitosControllerStub;
+import com.datacode.avon_ots_ws.CorreoControllerStub.ObtenerListaLiquidacionesMail;
 import com.datacode.avon_ots_ws.ModelRutaEspecialRemitos;
 import com.datacode.avon_ots_ws.ObtenerCajasOrdenDejadaRecolectada;
 import com.datacode.avon_ots_ws.ObtenerCajasOrdenDejadaRecolectadaResponse;
 import com.datacode.avon_ots_ws.ObtenerDocumentosOrdenDejadaRecolectada;
 import com.datacode.avon_ots_ws.ObtenerDocumentosOrdenDejadaRecolectadaResponse;
+import com.datacode.avon_ots_ws.ObtenerListaLiquidacionesMailResponse;
 import com.datacode.avon_ots_ws.ObtenerPUPOrdenesDejadasRecolectadas;
 import com.datacode.avon_ots_ws.ObtenerPUPOrdenesDejadasRecolectadasResponse;
 import com.datacode.avon_ots_ws.ObtenerPremiosUnitariosOrdenDejadaRecolectada;
@@ -138,6 +140,7 @@ import com.datacode.avon_ots_ws.ZonaControllerStub.GetZonas;
 import com.datacode.avon_ots_ws.ZonaControllerStub.Zona;
 import com.datacode.avon_ots_ws.model.xsd.CajaOrdenDejadaRecolectadaPUPDTO;
 import com.datacode.avon_ots_ws.model.xsd.DocumentoOrdenDejadaRecolectadaPUPDTO;
+import com.datacode.avon_ots_ws.model.xsd.LiquidacionRepartoDTO;
 import com.datacode.avon_ots_ws.model.xsd.PUPDTO;
 import com.datacode.avon_ots_ws.model.xsd.PremioUnitarioOrdenDejadaRecolectadaPUPDTO;
 
@@ -4609,5 +4612,46 @@ public class ConsultaDatosReportes {
 		}
 		
 		return detalleDocumentos;
+	}
+	
+	/**
+	 * Metodo para recuperar la lista de liquidaciones pendientes por recolectadas y dejadas
+	 * @return
+	 */
+	public List<LiquidacionRepartoDTO> obtieneListaLiquidacionesRecolectados() {
+		List<LiquidacionRepartoDTO> liquidaciones = new ArrayList<LiquidacionRepartoDTO>();
+		com.datacode.avon_ots_ws.ObtenerListaLiquidacionesMail param = new com.datacode.avon_ots_ws.ObtenerListaLiquidacionesMail();
+		ObtenerListaLiquidacionesMailResponse response = new ObtenerListaLiquidacionesMailResponse();
+		LiquidacionRepartoDTO [] repartoDTO = null;
+		
+		try {
+			OrdenesDejadasRecolectadasStub stubOrdenes = new OrdenesDejadasRecolectadasStub();
+			String url = Utils.modificarUrlServicioWeb(stubOrdenes._getServiceClient()
+					.getOptions().getTo().getAddress());
+			stubOrdenes
+					._getServiceClient()
+					.getOptions()
+					.setTo(new org.apache.axis2.addressing.EndpointReference(
+							url));
+			stubOrdenes._getServiceClient().getOptions()
+					.setTimeOutInMilliSeconds(180000);
+			
+			response = stubOrdenes.obtenerListaLiquidacionesMail(param);
+			
+			repartoDTO = response.get_return();
+			if(repartoDTO != null) {
+				for(LiquidacionRepartoDTO reparto: repartoDTO) {
+					liquidaciones.add(reparto);
+				}
+			}
+			
+		} catch (AxisFault e) {
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		
+		return liquidaciones;
+		
 	}
 }
