@@ -2033,4 +2033,19 @@ public class JasperGenerator {
 					rutaRep + nombreJasper);
 		}
 	}
+	
+	public ByteArrayOutputStream generaReporteEmailOrdenesDejadasRecolectadasPUP(
+			ModelOrdenesDejadasRecolectadas orden,String tipoOrden,String formato, String realPath) throws IOException {
+		ByteArrayOutputStream archivo = new ByteArrayOutputStream();
+		String archivoSalida = "";
+		String nombreJasper = "";
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		if (tipoOrden.equals("dejada"))
+			nombreJasper = "//mailOrdenesDejadasPUP.jasper";
+		else if(tipoOrden.equals("recolectada"))
+			nombreJasper = "//mailOrdenesRecolectadasPUP.jasper";
+		archivo = generarReporteExcelArchivo(archivoSalida, parameters,
+				orden, realPath + nombreJasper);
+		return archivo;
+	}
 }
