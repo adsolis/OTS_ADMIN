@@ -4,11 +4,42 @@ import java.util.List;
 
 public class ModelOrdenesDejadasRecolectadas {
 	
+	private long idPup;
+	
+	private long idSalidaReparto;
+	
+	private String correo;
+	
 	private List<ModelDetalleCajas> detalleCajas;
 	
 	private List<ModelDetallePremios> detallePremios;
 	
 	private List<ModelDetalleDocumento> detalleDocumentos;
+	
+	public long getIdPup() {
+		return idPup;
+	}
+
+	public void setIdPup(long idPup) {
+		this.idPup = idPup;
+	}
+
+	public long getIdSalidaReparto() {
+		return idSalidaReparto;
+	}
+
+	public void setIdSalidaReparto(long idSalidaReparto) {
+		this.idSalidaReparto = idSalidaReparto;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
 
 	public List<ModelDetalleCajas> getDetalleCajas() {
 		return detalleCajas;

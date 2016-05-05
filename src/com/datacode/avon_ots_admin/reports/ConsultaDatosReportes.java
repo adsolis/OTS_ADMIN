@@ -27,16 +27,21 @@ import javax.faces.model.SelectItem;
 import org.apache.axis2.AxisFault;
 import org.apache.commons.io.IOUtils;
 
+import com.datacode.avon_ots_admin.model.ModelRemito;
 import com.datacode.avon_ots_admin.replicacion.Replicacion;
 import com.datacode.avon_ots_admin.replicacion.ReplicacionDetalle;
 import com.datacode.avon_ots_admin.replicacion.ReplicacionTabla;
 import com.datacode.avon_ots_admin.reports.model.LiquidacionesRep;
 import com.datacode.avon_ots_admin.reports.model.ModelAnalisisEfectivo;
+import com.datacode.avon_ots_admin.reports.model.ModelDetalleCajas;
+import com.datacode.avon_ots_admin.reports.model.ModelDetalleDocumento;
+import com.datacode.avon_ots_admin.reports.model.ModelDetallePremios;
 import com.datacode.avon_ots_admin.reports.model.ModelHeaderReparto;
 import com.datacode.avon_ots_admin.reports.model.ModelHeaderResumen;
 import com.datacode.avon_ots_admin.reports.model.ModelHistorialPorRepresentante;
 import com.datacode.avon_ots_admin.reports.model.ModelHistoricoDeRepresentantes;
 import com.datacode.avon_ots_admin.reports.model.ModelManifiestoRutaEnCampania;
+import com.datacode.avon_ots_admin.reports.model.ModelOrdenesDejadasRecolectadas;
 import com.datacode.avon_ots_admin.reports.model.ModelRelPedidosDejados;
 import com.datacode.avon_ots_admin.reports.model.ModelRelPedidosPrestados;
 import com.datacode.avon_ots_admin.reports.model.ModelRepConsultaRepresentantes;
@@ -83,6 +88,19 @@ import com.datacode.avon_ots_ws.CampaniaControllerStub;
 import com.datacode.avon_ots_ws.CampaniaControllerStub.Campania;
 import com.datacode.avon_ots_ws.CampaniaControllerStub.GetCampanias;
 import com.datacode.avon_ots_ws.CampaniaControllerStub.GetUltimasCampaniasSinID;
+import com.datacode.avon_ots_ws.ArmadoRutasEspecialesRemitosControllerStub;
+import com.datacode.avon_ots_ws.ModelRutaEspecialRemitos;
+import com.datacode.avon_ots_ws.ObtenerCajasOrdenDejadaRecolectada;
+import com.datacode.avon_ots_ws.ObtenerCajasOrdenDejadaRecolectadaResponse;
+import com.datacode.avon_ots_ws.ObtenerDocumentosOrdenDejadaRecolectada;
+import com.datacode.avon_ots_ws.ObtenerDocumentosOrdenDejadaRecolectadaResponse;
+import com.datacode.avon_ots_ws.ObtenerPUPOrdenesDejadasRecolectadas;
+import com.datacode.avon_ots_ws.ObtenerPUPOrdenesDejadasRecolectadasResponse;
+import com.datacode.avon_ots_ws.ObtenerPremiosUnitariosOrdenDejadaRecolectada;
+import com.datacode.avon_ots_ws.ObtenerPremiosUnitariosOrdenDejadaRecolectadaResponse;
+import com.datacode.avon_ots_ws.ObtieneRemitos;
+import com.datacode.avon_ots_ws.ObtieneRemitosResponse;
+import com.datacode.avon_ots_ws.OrdenesDejadasRecolectadasStub;
 import com.datacode.avon_ots_ws.ReporteConsultaBuenVecinoControllerStub;
 import com.datacode.avon_ots_ws.ReporteConsultaEstatusOrdenesControllerStub;
 import com.datacode.avon_ots_ws.ReporteConsultaEstatusOrdenesControllerStub.ModelReporteConsultaEstatus;
@@ -118,6 +136,10 @@ import com.datacode.avon_ots_ws.SubBodegaAlmacenControllerStub.ObtenerSubBodegaA
 import com.datacode.avon_ots_ws.ZonaControllerStub;
 import com.datacode.avon_ots_ws.ZonaControllerStub.GetZonas;
 import com.datacode.avon_ots_ws.ZonaControllerStub.Zona;
+import com.datacode.avon_ots_ws.model.xsd.CajaOrdenDejadaRecolectadaPUPDTO;
+import com.datacode.avon_ots_ws.model.xsd.DocumentoOrdenDejadaRecolectadaPUPDTO;
+import com.datacode.avon_ots_ws.model.xsd.PUPDTO;
+import com.datacode.avon_ots_ws.model.xsd.PremioUnitarioOrdenDejadaRecolectadaPUPDTO;
 
 public class ConsultaDatosReportes {
 	// Obtiene variable de configuración
@@ -4341,5 +4363,251 @@ public class ConsultaDatosReportes {
 		}
 
 		return res;
+	}
+	
+	/**
+	 *Metodo para generar la lista de objetos con los detalles de los reportes de las liquidaciones pendientes
+	 *por enviar correo 
+	 *previamente recuperado
+	 * @throws AxisFault 
+	 */
+	public List<ModelOrdenesDejadasRecolectadas> generarListaReportesOrdenesDejadasRecolectadas(List<Integer> liquidaciones, int estatus, int idUsuario) throws AxisFault {
+		OrdenesDejadasRecolectadasStub stubOrdenes = new OrdenesDejadasRecolectadasStub();
+		
+		List<ModelOrdenesDejadasRecolectadas> ordenesDejadasRecolectadas = null;
+		
+		ordenesDejadasRecolectadas = obtenerOrdenesPup(liquidaciones, estatus, stubOrdenes, idUsuario);
+		
+		if(ordenesDejadasRecolectadas != null && ordenesDejadasRecolectadas.size()>0) {
+			for(ModelOrdenesDejadasRecolectadas orden: ordenesDejadasRecolectadas) {
+				orden.setDetalleCajas(recuperarCajasPorOrdenPup(estatus, orden.getIdSalidaReparto(), orden.getIdPup(), idUsuario, stubOrdenes));
+				orden.setDetallePremios(recuperarPremiosPorOrdenPup(estatus, orden.getIdSalidaReparto(), orden.getIdPup(), idUsuario, stubOrdenes));
+				orden.setDetalleDocumentos(recuperarDocumentosPorOrdenPup(estatus, orden.getIdSalidaReparto(), orden.getIdPup(), idUsuario, stubOrdenes));
+			}
+		}
+		
+		return ordenesDejadasRecolectadas;
+	}
+	
+	/**
+	 * 
+	 * Metodo para generar la lista de ordenes por liquidacion
+	 * @param liquidaciones lista de liquidaciones recuperada previamente al consultar los correos pendientes
+	 * @param estatus para indicar que tipo de orden se va a recuperar
+	 * esto se sabe en base al estatus de correo RECOLECTADO y DEJADO
+	 * @param stubOrdenes objeto stub creado ya desde donde se llama a este metodo
+	 * @param idUsuario
+	 * @return lista con la lista de Ordenes PUP recuperadas
+	 */
+	private List<ModelOrdenesDejadasRecolectadas> obtenerOrdenesPup(List<Integer> liquidaciones, int estatus, 
+			OrdenesDejadasRecolectadasStub stubOrdenes, int idUsuario) {
+		
+		List<ModelOrdenesDejadasRecolectadas> ordenesPup = new ArrayList<ModelOrdenesDejadasRecolectadas>();
+		ObtenerPUPOrdenesDejadasRecolectadas param = new ObtenerPUPOrdenesDejadasRecolectadas();
+		ObtenerPUPOrdenesDejadasRecolectadasResponse response = null;
+		ModelOrdenesDejadasRecolectadas ordenPup = null;
+		PUPDTO [] pupdto = null;
+		
+		try {
+			String url = Utils.modificarUrlServicioWeb(stubOrdenes._getServiceClient()
+					.getOptions().getTo().getAddress());
+			stubOrdenes
+					._getServiceClient()
+					.getOptions()
+					.setTo(new org.apache.axis2.addressing.EndpointReference(
+							url));
+			stubOrdenes._getServiceClient().getOptions()
+					.setTimeOutInMilliSeconds(180000);
+			
+			for(Integer salida: liquidaciones) {
+				
+				param.setIdEstatus(estatus);
+				param.setIdSalidaReparto(salida);
+				param.setIdUsuario(idUsuario);
+				param.setTipoLiquidacion(null);
+				response = stubOrdenes.obtenerPUPOrdenesDejadasRecolectadas(param);
+				pupdto = response.get_return();
+				if(pupdto != null) {
+					for(PUPDTO pup: pupdto) {
+						ordenPup = new ModelOrdenesDejadasRecolectadas();
+						ordenPup.setIdPup(pup.getIdPUP());
+						ordenPup.setCorreo(pup.getCorreo());
+						ordenPup.setIdSalidaReparto(salida);
+						ordenesPup.add(ordenPup);
+					}
+				}
+			}
+			
+		}catch (AxisFault e) {
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		
+		return ordenesPup;
+	}
+	
+	/**
+	 * Metodo para recuperar las cajas relacionadas con la orden pup 
+	 * @param estatus
+	 * @param salidaReparto
+	 * @param idPup
+	 * @param idUsuario
+	 * @param stubOrdenes
+	 * @return lista con el detalle de cajas
+	 */
+	private List<ModelDetalleCajas> recuperarCajasPorOrdenPup(int estatus, long salidaReparto, long idPup, int idUsuario,
+			OrdenesDejadasRecolectadasStub stubOrdenes) {
+		List<ModelDetalleCajas> detalleCajas = new ArrayList<ModelDetalleCajas>();
+		ObtenerCajasOrdenDejadaRecolectada param = new ObtenerCajasOrdenDejadaRecolectada();
+		ModelDetalleCajas detalleCaja = null;
+		ObtenerCajasOrdenDejadaRecolectadaResponse response = null;
+		CajaOrdenDejadaRecolectadaPUPDTO [] cajaOrdenDTO = null;
+		try {
+			String url = Utils.modificarUrlServicioWeb(stubOrdenes._getServiceClient()
+					.getOptions().getTo().getAddress());
+			stubOrdenes
+					._getServiceClient()
+					.getOptions()
+					.setTo(new org.apache.axis2.addressing.EndpointReference(
+							url));
+			stubOrdenes._getServiceClient().getOptions()
+					.setTimeOutInMilliSeconds(180000);
+			
+			param.setIdEstatus(estatus);
+			param.setIdPUP(idPup);
+			param.setIdSalidaReparto(salidaReparto);
+			param.setIdUsuario(idUsuario);
+			
+			response = stubOrdenes.obtenerCajasOrdenDejadaRecolectada(param);
+			cajaOrdenDTO = response.get_return();
+			
+			if(cajaOrdenDTO != null) {
+				for(CajaOrdenDejadaRecolectadaPUPDTO caja: cajaOrdenDTO) {
+					detalleCaja = new ModelDetalleCajas();
+					detalleCaja.setRegistro(caja.getRegistro());
+					detalleCaja.setCampana(caja.getCampania());
+					detalleCaja.setCodigoBarras(caja.getCodigoBarras());
+					detalleCaja.setDejadoPup(caja.getDejadoPUP());
+					detalleCaja.setItem(caja.getItem());
+					detalleCaja.setOrden(caja.getOrden());
+					detalleCaja.setNombre(caja.getNombre());
+					detalleCaja.setRecolectadoPup(caja.getRecolectadoPUP());
+					detalleCaja.setZona(caja.getZona());
+					detalleCajas.add(detalleCaja);
+				}
+			}
+			
+		}catch (AxisFault e) {
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		
+		return detalleCajas;
+	}
+	
+	private List<ModelDetallePremios> recuperarPremiosPorOrdenPup(int estatus, long salidaReparto, long idPup, int idUsuario,
+			OrdenesDejadasRecolectadasStub stubOrdenes) {
+		List<ModelDetallePremios> detallesPremio = new ArrayList<ModelDetallePremios>();
+		ObtenerPremiosUnitariosOrdenDejadaRecolectada param = new ObtenerPremiosUnitariosOrdenDejadaRecolectada();
+		ObtenerPremiosUnitariosOrdenDejadaRecolectadaResponse response = null;
+		PremioUnitarioOrdenDejadaRecolectadaPUPDTO [] premioDTO = null;
+		ModelDetallePremios detallePremio = null;
+		
+		try {
+			String url = Utils.modificarUrlServicioWeb(stubOrdenes._getServiceClient()
+					.getOptions().getTo().getAddress());
+			stubOrdenes
+					._getServiceClient()
+					.getOptions()
+					.setTo(new org.apache.axis2.addressing.EndpointReference(
+							url));
+			stubOrdenes._getServiceClient().getOptions()
+					.setTimeOutInMilliSeconds(180000);
+			
+			param.setIdEstatus(estatus);
+			param.setIdPUP(idPup);
+			param.setIdSalidaReparto(salidaReparto);
+			param.setIdUsuario(idUsuario);
+			response = stubOrdenes.obtenerPremiosUnitariosOrdenDejadaRecolectada(param);
+			premioDTO = response.get_return();
+			
+			if(premioDTO != null) {
+				for(PremioUnitarioOrdenDejadaRecolectadaPUPDTO premio: premioDTO) {
+					detallePremio = new ModelDetallePremios();
+					detallePremio.setCantidad(premio.getCantidad());
+					detallePremio.setDejadoPup(premio.getDejadoPUP());
+					detallePremio.setEan13(premio.getEan13());
+					detallePremio.setFsc(premio.getFsc());
+					detallePremio.setRecolectadoPup(premio.getRecolectadoPUP());
+					detallesPremio.add(detallePremio);
+				}
+			}
+		}catch (AxisFault e) {
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		
+		return detallesPremio;
+	}
+	
+	/**
+	 * Metodo para recuperar los registros de documentos por orden pup para reportes de ordenes recolectas y dejadas
+	 * @param estatus
+	 * @param salidaReparto
+	 * @param idPup
+	 * @param idUsuario
+	 * @param stubOrdenes
+	 * @return
+	 */
+	private List<ModelDetalleDocumento> recuperarDocumentosPorOrdenPup(int estatus, long salidaReparto, long idPup, int idUsuario,
+			OrdenesDejadasRecolectadasStub stubOrdenes) {
+		List<ModelDetalleDocumento> detalleDocumentos = new ArrayList<ModelDetalleDocumento>();
+		ObtenerDocumentosOrdenDejadaRecolectada param = new ObtenerDocumentosOrdenDejadaRecolectada();
+		ObtenerDocumentosOrdenDejadaRecolectadaResponse response = null;
+		DocumentoOrdenDejadaRecolectadaPUPDTO [] documentosDTO = null;
+		ModelDetalleDocumento documentoModel = null;
+		
+		try {
+			String url = Utils.modificarUrlServicioWeb(stubOrdenes._getServiceClient()
+					.getOptions().getTo().getAddress());
+			stubOrdenes
+					._getServiceClient()
+					.getOptions()
+					.setTo(new org.apache.axis2.addressing.EndpointReference(
+							url));
+			stubOrdenes._getServiceClient().getOptions()
+					.setTimeOutInMilliSeconds(180000);
+			
+			param.setIdEstatus(estatus);
+			param.setIdPUP(idPup);
+			param.setIdSalidaReparto(salidaReparto);
+			param.setIdUsuario(idUsuario);
+			response = stubOrdenes.obtenerDocumentosOrdenDejadaRecolectada(param);
+			
+			documentosDTO = response.get_return();
+			if(documentosDTO != null) {
+				documentoModel = new ModelDetalleDocumento();
+				for(DocumentoOrdenDejadaRecolectadaPUPDTO documento: documentosDTO) {
+					documentoModel.setEnviadosCods(documento.getCodEnviado());
+					documentoModel.setEnviadosRemitos(documento.getRemitoEnviado());
+					documentoModel.setRecibidosCods(documento.getCodRecibido());
+					documentoModel.setRecibidosRemitos(documento.getRemitoRecibido());
+					documentoModel.setRecolectadosCods(documento.getCodRecolectado());
+					documentoModel.setRecolectadosRemitos(documento.getRemitoRecolectado());
+					documentoModel.setRegitro(documento.getRegistro());
+					detalleDocumentos.add(documentoModel);
+				}
+			}
+			
+		}catch (AxisFault e) {
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		
+		return detalleDocumentos;
 	}
 }
