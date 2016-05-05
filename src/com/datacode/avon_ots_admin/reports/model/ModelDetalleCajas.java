@@ -15,17 +15,17 @@ public class ModelDetalleCajas implements Serializable{
 	 */
 	private static final long serialVersionUID = 983326888106953418L;
 
-	private String zona;
+	private int zona;
 	
 	private String campana;
 	
-	private String registro;
+	private long registro;
 	
 	private String nombre;
 	
 	private long orden;
 	
-	private int item;
+	private String item;
 	
 	private String codigoBarras;
 	
@@ -33,11 +33,11 @@ public class ModelDetalleCajas implements Serializable{
 	
 	private int recolectadoPup;
 
-	public String getZona() {
+	public int getZona() {
 		return zona;
 	}
 
-	public void setZona(String zona) {
+	public void setZona(int zona) {
 		this.zona = zona;
 	}
 
@@ -49,11 +49,11 @@ public class ModelDetalleCajas implements Serializable{
 		this.campana = campana;
 	}
 
-	public String getRegistro() {
+	public long getRegistro() {
 		return registro;
 	}
 
-	public void setRegistro(String registro) {
+	public void setRegistro(long registro) {
 		this.registro = registro;
 	}
 
@@ -73,11 +73,11 @@ public class ModelDetalleCajas implements Serializable{
 		this.orden = orden;
 	}
 
-	public int getItem() {
+	public String getItem() {
 		return item;
 	}
 
-	public void setItem(int item) {
+	public void setItem(String item) {
 		this.item = item;
 	}
 
