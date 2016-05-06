@@ -15,6 +15,8 @@ import com.datacode.avon_ots_admin.reports.EnvioReporteDejadosMail;
 import com.datacode.avon_ots_admin.reports.GenerarReporteOrdenesDejadasRecolectadasPUP;
 import com.datacode.avon_ots_admin.reports.model.ModelOrdenesDejadasRecolectadas;
 import com.datacode.avon_ots_admin.utils.Utils;
+import com.datacode.avon_ots_ws.ActualizarStatusLiquidacionesMail;
+import com.datacode.avon_ots_ws.ActualizarStatusLiquidacionesMailResponse;
 import com.datacode.avon_ots_ws.CorreoControllerStub;
 import com.datacode.avon_ots_ws.ObtenerListaLiquidacionesMailResponse;
 import com.datacode.avon_ots_ws.UtilsStub;
@@ -137,8 +139,8 @@ public class TareaMandarMailDejados implements Job {
 	}
 	 */
 
-	private String actualizaStatusListaLiquidaciones(int idSalidaReparto,
-			String statusNuevo) {
+	public String actualizaStatusListaLiquidaciones(int idSalidaReparto,
+			String statusNuevo, String tipoLiquidacion) {
 
 		String arreglo = "";
 		try {
@@ -152,9 +154,10 @@ public class TareaMandarMailDejados implements Job {
 					.setTo(new org.apache.axis2.addressing.EndpointReference(
 							url));
 
-			CorreoControllerStub.ActualizarStatusLiquidacionesMail param = new CorreoControllerStub.ActualizarStatusLiquidacionesMail();
+			ActualizarStatusLiquidacionesMail param = new ActualizarStatusLiquidacionesMail();
 			param.setIdSalidaReparto(idSalidaReparto);
 			param.setStatusNuevo(statusNuevo);
+			param.setTipoLiquidacion(tipoLiquidacion);
 			CorreoControllerStub.ActualizarStatusLiquidacionesMailResponse response = Stub
 					.actualizarStatusLiquidacionesMail(param);
 
@@ -221,13 +224,13 @@ public class TareaMandarMailDejados implements Job {
 		if (lista.size() > 0) {
 			EnvioReporteDejadosMail envio = new EnvioReporteDejadosMail();
 			for (LiquidacionRepartoDTO liquidacion: lista) {
-				actualizaStatusListaLiquidaciones(liquidacion.getIdSalidaReparto(), "P");
+				actualizaStatusListaLiquidaciones(liquidacion.getIdSalidaReparto(), "P", "1");
 				String resultado = envio.generaReporteMail(ldcConf,
 						realPath1, liquidacion.getIdSalidaReparto());
 				if (resultado.equals("")) {
-					actualizaStatusListaLiquidaciones(liquidacion.getIdSalidaReparto(), "E");
+					actualizaStatusListaLiquidaciones(liquidacion.getIdSalidaReparto(), "E", "1");
 				} else {
-					actualizaStatusListaLiquidaciones(liquidacion.getIdSalidaReparto(), "N");
+					actualizaStatusListaLiquidaciones(liquidacion.getIdSalidaReparto(), "N", "1");
 				}
 			}
 		}

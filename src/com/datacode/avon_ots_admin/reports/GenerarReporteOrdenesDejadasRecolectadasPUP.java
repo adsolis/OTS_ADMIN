@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.datacode.avon_ots_admin.model.ArchivoCorreo;
+import com.datacode.avon_ots_admin.quartz.TareaMandarMailDejados;
 import com.datacode.avon_ots_admin.reports.model.ModelDetalleCajas;
 import com.datacode.avon_ots_admin.reports.model.ModelDetalleDocumento;
 import com.datacode.avon_ots_admin.reports.model.ModelDetallePremios;
@@ -31,6 +32,7 @@ public class GenerarReporteOrdenesDejadasRecolectadasPUP {
 			ConsultaDatosReportes consulta = new ConsultaDatosReportes();
 			EnvioReporteDejadosMail envioMail = new EnvioReporteDejadosMail();
 			List<ArchivoCorreo> listaArchivo = null;
+			TareaMandarMailDejados tarea = new TareaMandarMailDejados();
 			if (listaOrdenes != null) {
 				//OBTENER DESTINATARIOS
 				List<DestinatarioReporte> destinatarios = null;
@@ -67,6 +69,16 @@ public class GenerarReporteOrdenesDejadasRecolectadasPUP {
 					//A LA REGLA DE NEGOCIO PERTENECIENTE A LA OTRA FUNCIONALIDAD
 					String resultado = envioMail.mandarArchivosCorreo(listaArchivo, idLDC,
 							recipientes, "Reporte de Liquidación de Reparto");
+					String tipoLiquidacion = null;
+					if(tipoOrden.equals("dejada"))
+						tipoLiquidacion = "2";
+					else
+						tipoLiquidacion= "3";
+					if (resultado.equals("")) {
+						tarea.actualizaStatusListaLiquidaciones((int)(orden.getIdSalidaReparto()), "E", tipoLiquidacion);
+					} else {
+						tarea.actualizaStatusListaLiquidaciones((int)(orden.getIdSalidaReparto()), "N", tipoLiquidacion);
+					}
 					if (!(resultado != null && resultado.equals(""))) {
 						Utils.GuardarLogMensajeBD(
 								"EnvioReporteDejadosSubbodega",
