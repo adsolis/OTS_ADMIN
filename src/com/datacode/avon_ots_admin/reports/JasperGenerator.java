@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -44,6 +45,7 @@ import com.datacode.avon_ots_admin.model.TipoSiniestro;
 import com.datacode.avon_ots_admin.model.Unitarios;
 import com.datacode.avon_ots_admin.model.Zona;
 import com.datacode.avon_ots_admin.reports.model.ModelAnalisisEfectivo;
+import com.datacode.avon_ots_admin.reports.model.ModelDetalleCajas;
 import com.datacode.avon_ots_admin.reports.model.ModelExpRecepcionAjustesPremios;
 import com.datacode.avon_ots_admin.reports.model.ModelHeaderReparto;
 import com.datacode.avon_ots_admin.reports.model.ModelHeaderResumen;
@@ -2041,6 +2043,17 @@ public class JasperGenerator {
 		String archivoSalida = "";
 		String nombreJasper = "";
 		Map<String, Object> parameters = new HashMap<String, Object>();
+		Map<String, Object> detalleCajas = new HashMap<String, Object>();
+		List<Map<String, Object>> listaCajas = new ArrayList<Map<String, Object>>();
+		
+		for(ModelDetalleCajas caja: orden.getDetalleCajas()) {
+			detalleCajas.put("campana", caja.getCampana());
+			
+			listaCajas.add(detalleCajas);
+		}
+		
+		
+		parameters.put("listaDetalleCajas", listaCajas);
 		if (tipoOrden.equals("dejada"))
 			nombreJasper = "//mailOrdenesDejadasPUP.jasper";
 		else if(tipoOrden.equals("recolectada"))
