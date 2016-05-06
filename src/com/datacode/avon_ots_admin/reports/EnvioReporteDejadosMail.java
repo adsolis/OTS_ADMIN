@@ -1,9 +1,6 @@
 package com.datacode.avon_ots_admin.reports;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -15,9 +12,6 @@ import javax.activation.DataHandler;
 import org.apache.axis2.AxisFault;
 
 import com.datacode.avon_ots_admin.model.ArchivoCorreo;
-import com.datacode.avon_ots_admin.reports.model.ModelDetalleCajas;
-import com.datacode.avon_ots_admin.reports.model.ModelDetalleDocumento;
-import com.datacode.avon_ots_admin.reports.model.ModelDetallePremios;
 import com.datacode.avon_ots_admin.reports.model.ModelOrdenesDejadasRecolectadas;
 import com.datacode.avon_ots_admin.reports.model.ModelRepMailDejadosCajas;
 import com.datacode.avon_ots_admin.reports.model.ModelRepMailDejadosPremios;
