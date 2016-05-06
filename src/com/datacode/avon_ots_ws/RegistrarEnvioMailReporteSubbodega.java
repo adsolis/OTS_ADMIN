@@ -8,6 +8,10 @@
 
             
                 package com.datacode.avon_ots_ws;
+
+import javax.xml.namespace.QName;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
             
 
             /**
@@ -18,7 +22,14 @@
         public  class RegistrarEnvioMailReporteSubbodega
         implements org.apache.axis2.databinding.ADBBean{
         
-                public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
+                /**
+				 * 
+				 */
+				private static final long serialVersionUID = -1420652512570346818L;
+
+
+
+				public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://avon_ots_ws.datacode.com",
                 "registrarEnvioMailReporteSubbodega",
                 "ns2");
@@ -129,7 +140,7 @@
 
 
         
-               return factory.createOMElement(new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME));
+               return factory.createOMElement(new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME), parentQName);
             
         }
 
@@ -513,6 +524,15 @@
         }
 
         }//end of factory class
+
+
+
+
+	@Override
+	public XMLStreamReader getPullParser(QName arg0) throws XMLStreamException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
         
 

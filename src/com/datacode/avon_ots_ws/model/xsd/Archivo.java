@@ -8,6 +8,10 @@
 
             
                 package com.datacode.avon_ots_ws.model.xsd;
+
+import javax.xml.namespace.QName;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
             
 
             /**
@@ -25,6 +29,11 @@
             
 
                         /**
+				 * 
+				 */
+				private static final long serialVersionUID = -8900775303311171930L;
+
+						/**
                         * field for Archivo
                         */
 
@@ -164,7 +173,7 @@
 
 
         
-               return factory.createOMElement(new org.apache.axis2.databinding.ADBDataSource(this,parentQName));
+               return factory.createOMElement(new org.apache.axis2.databinding.ADBDataSource(this,parentQName), parentQName);
             
         }
 
@@ -603,6 +612,15 @@
         }
 
         }//end of factory class
+
+
+
+
+	@Override
+	public XMLStreamReader getPullParser(QName arg0) throws XMLStreamException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
         
 
