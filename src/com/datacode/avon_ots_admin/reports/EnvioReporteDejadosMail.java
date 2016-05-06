@@ -162,11 +162,8 @@ public class EnvioReporteDejadosMail {
 			param2.setIdLDC(idLDC);
 			respuesta = stub.obtenerDatosCorreoCuentaMaestra(param2);
 			DatosCorreo datosC = respuesta.get_return();
-			String texto = "";
-			texto += "<br/><br/><br/>";
-			texto += "A través del presente se adjunta las órdenes, premios e inventario que le fueron dejados en su sub bodega:";
-			texto += "<br/><br/>";
-			texto += "Atte:" + datosC.getRazonSocial();
+			String texto = null;
+			texto = generarCuerpoCorreo("1", datosC.getRazonSocial());
 			String asunto = "";
 			asunto += "OTS_" + datosC.getRazonSocial()
 					+ ": Envío de relación de mercancía dejada para su entrega";
@@ -256,6 +253,26 @@ public class EnvioReporteDejadosMail {
 			e.printStackTrace();
 		}
 		return error;
+	}
+	
+	/**
+	 * Metodo que general el cuerpo del correo dependiendo del tipo de reporte que se va a enviar
+	 * @param tipoReporte
+	 * @param razonSocial
+	 * @return
+	 */
+	private String generarCuerpoCorreo(String tipoReporte, String razonSocial) {
+		StringBuilder cuerpoCorreo = new StringBuilder();
+		
+		if(tipoReporte.equals("")) {
+			cuerpoCorreo.append("<br/><br/><br/>");
+			cuerpoCorreo.append("A través del presente se adjunta las órdenes, premios e inventario que le fueron dejados en su sub bodega:");
+			cuerpoCorreo.append("<br/><br/>");
+			cuerpoCorreo.append("Atte:");
+			cuerpoCorreo.append(razonSocial);
+		}
+		
+		return cuerpoCorreo.toString();
 	}
 
 	private List<ArchivoCorreo> llenarModelosCajas(ItemSubBodega[] items,

@@ -69,11 +69,13 @@ public class GenerarReporteOrdenesDejadasRecolectadasPUP {
 					//A LA REGLA DE NEGOCIO PERTENECIENTE A LA OTRA FUNCIONALIDAD
 					String resultado = envioMail.mandarArchivosCorreo(listaArchivo, idLDC,
 							recipientes, "Reporte de Liquidación de Reparto");
+					
 					String tipoLiquidacion = null;
 					if(tipoOrden.equals("dejada"))
 						tipoLiquidacion = "2";
 					else
 						tipoLiquidacion= "3";
+					
 					if (resultado.equals("")) {
 						tarea.actualizaStatusListaLiquidaciones((int)(orden.getIdSalidaReparto()), "E", tipoLiquidacion);
 					} else {
