@@ -23,19 +23,9 @@
               
                   if (
                   "http://model.avon_ots_ws.datacode.com/xsd".equals(namespaceURI) &&
-                  "DocumentoOrdenDejadaRecolectadaPUPDTO".equals(typeName)){
+                  "Archivo".equals(typeName)){
                    
-                            return  com.datacode.avon_ots_ws.model.xsd.DocumentoOrdenDejadaRecolectadaPUPDTO.Factory.parse(reader);
-                        
-
-                  }
-
-              
-                  if (
-                  "http://model.avon_ots_ws.datacode.com/xsd".equals(namespaceURI) &&
-                  "PUPDTO".equals(typeName)){
-                   
-                            return  com.datacode.avon_ots_ws.model.xsd.PUPDTO.Factory.parse(reader);
+                            return  com.datacode.avon_ots_ws.model.xsd.Archivo.Factory.parse(reader);
                         
 
                   }
@@ -53,9 +43,9 @@
               
                   if (
                   "http://model.avon_ots_ws.datacode.com/xsd".equals(namespaceURI) &&
-                  "PremioUnitarioOrdenDejadaRecolectadaPUPDTO".equals(typeName)){
+                  "ModelCorreoNoEnviado".equals(typeName)){
                    
-                            return  com.datacode.avon_ots_ws.model.xsd.PremioUnitarioOrdenDejadaRecolectadaPUPDTO.Factory.parse(reader);
+                            return  com.datacode.avon_ots_ws.model.xsd.ModelCorreoNoEnviado.Factory.parse(reader);
                         
 
                   }
@@ -63,9 +53,9 @@
               
                   if (
                   "http://model.avon_ots_ws.datacode.com/xsd".equals(namespaceURI) &&
-                  "CajaOrdenDejadaRecolectadaPUPDTO".equals(typeName)){
+                  "DatosCorreo".equals(typeName)){
                    
-                            return  com.datacode.avon_ots_ws.model.xsd.CajaOrdenDejadaRecolectadaPUPDTO.Factory.parse(reader);
+                            return  com.datacode.avon_ots_ws.model.xsd.DatosCorreo.Factory.parse(reader);
                         
 
                   }

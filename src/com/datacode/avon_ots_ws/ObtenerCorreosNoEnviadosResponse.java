@@ -1,6 +1,6 @@
 
 /**
- * ObtenerListaLiquidacionesMail.java
+ * ObtenerCorreosNoEnviadosResponse.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.7.1  Built on : Feb 20, 2016 (10:02:19 GMT)
@@ -11,19 +11,99 @@
             
 
             /**
-            *  ObtenerListaLiquidacionesMail bean class
+            *  ObtenerCorreosNoEnviadosResponse bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class ObtenerListaLiquidacionesMail
+        public  class ObtenerCorreosNoEnviadosResponse
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://avon_ots_ws.datacode.com",
-                "obtenerListaLiquidacionesMail",
+                "obtenerCorreosNoEnviadosResponse",
                 "ns2");
 
             
+
+                        /**
+                        * field for _return
+                        * This was an Array!
+                        */
+
+                        
+                                    protected com.datacode.avon_ots_ws.model.xsd.ModelCorreoNoEnviado[] local_return ;
+                                
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean local_returnTracker = false ;
+
+                           public boolean is_returnSpecified(){
+                               return local_returnTracker;
+                           }
+
+                           
+
+                           /**
+                           * Auto generated getter method
+                           * @return com.datacode.avon_ots_ws.model.xsd.ModelCorreoNoEnviado[]
+                           */
+                           public  com.datacode.avon_ots_ws.model.xsd.ModelCorreoNoEnviado[] get_return(){
+                               return local_return;
+                           }
+
+                           
+                        
+
+
+                               
+                              /**
+                               * validate the array for _return
+                               */
+                              protected void validate_return(com.datacode.avon_ots_ws.model.xsd.ModelCorreoNoEnviado[] param){
+                             
+                              }
+
+
+                             /**
+                              * Auto generated setter method
+                              * @param param _return
+                              */
+                              public void set_return(com.datacode.avon_ots_ws.model.xsd.ModelCorreoNoEnviado[] param){
+                              
+                                   validate_return(param);
+
+                               local_returnTracker = true;
+                                      
+                                      this.local_return=param;
+                              }
+
+                               
+                             
+                             /**
+                             * Auto generated add method for the array for convenience
+                             * @param param com.datacode.avon_ots_ws.model.xsd.ModelCorreoNoEnviado
+                             */
+                             public void add_return(com.datacode.avon_ots_ws.model.xsd.ModelCorreoNoEnviado param){
+                                   if (local_return == null){
+                                   local_return = new com.datacode.avon_ots_ws.model.xsd.ModelCorreoNoEnviado[]{};
+                                   }
+
+                            
+                                 //update the setting tracker
+                                local_returnTracker = true;
+                            
+
+                               java.util.List list =
+                            org.apache.axis2.databinding.utils.ConverterUtil.toList(local_return);
+                               list.add(param);
+                               this.local_return =
+                             (com.datacode.avon_ots_ws.model.xsd.ModelCorreoNoEnviado[])list.toArray(
+                            new com.datacode.avon_ots_ws.model.xsd.ModelCorreoNoEnviado[list.size()]);
+
+                             }
+                             
 
      
      
@@ -71,17 +151,43 @@
                    java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://avon_ots_ws.datacode.com");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":obtenerListaLiquidacionesMail",
+                           namespacePrefix+":obtenerCorreosNoEnviadosResponse",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "obtenerListaLiquidacionesMail",
+                           "obtenerCorreosNoEnviadosResponse",
                            xmlWriter);
                    }
 
                
                    }
-               
+                if (local_returnTracker){
+                                       if (local_return!=null){
+                                            for (int i = 0;i < local_return.length;i++){
+                                                if (local_return[i] != null){
+                                                 local_return[i].serialize(new javax.xml.namespace.QName("http://avon_ots_ws.datacode.com","return"),
+                                                           xmlWriter);
+                                                } else {
+                                                   
+                                                            writeStartElement(null, "http://avon_ots_ws.datacode.com", "return", xmlWriter);
+
+                                                           // write the nil attribute
+                                                           writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
+                                                           xmlWriter.writeEndElement();
+                                                    
+                                                }
+
+                                            }
+                                     } else {
+                                        
+                                                writeStartElement(null, "http://avon_ots_ws.datacode.com", "return", xmlWriter);
+
+                                               // write the nil attribute
+                                               writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
+                                               xmlWriter.writeEndElement();
+                                        
+                                    }
+                                 }
                     xmlWriter.writeEndElement();
                
 
@@ -273,9 +379,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static ObtenerListaLiquidacionesMail parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            ObtenerListaLiquidacionesMail object =
-                new ObtenerListaLiquidacionesMail();
+        public static ObtenerCorreosNoEnviadosResponse parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            ObtenerCorreosNoEnviadosResponse object =
+                new ObtenerCorreosNoEnviadosResponse();
 
             int event;
             javax.xml.namespace.QName currentQName = null;
@@ -301,10 +407,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"obtenerListaLiquidacionesMail".equals(type)){
+                            if (!"obtenerCorreosNoEnviadosResponse".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (ObtenerListaLiquidacionesMail)com.datacode.avon_ots_ws.model.xsd.ExtensionMapper.getTypeObject(
+                                return (ObtenerCorreosNoEnviadosResponse)com.datacode.avon_ots_ws.model.xsd.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
@@ -325,7 +431,68 @@
                 
                     
                     reader.next();
-                  
+                
+                        java.util.ArrayList list1 = new java.util.ArrayList();
+                    
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://avon_ots_ws.datacode.com","return").equals(reader.getName()) || new javax.xml.namespace.QName("","return").equals(reader.getName()) ){
+                                
+                                    
+                                    
+                                    // Process the array and step past its final element's end.
+                                    
+                                    
+                                                          nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                                          if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                                              list1.add(null);
+                                                              reader.next();
+                                                          } else {
+                                                        list1.add(com.datacode.avon_ots_ws.model.xsd.ModelCorreoNoEnviado.Factory.parse(reader));
+                                                                }
+                                                        //loop until we find a start element that is not part of this array
+                                                        boolean loopDone1 = false;
+                                                        while(!loopDone1){
+                                                            // We should be at the end element, but make sure
+                                                            while (!reader.isEndElement())
+                                                                reader.next();
+                                                            // Step out of this element
+                                                            reader.next();
+                                                            // Step to next element event.
+                                                            while (!reader.isStartElement() && !reader.isEndElement())
+                                                                reader.next();
+                                                            if (reader.isEndElement()){
+                                                                //two continuous end elements means we are exiting the xml structure
+                                                                loopDone1 = true;
+                                                            } else {
+                                                                if (new javax.xml.namespace.QName("http://avon_ots_ws.datacode.com","return").equals(reader.getName())){
+                                                                    
+                                                                      nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                                                      if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                                                          list1.add(null);
+                                                                          reader.next();
+                                                                      } else {
+                                                                    list1.add(com.datacode.avon_ots_ws.model.xsd.ModelCorreoNoEnviado.Factory.parse(reader));
+                                                                        }
+                                                                }else{
+                                                                    loopDone1 = true;
+                                                                }
+                                                            }
+                                                        }
+                                                        // call the converter utility  to convert and set the array
+                                                        
+                                                        object.set_return((com.datacode.avon_ots_ws.model.xsd.ModelCorreoNoEnviado[])
+                                                            org.apache.axis2.databinding.utils.ConverterUtil.convertToArray(
+                                                                com.datacode.avon_ots_ws.model.xsd.ModelCorreoNoEnviado.class,
+                                                                list1));
+                                                            
+                              }  // End of if for expected property start element
+                                
+                                    else {
+                                        
+                                    }
+                                  
                             while (!reader.isStartElement() && !reader.isEndElement())
                                 reader.next();
                             

@@ -1,6 +1,6 @@
 
 /**
- * ObtenerListaLiquidacionesMail.java
+ * ObtenerDatosCorreoCuentaMaestra.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.7.1  Built on : Feb 20, 2016 (10:02:19 GMT)
@@ -11,19 +11,64 @@
             
 
             /**
-            *  ObtenerListaLiquidacionesMail bean class
+            *  ObtenerDatosCorreoCuentaMaestra bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class ObtenerListaLiquidacionesMail
+        public  class ObtenerDatosCorreoCuentaMaestra
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://avon_ots_ws.datacode.com",
-                "obtenerListaLiquidacionesMail",
+                "obtenerDatosCorreoCuentaMaestra",
                 "ns2");
 
             
+
+                        /**
+                        * field for IdLDC
+                        */
+
+                        
+                                    protected int localIdLDC ;
+                                
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean localIdLDCTracker = false ;
+
+                           public boolean isIdLDCSpecified(){
+                               return localIdLDCTracker;
+                           }
+
+                           
+
+                           /**
+                           * Auto generated getter method
+                           * @return int
+                           */
+                           public  int getIdLDC(){
+                               return localIdLDC;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param IdLDC
+                               */
+                               public void setIdLDC(int param){
+                            
+                                       // setting primitive attribute tracker to true
+                                       localIdLDCTracker =
+                                       param != java.lang.Integer.MIN_VALUE;
+                                   
+                                            this.localIdLDC=param;
+                                       
+
+                               }
+                            
 
      
      
@@ -71,17 +116,30 @@
                    java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://avon_ots_ws.datacode.com");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":obtenerListaLiquidacionesMail",
+                           namespacePrefix+":obtenerDatosCorreoCuentaMaestra",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "obtenerListaLiquidacionesMail",
+                           "obtenerDatosCorreoCuentaMaestra",
                            xmlWriter);
                    }
 
                
                    }
-               
+                if (localIdLDCTracker){
+                                    namespace = "http://avon_ots_ws.datacode.com";
+                                    writeStartElement(null, namespace, "idLDC", xmlWriter);
+                             
+                                               if (localIdLDC==java.lang.Integer.MIN_VALUE) {
+                                           
+                                                         throw new org.apache.axis2.databinding.ADBException("idLDC cannot be null!!");
+                                                      
+                                               } else {
+                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdLDC));
+                                               }
+                                    
+                                   xmlWriter.writeEndElement();
+                             }
                     xmlWriter.writeEndElement();
                
 
@@ -273,9 +331,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static ObtenerListaLiquidacionesMail parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            ObtenerListaLiquidacionesMail object =
-                new ObtenerListaLiquidacionesMail();
+        public static ObtenerDatosCorreoCuentaMaestra parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            ObtenerDatosCorreoCuentaMaestra object =
+                new ObtenerDatosCorreoCuentaMaestra();
 
             int event;
             javax.xml.namespace.QName currentQName = null;
@@ -301,10 +359,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"obtenerListaLiquidacionesMail".equals(type)){
+                            if (!"obtenerDatosCorreoCuentaMaestra".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (ObtenerListaLiquidacionesMail)com.datacode.avon_ots_ws.model.xsd.ExtensionMapper.getTypeObject(
+                                return (ObtenerDatosCorreoCuentaMaestra)com.datacode.avon_ots_ws.model.xsd.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
@@ -325,7 +383,33 @@
                 
                     
                     reader.next();
-                  
+                
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://avon_ots_ws.datacode.com","idLDC").equals(reader.getName()) || new javax.xml.namespace.QName("","idLDC").equals(reader.getName()) ){
+                                
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"idLDC" +"  cannot be null");
+                                    }
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setIdLDC(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                    else {
+                                        
+                                               object.setIdLDC(java.lang.Integer.MIN_VALUE);
+                                           
+                                    }
+                                  
                             while (!reader.isStartElement() && !reader.isEndElement())
                                 reader.next();
                             

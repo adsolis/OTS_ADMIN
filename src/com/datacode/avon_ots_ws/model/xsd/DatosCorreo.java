@@ -1,6 +1,6 @@
 
 /**
- * LiquidacionRepartoDTO.java
+ * DatosCorreo.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.7.1  Built on : Feb 20, 2016 (10:02:19 GMT)
@@ -11,34 +11,34 @@
             
 
             /**
-            *  LiquidacionRepartoDTO bean class
+            *  DatosCorreo bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class LiquidacionRepartoDTO
+        public  class DatosCorreo
         implements org.apache.axis2.databinding.ADBBean{
         /* This type was generated from the piece of schema that had
-                name = LiquidacionRepartoDTO
+                name = DatosCorreo
                 Namespace URI = http://model.avon_ots_ws.datacode.com/xsd
                 Namespace Prefix = ns1
                 */
             
 
                         /**
-                        * field for EstatusCorreo
+                        * field for ClavePorteo
                         */
 
                         
-                                    protected java.lang.String localEstatusCorreo ;
+                                    protected java.lang.String localClavePorteo ;
                                 
                            /*  This tracker boolean wil be used to detect whether the user called the set method
                           *   for this attribute. It will be used to determine whether to include this field
                            *   in the serialized XML
                            */
-                           protected boolean localEstatusCorreoTracker = false ;
+                           protected boolean localClavePorteoTracker = false ;
 
-                           public boolean isEstatusCorreoSpecified(){
-                               return localEstatusCorreoTracker;
+                           public boolean isClavePorteoSpecified(){
+                               return localClavePorteoTracker;
                            }
 
                            
@@ -47,40 +47,40 @@
                            * Auto generated getter method
                            * @return java.lang.String
                            */
-                           public  java.lang.String getEstatusCorreo(){
-                               return localEstatusCorreo;
+                           public  java.lang.String getClavePorteo(){
+                               return localClavePorteo;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param EstatusCorreo
+                               * @param param ClavePorteo
                                */
-                               public void setEstatusCorreo(java.lang.String param){
-                            localEstatusCorreoTracker = true;
+                               public void setClavePorteo(java.lang.String param){
+                            localClavePorteoTracker = true;
                                    
-                                            this.localEstatusCorreo=param;
+                                            this.localClavePorteo=param;
                                        
 
                                }
                             
 
                         /**
-                        * field for EstatusCorreoDejadasPUP
+                        * field for Cuenta
                         */
 
                         
-                                    protected java.lang.String localEstatusCorreoDejadasPUP ;
+                                    protected java.lang.String localCuenta ;
                                 
                            /*  This tracker boolean wil be used to detect whether the user called the set method
                           *   for this attribute. It will be used to determine whether to include this field
                            *   in the serialized XML
                            */
-                           protected boolean localEstatusCorreoDejadasPUPTracker = false ;
+                           protected boolean localCuentaTracker = false ;
 
-                           public boolean isEstatusCorreoDejadasPUPSpecified(){
-                               return localEstatusCorreoDejadasPUPTracker;
+                           public boolean isCuentaSpecified(){
+                               return localCuentaTracker;
                            }
 
                            
@@ -89,40 +89,85 @@
                            * Auto generated getter method
                            * @return java.lang.String
                            */
-                           public  java.lang.String getEstatusCorreoDejadasPUP(){
-                               return localEstatusCorreoDejadasPUP;
+                           public  java.lang.String getCuenta(){
+                               return localCuenta;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param EstatusCorreoDejadasPUP
+                               * @param param Cuenta
                                */
-                               public void setEstatusCorreoDejadasPUP(java.lang.String param){
-                            localEstatusCorreoDejadasPUPTracker = true;
+                               public void setCuenta(java.lang.String param){
+                            localCuentaTracker = true;
                                    
-                                            this.localEstatusCorreoDejadasPUP=param;
+                                            this.localCuenta=param;
                                        
 
                                }
                             
 
                         /**
-                        * field for EstatusCorreoRecolectadasPUP
+                        * field for HabilitaSSL
                         */
 
                         
-                                    protected java.lang.String localEstatusCorreoRecolectadasPUP ;
+                                    protected boolean localHabilitaSSL ;
                                 
                            /*  This tracker boolean wil be used to detect whether the user called the set method
                           *   for this attribute. It will be used to determine whether to include this field
                            *   in the serialized XML
                            */
-                           protected boolean localEstatusCorreoRecolectadasPUPTracker = false ;
+                           protected boolean localHabilitaSSLTracker = false ;
 
-                           public boolean isEstatusCorreoRecolectadasPUPSpecified(){
-                               return localEstatusCorreoRecolectadasPUPTracker;
+                           public boolean isHabilitaSSLSpecified(){
+                               return localHabilitaSSLTracker;
+                           }
+
+                           
+
+                           /**
+                           * Auto generated getter method
+                           * @return boolean
+                           */
+                           public  boolean getHabilitaSSL(){
+                               return localHabilitaSSL;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param HabilitaSSL
+                               */
+                               public void setHabilitaSSL(boolean param){
+                            
+                                       // setting primitive attribute tracker to true
+                                       localHabilitaSSLTracker =
+                                       true;
+                                   
+                                            this.localHabilitaSSL=param;
+                                       
+
+                               }
+                            
+
+                        /**
+                        * field for Password
+                        */
+
+                        
+                                    protected java.lang.String localPassword ;
+                                
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean localPasswordTracker = false ;
+
+                           public boolean isPasswordSpecified(){
+                               return localPasswordTracker;
                            }
 
                            
@@ -131,40 +176,40 @@
                            * Auto generated getter method
                            * @return java.lang.String
                            */
-                           public  java.lang.String getEstatusCorreoRecolectadasPUP(){
-                               return localEstatusCorreoRecolectadasPUP;
+                           public  java.lang.String getPassword(){
+                               return localPassword;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param EstatusCorreoRecolectadasPUP
+                               * @param param Password
                                */
-                               public void setEstatusCorreoRecolectadasPUP(java.lang.String param){
-                            localEstatusCorreoRecolectadasPUPTracker = true;
+                               public void setPassword(java.lang.String param){
+                            localPasswordTracker = true;
                                    
-                                            this.localEstatusCorreoRecolectadasPUP=param;
+                                            this.localPassword=param;
                                        
 
                                }
                             
 
                         /**
-                        * field for IdSalidaReparto
+                        * field for Puerto
                         */
 
                         
-                                    protected int localIdSalidaReparto ;
+                                    protected int localPuerto ;
                                 
                            /*  This tracker boolean wil be used to detect whether the user called the set method
                           *   for this attribute. It will be used to determine whether to include this field
                            *   in the serialized XML
                            */
-                           protected boolean localIdSalidaRepartoTracker = false ;
+                           protected boolean localPuertoTracker = false ;
 
-                           public boolean isIdSalidaRepartoSpecified(){
-                               return localIdSalidaRepartoTracker;
+                           public boolean isPuertoSpecified(){
+                               return localPuertoTracker;
                            }
 
                            
@@ -173,20 +218,149 @@
                            * Auto generated getter method
                            * @return int
                            */
-                           public  int getIdSalidaReparto(){
-                               return localIdSalidaReparto;
+                           public  int getPuerto(){
+                               return localPuerto;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param IdSalidaReparto
+                               * @param param Puerto
                                */
-                               public void setIdSalidaReparto(int param){
-                            localIdSalidaRepartoTracker = true;
+                               public void setPuerto(int param){
+                            
+                                       // setting primitive attribute tracker to true
+                                       localPuertoTracker =
+                                       param != java.lang.Integer.MIN_VALUE;
                                    
-                                            this.localIdSalidaReparto=param;
+                                            this.localPuerto=param;
+                                       
+
+                               }
+                            
+
+                        /**
+                        * field for RazonSocial
+                        */
+
+                        
+                                    protected java.lang.String localRazonSocial ;
+                                
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean localRazonSocialTracker = false ;
+
+                           public boolean isRazonSocialSpecified(){
+                               return localRazonSocialTracker;
+                           }
+
+                           
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.lang.String
+                           */
+                           public  java.lang.String getRazonSocial(){
+                               return localRazonSocial;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param RazonSocial
+                               */
+                               public void setRazonSocial(java.lang.String param){
+                            localRazonSocialTracker = true;
+                                   
+                                            this.localRazonSocial=param;
+                                       
+
+                               }
+                            
+
+                        /**
+                        * field for Servidor
+                        */
+
+                        
+                                    protected java.lang.String localServidor ;
+                                
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean localServidorTracker = false ;
+
+                           public boolean isServidorSpecified(){
+                               return localServidorTracker;
+                           }
+
+                           
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.lang.String
+                           */
+                           public  java.lang.String getServidor(){
+                               return localServidor;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param Servidor
+                               */
+                               public void setServidor(java.lang.String param){
+                            localServidorTracker = true;
+                                   
+                                            this.localServidor=param;
+                                       
+
+                               }
+                            
+
+                        /**
+                        * field for Usuario
+                        */
+
+                        
+                                    protected java.lang.String localUsuario ;
+                                
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean localUsuarioTracker = false ;
+
+                           public boolean isUsuarioSpecified(){
+                               return localUsuarioTracker;
+                           }
+
+                           
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.lang.String
+                           */
+                           public  java.lang.String getUsuario(){
+                               return localUsuario;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param Usuario
+                               */
+                               public void setUsuario(java.lang.String param){
+                            localUsuarioTracker = true;
+                                   
+                                            this.localUsuario=param;
                                        
 
                                }
@@ -238,22 +412,22 @@
                    java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://model.avon_ots_ws.datacode.com/xsd");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":LiquidacionRepartoDTO",
+                           namespacePrefix+":DatosCorreo",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "LiquidacionRepartoDTO",
+                           "DatosCorreo",
                            xmlWriter);
                    }
 
                
                    }
-                if (localEstatusCorreoTracker){
+                if (localClavePorteoTracker){
                                     namespace = "http://model.avon_ots_ws.datacode.com/xsd";
-                                    writeStartElement(null, namespace, "estatusCorreo", xmlWriter);
+                                    writeStartElement(null, namespace, "clavePorteo", xmlWriter);
                              
 
-                                          if (localEstatusCorreo==null){
+                                          if (localClavePorteo==null){
                                               // write the nil attribute
                                               
                                                      writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
@@ -261,17 +435,17 @@
                                           }else{
 
                                         
-                                                   xmlWriter.writeCharacters(localEstatusCorreo);
+                                                   xmlWriter.writeCharacters(localClavePorteo);
                                             
                                           }
                                     
                                    xmlWriter.writeEndElement();
-                             } if (localEstatusCorreoDejadasPUPTracker){
+                             } if (localCuentaTracker){
                                     namespace = "http://model.avon_ots_ws.datacode.com/xsd";
-                                    writeStartElement(null, namespace, "estatusCorreoDejadasPUP", xmlWriter);
+                                    writeStartElement(null, namespace, "cuenta", xmlWriter);
                              
 
-                                          if (localEstatusCorreoDejadasPUP==null){
+                                          if (localCuenta==null){
                                               // write the nil attribute
                                               
                                                      writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
@@ -279,40 +453,107 @@
                                           }else{
 
                                         
-                                                   xmlWriter.writeCharacters(localEstatusCorreoDejadasPUP);
+                                                   xmlWriter.writeCharacters(localCuenta);
                                             
                                           }
                                     
                                    xmlWriter.writeEndElement();
-                             } if (localEstatusCorreoRecolectadasPUPTracker){
+                             } if (localHabilitaSSLTracker){
                                     namespace = "http://model.avon_ots_ws.datacode.com/xsd";
-                                    writeStartElement(null, namespace, "estatusCorreoRecolectadasPUP", xmlWriter);
+                                    writeStartElement(null, namespace, "habilitaSSL", xmlWriter);
                              
-
-                                          if (localEstatusCorreoRecolectadasPUP==null){
-                                              // write the nil attribute
-                                              
-                                                     writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
-                                                  
-                                          }else{
-
-                                        
-                                                   xmlWriter.writeCharacters(localEstatusCorreoRecolectadasPUP);
-                                            
-                                          }
-                                    
-                                   xmlWriter.writeEndElement();
-                             } if (localIdSalidaRepartoTracker){
-                                    namespace = "http://model.avon_ots_ws.datacode.com/xsd";
-                                    writeStartElement(null, namespace, "idSalidaReparto", xmlWriter);
-                             
-                                               if (localIdSalidaReparto==java.lang.Integer.MIN_VALUE) {
+                                               if (false) {
                                            
-                                                         writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
+                                                         throw new org.apache.axis2.databinding.ADBException("habilitaSSL cannot be null!!");
                                                       
                                                } else {
-                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdSalidaReparto));
+                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localHabilitaSSL));
                                                }
+                                    
+                                   xmlWriter.writeEndElement();
+                             } if (localPasswordTracker){
+                                    namespace = "http://model.avon_ots_ws.datacode.com/xsd";
+                                    writeStartElement(null, namespace, "password", xmlWriter);
+                             
+
+                                          if (localPassword==null){
+                                              // write the nil attribute
+                                              
+                                                     writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localPassword);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             } if (localPuertoTracker){
+                                    namespace = "http://model.avon_ots_ws.datacode.com/xsd";
+                                    writeStartElement(null, namespace, "puerto", xmlWriter);
+                             
+                                               if (localPuerto==java.lang.Integer.MIN_VALUE) {
+                                           
+                                                         throw new org.apache.axis2.databinding.ADBException("puerto cannot be null!!");
+                                                      
+                                               } else {
+                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPuerto));
+                                               }
+                                    
+                                   xmlWriter.writeEndElement();
+                             } if (localRazonSocialTracker){
+                                    namespace = "http://model.avon_ots_ws.datacode.com/xsd";
+                                    writeStartElement(null, namespace, "razonSocial", xmlWriter);
+                             
+
+                                          if (localRazonSocial==null){
+                                              // write the nil attribute
+                                              
+                                                     writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localRazonSocial);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             } if (localServidorTracker){
+                                    namespace = "http://model.avon_ots_ws.datacode.com/xsd";
+                                    writeStartElement(null, namespace, "servidor", xmlWriter);
+                             
+
+                                          if (localServidor==null){
+                                              // write the nil attribute
+                                              
+                                                     writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localServidor);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             } if (localUsuarioTracker){
+                                    namespace = "http://model.avon_ots_ws.datacode.com/xsd";
+                                    writeStartElement(null, namespace, "usuario", xmlWriter);
+                             
+
+                                          if (localUsuario==null){
+                                              // write the nil attribute
+                                              
+                                                     writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localUsuario);
+                                            
+                                          }
                                     
                                    xmlWriter.writeEndElement();
                              }
@@ -507,9 +748,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static LiquidacionRepartoDTO parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            LiquidacionRepartoDTO object =
-                new LiquidacionRepartoDTO();
+        public static DatosCorreo parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            DatosCorreo object =
+                new DatosCorreo();
 
             int event;
             javax.xml.namespace.QName currentQName = null;
@@ -535,10 +776,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"LiquidacionRepartoDTO".equals(type)){
+                            if (!"DatosCorreo".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (LiquidacionRepartoDTO)com.datacode.avon_ots_ws.model.xsd.ExtensionMapper.getTypeObject(
+                                return (DatosCorreo)com.datacode.avon_ots_ws.model.xsd.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
@@ -563,7 +804,7 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","estatusCorreo").equals(reader.getName()) || new javax.xml.namespace.QName("","estatusCorreo").equals(reader.getName()) ){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","clavePorteo").equals(reader.getName()) || new javax.xml.namespace.QName("","clavePorteo").equals(reader.getName()) ){
                                 
                                        nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
                                        if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
@@ -571,7 +812,7 @@
 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setEstatusCorreo(
+                                              object.setClavePorteo(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                             
                                        } else {
@@ -591,7 +832,7 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","estatusCorreoDejadasPUP").equals(reader.getName()) || new javax.xml.namespace.QName("","estatusCorreoDejadasPUP").equals(reader.getName()) ){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","cuenta").equals(reader.getName()) || new javax.xml.namespace.QName("","cuenta").equals(reader.getName()) ){
                                 
                                        nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
                                        if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
@@ -599,7 +840,7 @@
 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setEstatusCorreoDejadasPUP(
+                                              object.setCuenta(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                             
                                        } else {
@@ -619,7 +860,31 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","estatusCorreoRecolectadasPUP").equals(reader.getName()) || new javax.xml.namespace.QName("","estatusCorreoRecolectadasPUP").equals(reader.getName()) ){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","habilitaSSL").equals(reader.getName()) || new javax.xml.namespace.QName("","habilitaSSL").equals(reader.getName()) ){
+                                
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"habilitaSSL" +"  cannot be null");
+                                    }
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setHabilitaSSL(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToBoolean(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                    else {
+                                        
+                                    }
+                                
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","password").equals(reader.getName()) || new javax.xml.namespace.QName("","password").equals(reader.getName()) ){
                                 
                                        nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
                                        if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
@@ -627,7 +892,7 @@
 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setEstatusCorreoRecolectadasPUP(
+                                              object.setPassword(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                             
                                        } else {
@@ -647,22 +912,46 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","idSalidaReparto").equals(reader.getName()) || new javax.xml.namespace.QName("","idSalidaReparto").equals(reader.getName()) ){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","puerto").equals(reader.getName()) || new javax.xml.namespace.QName("","puerto").equals(reader.getName()) ){
                                 
-                                       nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                       if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"puerto" +"  cannot be null");
+                                    }
                                     
 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setIdSalidaReparto(
+                                              object.setPuerto(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                    else {
+                                        
+                                               object.setPuerto(java.lang.Integer.MIN_VALUE);
+                                           
+                                    }
+                                
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","razonSocial").equals(reader.getName()) || new javax.xml.namespace.QName("","razonSocial").equals(reader.getName()) ){
+                                
+                                       nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                       if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setRazonSocial(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                             
                                        } else {
                                            
                                            
-                                                   object.setIdSalidaReparto(java.lang.Integer.MIN_VALUE);
-                                               
                                            reader.getElementText(); // throw away text nodes if any.
                                        }
                                       
@@ -672,8 +961,62 @@
                                 
                                     else {
                                         
-                                               object.setIdSalidaReparto(java.lang.Integer.MIN_VALUE);
+                                    }
+                                
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","servidor").equals(reader.getName()) || new javax.xml.namespace.QName("","servidor").equals(reader.getName()) ){
+                                
+                                       nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                       if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setServidor(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                            
+                                       } else {
                                            
+                                           
+                                           reader.getElementText(); // throw away text nodes if any.
+                                       }
+                                      
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                    else {
+                                        
+                                    }
+                                
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","usuario").equals(reader.getName()) || new javax.xml.namespace.QName("","usuario").equals(reader.getName()) ){
+                                
+                                       nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                       if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setUsuario(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                            
+                                       } else {
+                                           
+                                           
+                                           reader.getElementText(); // throw away text nodes if any.
+                                       }
+                                      
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                    else {
+                                        
                                     }
                                   
                             while (!reader.isStartElement() && !reader.isEndElement())

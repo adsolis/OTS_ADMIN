@@ -1,6 +1,6 @@
 
 /**
- * ObtenerListaLiquidacionesMail.java
+ * RegistrarEnvioMailReporteSubbodega.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.7.1  Built on : Feb 20, 2016 (10:02:19 GMT)
@@ -11,19 +11,109 @@
             
 
             /**
-            *  ObtenerListaLiquidacionesMail bean class
+            *  RegistrarEnvioMailReporteSubbodega bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class ObtenerListaLiquidacionesMail
+        public  class RegistrarEnvioMailReporteSubbodega
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://avon_ots_ws.datacode.com",
-                "obtenerListaLiquidacionesMail",
+                "registrarEnvioMailReporteSubbodega",
                 "ns2");
 
             
+
+                        /**
+                        * field for IdUsuario
+                        */
+
+                        
+                                    protected int localIdUsuario ;
+                                
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean localIdUsuarioTracker = false ;
+
+                           public boolean isIdUsuarioSpecified(){
+                               return localIdUsuarioTracker;
+                           }
+
+                           
+
+                           /**
+                           * Auto generated getter method
+                           * @return int
+                           */
+                           public  int getIdUsuario(){
+                               return localIdUsuario;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param IdUsuario
+                               */
+                               public void setIdUsuario(int param){
+                            
+                                       // setting primitive attribute tracker to true
+                                       localIdUsuarioTracker =
+                                       param != java.lang.Integer.MIN_VALUE;
+                                   
+                                            this.localIdUsuario=param;
+                                       
+
+                               }
+                            
+
+                        /**
+                        * field for IdCorreoEnviado
+                        */
+
+                        
+                                    protected int localIdCorreoEnviado ;
+                                
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean localIdCorreoEnviadoTracker = false ;
+
+                           public boolean isIdCorreoEnviadoSpecified(){
+                               return localIdCorreoEnviadoTracker;
+                           }
+
+                           
+
+                           /**
+                           * Auto generated getter method
+                           * @return int
+                           */
+                           public  int getIdCorreoEnviado(){
+                               return localIdCorreoEnviado;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param IdCorreoEnviado
+                               */
+                               public void setIdCorreoEnviado(int param){
+                            
+                                       // setting primitive attribute tracker to true
+                                       localIdCorreoEnviadoTracker =
+                                       param != java.lang.Integer.MIN_VALUE;
+                                   
+                                            this.localIdCorreoEnviado=param;
+                                       
+
+                               }
+                            
 
      
      
@@ -71,17 +161,43 @@
                    java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://avon_ots_ws.datacode.com");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":obtenerListaLiquidacionesMail",
+                           namespacePrefix+":registrarEnvioMailReporteSubbodega",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "obtenerListaLiquidacionesMail",
+                           "registrarEnvioMailReporteSubbodega",
                            xmlWriter);
                    }
 
                
                    }
-               
+                if (localIdUsuarioTracker){
+                                    namespace = "http://avon_ots_ws.datacode.com";
+                                    writeStartElement(null, namespace, "idUsuario", xmlWriter);
+                             
+                                               if (localIdUsuario==java.lang.Integer.MIN_VALUE) {
+                                           
+                                                         throw new org.apache.axis2.databinding.ADBException("idUsuario cannot be null!!");
+                                                      
+                                               } else {
+                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdUsuario));
+                                               }
+                                    
+                                   xmlWriter.writeEndElement();
+                             } if (localIdCorreoEnviadoTracker){
+                                    namespace = "http://avon_ots_ws.datacode.com";
+                                    writeStartElement(null, namespace, "idCorreoEnviado", xmlWriter);
+                             
+                                               if (localIdCorreoEnviado==java.lang.Integer.MIN_VALUE) {
+                                           
+                                                         throw new org.apache.axis2.databinding.ADBException("idCorreoEnviado cannot be null!!");
+                                                      
+                                               } else {
+                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdCorreoEnviado));
+                                               }
+                                    
+                                   xmlWriter.writeEndElement();
+                             }
                     xmlWriter.writeEndElement();
                
 
@@ -273,9 +389,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static ObtenerListaLiquidacionesMail parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            ObtenerListaLiquidacionesMail object =
-                new ObtenerListaLiquidacionesMail();
+        public static RegistrarEnvioMailReporteSubbodega parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            RegistrarEnvioMailReporteSubbodega object =
+                new RegistrarEnvioMailReporteSubbodega();
 
             int event;
             javax.xml.namespace.QName currentQName = null;
@@ -301,10 +417,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"obtenerListaLiquidacionesMail".equals(type)){
+                            if (!"registrarEnvioMailReporteSubbodega".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (ObtenerListaLiquidacionesMail)com.datacode.avon_ots_ws.model.xsd.ExtensionMapper.getTypeObject(
+                                return (RegistrarEnvioMailReporteSubbodega)com.datacode.avon_ots_ws.model.xsd.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
@@ -325,7 +441,59 @@
                 
                     
                     reader.next();
-                  
+                
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://avon_ots_ws.datacode.com","idUsuario").equals(reader.getName()) || new javax.xml.namespace.QName("","idUsuario").equals(reader.getName()) ){
+                                
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"idUsuario" +"  cannot be null");
+                                    }
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setIdUsuario(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                    else {
+                                        
+                                               object.setIdUsuario(java.lang.Integer.MIN_VALUE);
+                                           
+                                    }
+                                
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://avon_ots_ws.datacode.com","idCorreoEnviado").equals(reader.getName()) || new javax.xml.namespace.QName("","idCorreoEnviado").equals(reader.getName()) ){
+                                
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"idCorreoEnviado" +"  cannot be null");
+                                    }
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setIdCorreoEnviado(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                    else {
+                                        
+                                               object.setIdCorreoEnviado(java.lang.Integer.MIN_VALUE);
+                                           
+                                    }
+                                  
                             while (!reader.isStartElement() && !reader.isEndElement())
                                 reader.next();
                             

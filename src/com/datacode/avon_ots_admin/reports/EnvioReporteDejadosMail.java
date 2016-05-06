@@ -134,28 +134,6 @@ public class EnvioReporteDejadosMail {
 		}
 		return "";
 	}
-	
-	/**
-	 * Metodo para generar el reporte de las ordenes recolectadas
-	 */
-	private String generarReporteOrdenesRecolectadas() {
-		String status = null;
-		ArchivoCorreo archivoCorreo = null;
-		
-		List<ModelDetalleCajas> detalleCajas = null;
-		List<ModelDetallePremios> detallePremios = null;
-		List<ModelDetalleDocumento> detalleDocumento = null;
-		
-		//TODO consultar detalle de Cajas
-		
-		//TODO consultar detalle de Unitarios y Premios
-		
-		//TODO consultar detalle de Documentos
-		
-		
-		
-		return status;
-	}
 
 	public String mandarArchivosCorreo(List<ArchivoCorreo> archivos,
 			int idLDC, String recipientes, String nombreReporte) {

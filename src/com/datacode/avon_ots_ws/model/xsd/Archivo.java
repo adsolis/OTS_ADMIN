@@ -1,6 +1,6 @@
 
 /**
- * LiquidacionRepartoDTO.java
+ * Archivo.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.7.1  Built on : Feb 20, 2016 (10:02:19 GMT)
@@ -11,34 +11,76 @@
             
 
             /**
-            *  LiquidacionRepartoDTO bean class
+            *  Archivo bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class LiquidacionRepartoDTO
+        public  class Archivo
         implements org.apache.axis2.databinding.ADBBean{
         /* This type was generated from the piece of schema that had
-                name = LiquidacionRepartoDTO
+                name = Archivo
                 Namespace URI = http://model.avon_ots_ws.datacode.com/xsd
                 Namespace Prefix = ns1
                 */
             
 
                         /**
-                        * field for EstatusCorreo
+                        * field for Archivo
                         */
 
                         
-                                    protected java.lang.String localEstatusCorreo ;
+                                    protected javax.activation.DataHandler localArchivo ;
                                 
                            /*  This tracker boolean wil be used to detect whether the user called the set method
                           *   for this attribute. It will be used to determine whether to include this field
                            *   in the serialized XML
                            */
-                           protected boolean localEstatusCorreoTracker = false ;
+                           protected boolean localArchivoTracker = false ;
 
-                           public boolean isEstatusCorreoSpecified(){
-                               return localEstatusCorreoTracker;
+                           public boolean isArchivoSpecified(){
+                               return localArchivoTracker;
+                           }
+
+                           
+
+                           /**
+                           * Auto generated getter method
+                           * @return javax.activation.DataHandler
+                           */
+                           public  javax.activation.DataHandler getArchivo(){
+                               return localArchivo;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param Archivo
+                               */
+                               public void setArchivo(javax.activation.DataHandler param){
+                            localArchivoTracker = true;
+                                   
+                                            this.localArchivo=param;
+                                       
+
+                               }
+                            
+
+                        /**
+                        * field for Nombre
+                        */
+
+                        
+                                    protected java.lang.String localNombre ;
+                                
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean localNombreTracker = false ;
+
+                           public boolean isNombreSpecified(){
+                               return localNombreTracker;
                            }
 
                            
@@ -47,40 +89,40 @@
                            * Auto generated getter method
                            * @return java.lang.String
                            */
-                           public  java.lang.String getEstatusCorreo(){
-                               return localEstatusCorreo;
+                           public  java.lang.String getNombre(){
+                               return localNombre;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param EstatusCorreo
+                               * @param param Nombre
                                */
-                               public void setEstatusCorreo(java.lang.String param){
-                            localEstatusCorreoTracker = true;
+                               public void setNombre(java.lang.String param){
+                            localNombreTracker = true;
                                    
-                                            this.localEstatusCorreo=param;
+                                            this.localNombre=param;
                                        
 
                                }
                             
 
                         /**
-                        * field for EstatusCorreoDejadasPUP
+                        * field for TipoContenido
                         */
 
                         
-                                    protected java.lang.String localEstatusCorreoDejadasPUP ;
+                                    protected java.lang.String localTipoContenido ;
                                 
                            /*  This tracker boolean wil be used to detect whether the user called the set method
                           *   for this attribute. It will be used to determine whether to include this field
                            *   in the serialized XML
                            */
-                           protected boolean localEstatusCorreoDejadasPUPTracker = false ;
+                           protected boolean localTipoContenidoTracker = false ;
 
-                           public boolean isEstatusCorreoDejadasPUPSpecified(){
-                               return localEstatusCorreoDejadasPUPTracker;
+                           public boolean isTipoContenidoSpecified(){
+                               return localTipoContenidoTracker;
                            }
 
                            
@@ -89,104 +131,20 @@
                            * Auto generated getter method
                            * @return java.lang.String
                            */
-                           public  java.lang.String getEstatusCorreoDejadasPUP(){
-                               return localEstatusCorreoDejadasPUP;
+                           public  java.lang.String getTipoContenido(){
+                               return localTipoContenido;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param EstatusCorreoDejadasPUP
+                               * @param param TipoContenido
                                */
-                               public void setEstatusCorreoDejadasPUP(java.lang.String param){
-                            localEstatusCorreoDejadasPUPTracker = true;
+                               public void setTipoContenido(java.lang.String param){
+                            localTipoContenidoTracker = true;
                                    
-                                            this.localEstatusCorreoDejadasPUP=param;
-                                       
-
-                               }
-                            
-
-                        /**
-                        * field for EstatusCorreoRecolectadasPUP
-                        */
-
-                        
-                                    protected java.lang.String localEstatusCorreoRecolectadasPUP ;
-                                
-                           /*  This tracker boolean wil be used to detect whether the user called the set method
-                          *   for this attribute. It will be used to determine whether to include this field
-                           *   in the serialized XML
-                           */
-                           protected boolean localEstatusCorreoRecolectadasPUPTracker = false ;
-
-                           public boolean isEstatusCorreoRecolectadasPUPSpecified(){
-                               return localEstatusCorreoRecolectadasPUPTracker;
-                           }
-
-                           
-
-                           /**
-                           * Auto generated getter method
-                           * @return java.lang.String
-                           */
-                           public  java.lang.String getEstatusCorreoRecolectadasPUP(){
-                               return localEstatusCorreoRecolectadasPUP;
-                           }
-
-                           
-                        
-                            /**
-                               * Auto generated setter method
-                               * @param param EstatusCorreoRecolectadasPUP
-                               */
-                               public void setEstatusCorreoRecolectadasPUP(java.lang.String param){
-                            localEstatusCorreoRecolectadasPUPTracker = true;
-                                   
-                                            this.localEstatusCorreoRecolectadasPUP=param;
-                                       
-
-                               }
-                            
-
-                        /**
-                        * field for IdSalidaReparto
-                        */
-
-                        
-                                    protected int localIdSalidaReparto ;
-                                
-                           /*  This tracker boolean wil be used to detect whether the user called the set method
-                          *   for this attribute. It will be used to determine whether to include this field
-                           *   in the serialized XML
-                           */
-                           protected boolean localIdSalidaRepartoTracker = false ;
-
-                           public boolean isIdSalidaRepartoSpecified(){
-                               return localIdSalidaRepartoTracker;
-                           }
-
-                           
-
-                           /**
-                           * Auto generated getter method
-                           * @return int
-                           */
-                           public  int getIdSalidaReparto(){
-                               return localIdSalidaReparto;
-                           }
-
-                           
-                        
-                            /**
-                               * Auto generated setter method
-                               * @param param IdSalidaReparto
-                               */
-                               public void setIdSalidaReparto(int param){
-                            localIdSalidaRepartoTracker = true;
-                                   
-                                            this.localIdSalidaReparto=param;
+                                            this.localTipoContenido=param;
                                        
 
                                }
@@ -238,22 +196,40 @@
                    java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://model.avon_ots_ws.datacode.com/xsd");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":LiquidacionRepartoDTO",
+                           namespacePrefix+":Archivo",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "LiquidacionRepartoDTO",
+                           "Archivo",
                            xmlWriter);
                    }
 
                
                    }
-                if (localEstatusCorreoTracker){
+                if (localArchivoTracker){
                                     namespace = "http://model.avon_ots_ws.datacode.com/xsd";
-                                    writeStartElement(null, namespace, "estatusCorreo", xmlWriter);
+                                    writeStartElement(null, namespace, "archivo", xmlWriter);
+                             
+                                        
+                                    if (localArchivo!=null)  {
+                                       try {
+                                           org.apache.axiom.util.stax.XMLStreamWriterUtils.writeDataHandler(xmlWriter, localArchivo, null, true);
+                                       } catch (java.io.IOException ex) {
+                                           throw new javax.xml.stream.XMLStreamException("Unable to read data handler for archivo", ex);
+                                       }
+                                    } else {
+                                         
+                                             writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
+                                         
+                                    }
+                                 
+                                   xmlWriter.writeEndElement();
+                             } if (localNombreTracker){
+                                    namespace = "http://model.avon_ots_ws.datacode.com/xsd";
+                                    writeStartElement(null, namespace, "nombre", xmlWriter);
                              
 
-                                          if (localEstatusCorreo==null){
+                                          if (localNombre==null){
                                               // write the nil attribute
                                               
                                                      writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
@@ -261,17 +237,17 @@
                                           }else{
 
                                         
-                                                   xmlWriter.writeCharacters(localEstatusCorreo);
+                                                   xmlWriter.writeCharacters(localNombre);
                                             
                                           }
                                     
                                    xmlWriter.writeEndElement();
-                             } if (localEstatusCorreoDejadasPUPTracker){
+                             } if (localTipoContenidoTracker){
                                     namespace = "http://model.avon_ots_ws.datacode.com/xsd";
-                                    writeStartElement(null, namespace, "estatusCorreoDejadasPUP", xmlWriter);
+                                    writeStartElement(null, namespace, "tipoContenido", xmlWriter);
                              
 
-                                          if (localEstatusCorreoDejadasPUP==null){
+                                          if (localTipoContenido==null){
                                               // write the nil attribute
                                               
                                                      writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
@@ -279,40 +255,9 @@
                                           }else{
 
                                         
-                                                   xmlWriter.writeCharacters(localEstatusCorreoDejadasPUP);
+                                                   xmlWriter.writeCharacters(localTipoContenido);
                                             
                                           }
-                                    
-                                   xmlWriter.writeEndElement();
-                             } if (localEstatusCorreoRecolectadasPUPTracker){
-                                    namespace = "http://model.avon_ots_ws.datacode.com/xsd";
-                                    writeStartElement(null, namespace, "estatusCorreoRecolectadasPUP", xmlWriter);
-                             
-
-                                          if (localEstatusCorreoRecolectadasPUP==null){
-                                              // write the nil attribute
-                                              
-                                                     writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
-                                                  
-                                          }else{
-
-                                        
-                                                   xmlWriter.writeCharacters(localEstatusCorreoRecolectadasPUP);
-                                            
-                                          }
-                                    
-                                   xmlWriter.writeEndElement();
-                             } if (localIdSalidaRepartoTracker){
-                                    namespace = "http://model.avon_ots_ws.datacode.com/xsd";
-                                    writeStartElement(null, namespace, "idSalidaReparto", xmlWriter);
-                             
-                                               if (localIdSalidaReparto==java.lang.Integer.MIN_VALUE) {
-                                           
-                                                         writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
-                                                      
-                                               } else {
-                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdSalidaReparto));
-                                               }
                                     
                                    xmlWriter.writeEndElement();
                              }
@@ -507,9 +452,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static LiquidacionRepartoDTO parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            LiquidacionRepartoDTO object =
-                new LiquidacionRepartoDTO();
+        public static Archivo parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            Archivo object =
+                new Archivo();
 
             int event;
             javax.xml.namespace.QName currentQName = null;
@@ -535,10 +480,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"LiquidacionRepartoDTO".equals(type)){
+                            if (!"Archivo".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (LiquidacionRepartoDTO)com.datacode.avon_ots_ws.model.xsd.ExtensionMapper.getTypeObject(
+                                return (Archivo)com.datacode.avon_ots_ws.model.xsd.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
@@ -563,7 +508,30 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","estatusCorreo").equals(reader.getName()) || new javax.xml.namespace.QName("","estatusCorreo").equals(reader.getName()) ){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","archivo").equals(reader.getName()) || new javax.xml.namespace.QName("","archivo").equals(reader.getName()) ){
+                                
+                                        nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                        if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                             object.setArchivo(null);
+                                             reader.next();
+                                        } else {
+                                    
+                                            object.setArchivo(org.apache.axiom.util.stax.XMLStreamReaderUtils.getDataHandlerFromElement(reader));
+                                    
+                                        }
+                                      
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                    else {
+                                        
+                                    }
+                                
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","nombre").equals(reader.getName()) || new javax.xml.namespace.QName("","nombre").equals(reader.getName()) ){
                                 
                                        nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
                                        if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
@@ -571,7 +539,7 @@
 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setEstatusCorreo(
+                                              object.setNombre(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                             
                                        } else {
@@ -591,7 +559,7 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","estatusCorreoDejadasPUP").equals(reader.getName()) || new javax.xml.namespace.QName("","estatusCorreoDejadasPUP").equals(reader.getName()) ){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","tipoContenido").equals(reader.getName()) || new javax.xml.namespace.QName("","tipoContenido").equals(reader.getName()) ){
                                 
                                        nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
                                        if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
@@ -599,7 +567,7 @@
 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setEstatusCorreoDejadasPUP(
+                                              object.setTipoContenido(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                             
                                        } else {
@@ -614,66 +582,6 @@
                                 
                                     else {
                                         
-                                    }
-                                
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","estatusCorreoRecolectadasPUP").equals(reader.getName()) || new javax.xml.namespace.QName("","estatusCorreoRecolectadasPUP").equals(reader.getName()) ){
-                                
-                                       nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                       if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
-                                    
-
-                                    java.lang.String content = reader.getElementText();
-                                    
-                                              object.setEstatusCorreoRecolectadasPUP(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
-                                            
-                                       } else {
-                                           
-                                           
-                                           reader.getElementText(); // throw away text nodes if any.
-                                       }
-                                      
-                                        reader.next();
-                                    
-                              }  // End of if for expected property start element
-                                
-                                    else {
-                                        
-                                    }
-                                
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://model.avon_ots_ws.datacode.com/xsd","idSalidaReparto").equals(reader.getName()) || new javax.xml.namespace.QName("","idSalidaReparto").equals(reader.getName()) ){
-                                
-                                       nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                       if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
-                                    
-
-                                    java.lang.String content = reader.getElementText();
-                                    
-                                              object.setIdSalidaReparto(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
-                                            
-                                       } else {
-                                           
-                                           
-                                                   object.setIdSalidaReparto(java.lang.Integer.MIN_VALUE);
-                                               
-                                           reader.getElementText(); // throw away text nodes if any.
-                                       }
-                                      
-                                        reader.next();
-                                    
-                              }  // End of if for expected property start element
-                                
-                                    else {
-                                        
-                                               object.setIdSalidaReparto(java.lang.Integer.MIN_VALUE);
-                                           
                                     }
                                   
                             while (!reader.isStartElement() && !reader.isEndElement())

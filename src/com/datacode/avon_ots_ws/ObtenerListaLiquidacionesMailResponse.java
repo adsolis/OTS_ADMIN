@@ -8,10 +8,6 @@
 
             
                 package com.datacode.avon_ots_ws;
-
-import javax.xml.namespace.QName;
-import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.XMLStreamReader;
             
 
             /**
@@ -22,14 +18,7 @@ import javax.xml.stream.XMLStreamReader;
         public  class ObtenerListaLiquidacionesMailResponse
         implements org.apache.axis2.databinding.ADBBean{
         
-                /**
-				 * 
-				 */
-				private static final long serialVersionUID = -1165728417932879804L;
-
-
-
-				public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
+                public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://avon_ots_ws.datacode.com",
                 "obtenerListaLiquidacionesMailResponse",
                 "ns2");
@@ -130,7 +119,7 @@ import javax.xml.stream.XMLStreamReader;
 
 
         
-               return factory.createOMElement(new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME), parentQName);
+               return factory.createOMElement(new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME));
             
         }
 
@@ -523,15 +512,6 @@ import javax.xml.stream.XMLStreamReader;
         }
 
         }//end of factory class
-
-
-
-
-	@Override
-	public XMLStreamReader getPullParser(QName arg0) throws XMLStreamException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
         
 

@@ -81,7 +81,7 @@
             * override this method for handling normal response from obtenerListaLiquidacionesMail operation
             */
            public void receiveResultobtenerListaLiquidacionesMail(
-                    com.datacode.avon_ots_ws.CorreoControllerStub.ObtenerListaLiquidacionesMailResponse result
+                    ObtenerListaLiquidacionesMailResponse result
                         ) {
            }
 

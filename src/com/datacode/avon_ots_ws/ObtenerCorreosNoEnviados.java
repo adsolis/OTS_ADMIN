@@ -1,6 +1,6 @@
 
 /**
- * ObtenerListaLiquidacionesMail.java
+ * ObtenerCorreosNoEnviados.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.7.1  Built on : Feb 20, 2016 (10:02:19 GMT)
@@ -11,16 +11,16 @@
             
 
             /**
-            *  ObtenerListaLiquidacionesMail bean class
+            *  ObtenerCorreosNoEnviados bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class ObtenerListaLiquidacionesMail
+        public  class ObtenerCorreosNoEnviados
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://avon_ots_ws.datacode.com",
-                "obtenerListaLiquidacionesMail",
+                "obtenerCorreosNoEnviados",
                 "ns2");
 
             
@@ -71,11 +71,11 @@
                    java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://avon_ots_ws.datacode.com");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":obtenerListaLiquidacionesMail",
+                           namespacePrefix+":obtenerCorreosNoEnviados",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "obtenerListaLiquidacionesMail",
+                           "obtenerCorreosNoEnviados",
                            xmlWriter);
                    }
 
@@ -273,9 +273,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static ObtenerListaLiquidacionesMail parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            ObtenerListaLiquidacionesMail object =
-                new ObtenerListaLiquidacionesMail();
+        public static ObtenerCorreosNoEnviados parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            ObtenerCorreosNoEnviados object =
+                new ObtenerCorreosNoEnviados();
 
             int event;
             javax.xml.namespace.QName currentQName = null;
@@ -301,10 +301,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"obtenerListaLiquidacionesMail".equals(type)){
+                            if (!"obtenerCorreosNoEnviados".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (ObtenerListaLiquidacionesMail)com.datacode.avon_ots_ws.model.xsd.ExtensionMapper.getTypeObject(
+                                return (ObtenerCorreosNoEnviados)com.datacode.avon_ots_ws.model.xsd.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
