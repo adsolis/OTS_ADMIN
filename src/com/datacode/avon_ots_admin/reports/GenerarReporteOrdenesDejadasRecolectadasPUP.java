@@ -122,7 +122,7 @@ public class GenerarReporteOrdenesDejadasRecolectadasPUP {
 		List<ModelDetalleDocumento> documentos = new ArrayList<ModelDetalleDocumento>();
 		List<ModelDetallePremios> premios = new ArrayList<ModelDetallePremios>();
 		
-		caja.setCampana("142016");
+		/*caja.setCampana("142016");
 		caja.setCodigoBarras("123123123");
 		caja.setDejadoPup(1);
 		caja.setItem(1);
@@ -145,7 +145,7 @@ public class GenerarReporteOrdenesDejadasRecolectadasPUP {
 		premio.setEan13("asd");
 		premio.setFsc("asdasdasd");
 		premio.setRecolectadoPup(1);
-		premios.add(premio);
+		premios.add(premio);*/
 		
 		modelo.setCorreo("iscjangelhg@gmail.com");
 		modelo.setIdPup(1);

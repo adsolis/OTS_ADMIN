@@ -157,7 +157,7 @@ public class EnvioReporteDejadosMail {
 		return status;
 	}
 
-	private String mandarArchivosCorreo(List<ArchivoCorreo> archivos,
+	public String mandarArchivosCorreo(List<ArchivoCorreo> archivos,
 			int idLDC, String recipientes, String nombreReporte) {
 		String error = "";
 		List<Archivo> archivosC = new ArrayList<Archivo>();

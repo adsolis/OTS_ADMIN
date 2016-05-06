@@ -50,6 +50,7 @@ import com.datacode.avon_ots_admin.reports.model.ModelHeaderResumen;
 import com.datacode.avon_ots_admin.reports.model.ModelHistorialPorRepresentante;
 import com.datacode.avon_ots_admin.reports.model.ModelHistoricoDeRepresentantes;
 import com.datacode.avon_ots_admin.reports.model.ModelManifiestoRutaEnCampania;
+import com.datacode.avon_ots_admin.reports.model.ModelOrdenesDejadasRecolectadas;
 import com.datacode.avon_ots_admin.reports.model.ModelRelPedidosDejados;
 import com.datacode.avon_ots_admin.reports.model.ModelRelPedidosPrestados;
 import com.datacode.avon_ots_admin.reports.model.ModelRepConsultaRepresentantes;
