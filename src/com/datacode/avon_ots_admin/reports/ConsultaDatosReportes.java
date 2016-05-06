@@ -4374,7 +4374,7 @@ public class ConsultaDatosReportes {
 	 *previamente recuperado
 	 * @throws AxisFault 
 	 */
-	public List<ModelOrdenesDejadasRecolectadas> generarListaReportesOrdenesDejadasRecolectadas(List<Integer> liquidaciones, int estatus, int idUsuario) throws AxisFault {
+	public List<ModelOrdenesDejadasRecolectadas> generarListaReportesOrdenesDejadasRecolectadas(List<LiquidacionRepartoDTO> liquidaciones, int estatus, int idUsuario) throws AxisFault {
 		OrdenesDejadasRecolectadasStub stubOrdenes = new OrdenesDejadasRecolectadasStub();
 		
 		List<ModelOrdenesDejadasRecolectadas> ordenesDejadasRecolectadas = null;
@@ -4402,7 +4402,7 @@ public class ConsultaDatosReportes {
 	 * @param idUsuario
 	 * @return lista con la lista de Ordenes PUP recuperadas
 	 */
-	private List<ModelOrdenesDejadasRecolectadas> obtenerOrdenesPup(List<Integer> liquidaciones, int estatus, 
+	private List<ModelOrdenesDejadasRecolectadas> obtenerOrdenesPup(List<LiquidacionRepartoDTO> liquidaciones, int estatus, 
 			OrdenesDejadasRecolectadasStub stubOrdenes, int idUsuario) {
 		
 		List<ModelOrdenesDejadasRecolectadas> ordenesPup = new ArrayList<ModelOrdenesDejadasRecolectadas>();
@@ -4422,10 +4422,10 @@ public class ConsultaDatosReportes {
 			stubOrdenes._getServiceClient().getOptions()
 					.setTimeOutInMilliSeconds(180000);
 			
-			for(Integer salida: liquidaciones) {
+			for(LiquidacionRepartoDTO salida: liquidaciones) {
 				
 				param.setIdEstatus(estatus);
-				param.setIdSalidaReparto(salida);
+				param.setIdSalidaReparto(salida.getIdSalidaReparto());
 				param.setIdUsuario(idUsuario);
 				param.setTipoLiquidacion(null);
 				response = stubOrdenes.obtenerPUPOrdenesDejadasRecolectadas(param);
@@ -4435,7 +4435,7 @@ public class ConsultaDatosReportes {
 						ordenPup = new ModelOrdenesDejadasRecolectadas();
 						ordenPup.setIdPup(pup.getIdPUP());
 						ordenPup.setCorreo(pup.getCorreo());
-						ordenPup.setIdSalidaReparto(salida);
+						ordenPup.setIdSalidaReparto(salida.getIdSalidaReparto());
 						ordenesPup.add(ordenPup);
 					}
 				}

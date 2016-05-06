@@ -10,7 +10,10 @@ import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.quartz.DisallowConcurrentExecution;
 
+import com.datacode.avon_ots_admin.reports.ConsultaDatosReportes;
 import com.datacode.avon_ots_admin.reports.EnvioReporteDejadosMail;
+import com.datacode.avon_ots_admin.reports.GenerarReporteOrdenesDejadasRecolectadasPUP;
+import com.datacode.avon_ots_admin.reports.model.ModelOrdenesDejadasRecolectadas;
 import com.datacode.avon_ots_admin.utils.Utils;
 import com.datacode.avon_ots_ws.CorreoControllerStub;
 import com.datacode.avon_ots_ws.ObtenerListaLiquidacionesMailResponse;
@@ -238,6 +241,23 @@ public class TareaMandarMailDejados implements Job {
 	 */
 	private void procesoEnviarReportesOrdenesDejadasRecolectadas(List<LiquidacionRepartoDTO> lista, 
 			String realPath1, int ldcConf, String tipoSubreporte) {
+		ConsultaDatosReportes consulta = new ConsultaDatosReportes();
+		GenerarReporteOrdenesDejadasRecolectadasPUP generadorReporte = new GenerarReporteOrdenesDejadasRecolectadasPUP();
+		List<ModelOrdenesDejadasRecolectadas> ordenesDejadasRecolectadasReportes = null;
+		Configuracion config = null;
+		int estatus = 0;
+		
+		if(tipoSubreporte.equals("recolectada"))
+			estatus = 1;
+		
+		try {
+			ordenesDejadasRecolectadasReportes = 
+					consulta.generarListaReportesOrdenesDejadasRecolectadas(lista, estatus, config.getIdUsuario());
+			generadorReporte.generarReporteMail(ordenesDejadasRecolectadasReportes, tipoSubreporte, realPath1, ldcConf);
+		} catch (AxisFault e) {
+			e.printStackTrace();
+		}
+		
 		
 	}
 	
