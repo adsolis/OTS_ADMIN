@@ -49,7 +49,7 @@ public class ListenerJobs implements javax.servlet.ServletContextListener {
 			jobs.iniciarJobs();
 			// jobActualizarCatalogos.iniciarJobs();
 			jobActualizarDesdeArchivo.iniciarJobs();
-			jobReplicacion.iniciarJob();
+			//jobReplicacion.iniciarJob();
 			jobSmsPendientes.iniciarJob();
 			jobNoEnviados.iniciarJobs();
 			jobNotificacionesCorreo.iniciarJob();

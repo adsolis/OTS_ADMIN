@@ -6,6 +6,10 @@ public class ModelOrdenesDejadasRecolectadas {
 	
 	private long idPup;
 	
+	private String nombrePup;
+	
+	private String fechaHoraRecoleccion;
+	
 	private long idSalidaReparto;
 	
 	private String correo;
@@ -22,6 +26,22 @@ public class ModelOrdenesDejadasRecolectadas {
 
 	public void setIdPup(long idPup) {
 		this.idPup = idPup;
+	}
+
+	public String getNombrePup() {
+		return nombrePup;
+	}
+
+	public void setNombrePup(String nombrePup) {
+		this.nombrePup = nombrePup;
+	}
+
+	public String getFechaHoraRecoleccion() {
+		return fechaHoraRecoleccion;
+	}
+
+	public void setFechaHoraRecoleccion(String fechaHoraRecoleccion) {
+		this.fechaHoraRecoleccion = fechaHoraRecoleccion;
 	}
 
 	public long getIdSalidaReparto() {

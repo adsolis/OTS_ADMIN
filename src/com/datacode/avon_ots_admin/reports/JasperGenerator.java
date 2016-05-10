@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -882,7 +883,7 @@ public class JasperGenerator {
             resultado = JasperFillManager.fillReport(jasperReport, parameters,
                     new JRBeanCollectionDataSource((List<Object>) lstObjetos));
         } catch (Exception e) {
-
+        	e.printStackTrace();
         }
         // JasperExportManager.exportReportToPdfFile(
         // resultado, "c://nominaIDN.pdf");
@@ -2244,19 +2245,52 @@ public class JasperGenerator {
                     rutaRep + nombreJasper);
         }
     }
-
+    
     public ByteArrayOutputStream generaReporteEmailOrdenesDejadasRecolectadasPUP(
+            ModelOrdenesDejadasRecolectadas orden,String tipoOrden,String formato, String realPath) throws IOException {
+     ByteArrayOutputStream archivo = null;
+     
+        
+       
+
+        // Llenamos la lista de parametros
+        Map<String, Object> parameters = new HashMap<String, Object>();
+        parameters.put("SUBREPORT_DIR", realPath + "//");        
+        parameters.put("nombrePup", orden.getNombrePup());
+        
+        String archivoSalida = "";
+        String nombreJasper = "";
+
+        if (tipoOrden.equals("dejada")) {
+         archivoSalida = "Ordenes_Dejadas_PUP";
+            nombreJasper = "/ReporteOrdenesDejadas.jasper";
+        } else if(tipoOrden.equals("recolectada")) {
+         archivoSalida = "Ordenes_Recolectadas_PUP";
+         parameters.put("fechaHoraRecoleccion", orden.getFechaHoraRecoleccion());
+            nombreJasper = "/ReporteOrdenesRecolectadas.jasper";
+        }
+        System.out.println("el realPath: " + realPath);
+        System.out.println("mas reporte: " + realPath+nombreJasper);
+        List<ModelOrdenesDejadasRecolectadas> lista = new ArrayList<ModelOrdenesDejadasRecolectadas>();
+        lista.add(orden);
+        archivo = generarReporteExcelArchivo(archivoSalida, parameters,
+        		lista, realPath + nombreJasper);
+        
+        return archivo;
+    }
+
+    /*public ByteArrayOutputStream generaReporteEmailOrdenesDejadasRecolectadasPUP(
             ModelOrdenesDejadasRecolectadas orden,String tipoOrden,String formato, String realPath) throws IOException {
         ByteArrayOutputStream archivo = new ByteArrayOutputStream();
         String archivoSalida = "";
         String nombreJasper = "";
         Map<String, Object> parameters = new HashMap<String, Object>();
         if (tipoOrden.equals("dejada"))
-            nombreJasper = "//mailOrdenesDejadasPUP.jasper";
+            nombreJasper = "\\ReporteOrdenesDejadas.jasper";
         else if(tipoOrden.equals("recolectada"))
-            nombreJasper = "//mailOrdenesRecolectadasPUP.jasper";
+            nombreJasper = "\\ReporteOrdenesRecolectadas.jasper";
         archivo = generarReporteExcelArchivo(archivoSalida, parameters,
                 orden, realPath + nombreJasper);
         return archivo;
-    }
+    }*/
 }

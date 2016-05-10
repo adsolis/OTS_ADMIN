@@ -256,7 +256,7 @@ public class TareaMandarMailDejados implements Job {
 		try {
 			ordenesDejadasRecolectadasReportes = 
 					consulta.generarListaReportesOrdenesDejadasRecolectadas(lista, estatus);
-			
+			System.out.println("lista de ordenes: " + ordenesDejadasRecolectadasReportes.size());
 			generadorReporte.generarReporteMail(ordenesDejadasRecolectadasReportes, tipoSubreporte, realPath1, ldcConf);
 		} catch (AxisFault e) {
 			e.printStackTrace();

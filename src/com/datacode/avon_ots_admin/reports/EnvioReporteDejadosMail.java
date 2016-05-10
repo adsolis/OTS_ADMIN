@@ -267,7 +267,7 @@ public class EnvioReporteDejadosMail {
 		StringBuilder cuerpoCorreo = new StringBuilder();
 		StringBuilder asunto = new StringBuilder();
 		Map<String, String> mapaCuerpoAsunto = new HashMap<String, String>();
-		if(tipoReporte.equals("")) {
+		if(tipoReporte.equals("Reporte de Liquidación de Reparto")) {
 			cuerpoCorreo.append("<br/><br/><br/>");
 			cuerpoCorreo.append("A través del presente se adjunta las órdenes, premios e inventario que le fueron dejados en su sub bodega:");
 			cuerpoCorreo.append("<br/><br/>");
@@ -276,6 +276,19 @@ public class EnvioReporteDejadosMail {
 			asunto.append("OTS_").append(razonSocial).append(": Envío de relación de mercancía dejada para su entrega");
 			mapaCuerpoAsunto.put("cuerpo", cuerpoCorreo.toString());
 			mapaCuerpoAsunto.put("asunto", asunto.toString());
+		}
+		else if(tipoReporte.equals("Ordenes Dejadas en PUPs")) {
+			cuerpoCorreo.append("<br/><br/><br/>");
+			cuerpoCorreo.append("A través del presente se adjunta las Órdenes, Premios e Inventario que le fueron dejados en PUP para su entrega.:");
+			cuerpoCorreo.append("<br/><br/>");
+			cuerpoCorreo.append("Atte:");
+			cuerpoCorreo.append(razonSocial);
+			asunto.append("OTS_").append(razonSocial).append(": Envío de relación de mercancía dejada para su entrega");
+			mapaCuerpoAsunto.put("cuerpo", cuerpoCorreo.toString());
+			mapaCuerpoAsunto.put("asunto", asunto.toString());
+		}
+        else if(tipoReporte.equals("Ordenes Recolectadas en PUPs")) {
+			
 		}
 		
 		return mapaCuerpoAsunto;
