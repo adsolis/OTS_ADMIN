@@ -29,6 +29,11 @@ import javax.xml.stream.XMLStreamReader;
             
 
                         /**
+				 * 
+				 */
+				private static final long serialVersionUID = 8330760732469163807L;
+
+						/**
                         * field for Cantidad
                         */
 

@@ -23,9 +23,9 @@
               
                   if (
                   "http://model.avon_ots_ws.datacode.com/xsd".equals(namespaceURI) &&
-                  "Archivo".equals(typeName)){
+                  "DocumentoOrdenDejadaRecolectadaPUPDTO".equals(typeName)){
                    
-                            return  com.datacode.avon_ots_ws.model.xsd.Archivo.Factory.parse(reader);
+                            return  com.datacode.avon_ots_ws.model.xsd.DocumentoOrdenDejadaRecolectadaPUPDTO.Factory.parse(reader);
                         
 
                   }
@@ -33,9 +33,9 @@
               
                   if (
                   "http://model.avon_ots_ws.datacode.com/xsd".equals(namespaceURI) &&
-                  "LiquidacionRepartoDTO".equals(typeName)){
+                  "PUPDTO".equals(typeName)){
                    
-                            return  com.datacode.avon_ots_ws.model.xsd.LiquidacionRepartoDTO.Factory.parse(reader);
+                            return  com.datacode.avon_ots_ws.model.xsd.PUPDTO.Factory.parse(reader);
                         
 
                   }
@@ -43,9 +43,9 @@
               
                   if (
                   "http://model.avon_ots_ws.datacode.com/xsd".equals(namespaceURI) &&
-                  "ModelCorreoNoEnviado".equals(typeName)){
+                  "PremioUnitarioOrdenDejadaRecolectadaPUPDTO".equals(typeName)){
                    
-                            return  com.datacode.avon_ots_ws.model.xsd.ModelCorreoNoEnviado.Factory.parse(reader);
+                            return  com.datacode.avon_ots_ws.model.xsd.PremioUnitarioOrdenDejadaRecolectadaPUPDTO.Factory.parse(reader);
                         
 
                   }
@@ -53,9 +53,9 @@
               
                   if (
                   "http://model.avon_ots_ws.datacode.com/xsd".equals(namespaceURI) &&
-                  "DatosCorreo".equals(typeName)){
+                  "CajaOrdenDejadaRecolectadaPUPDTO".equals(typeName)){
                    
-                            return  com.datacode.avon_ots_ws.model.xsd.DatosCorreo.Factory.parse(reader);
+                            return  com.datacode.avon_ots_ws.model.xsd.CajaOrdenDejadaRecolectadaPUPDTO.Factory.parse(reader);
                         
 
                   }

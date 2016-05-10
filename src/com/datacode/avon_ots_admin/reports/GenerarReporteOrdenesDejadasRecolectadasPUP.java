@@ -29,7 +29,6 @@ public class GenerarReporteOrdenesDejadasRecolectadasPUP {
 	public String generarReporteMail (List<ModelOrdenesDejadasRecolectadas> listaOrdenes,String tipoOrden, String realPath,int idLDC) {
 		try {
 			FacesContext context = FacesContext.getCurrentInstance();
-			System.out.println("contexto: " + context);
 			System.out.println("Comienza proceso de generacion:::::::::::");
 			ConsultaDatosReportes consulta = new ConsultaDatosReportes();
 			EnvioReporteDejadosMail envioMail = new EnvioReporteDejadosMail();
@@ -40,10 +39,10 @@ public class GenerarReporteOrdenesDejadasRecolectadasPUP {
 				List<DestinatarioReporte> destinatarios = null;
 				if (tipoOrden.equals("dejada"))
 					destinatarios = consulta.obtenerDestinatariosReportePorTipoReporte(
-							"Reporte de Liquidación de Reparto", 5, 1);
+							"Reporte de Liquidación de Reparto", 0, 1);
 				else if (tipoOrden.equals("recolectada"))
 					destinatarios = consulta.obtenerDestinatariosReportePorTipoReporte(
-							"Reporte de Liquidación de Reparto", 5, 1);
+							"Reporte de Liquidación de Reparto", 0, 1);
 				String recipientes = "";
 				int cont = 0;
 				for (DestinatarioReporte destinatario : destinatarios) {
@@ -59,7 +58,10 @@ public class GenerarReporteOrdenesDejadasRecolectadasPUP {
 				//RECORRER LISTA DE ORDENES PARA GENERAR Y ENVIAR CORREO DE CADA UNA POR PUP
 				int contt = 0;
 				for (ModelOrdenesDejadasRecolectadas orden : listaOrdenes) {
+					System.out.println("el correo: " + orden.getCorreo());
 					ArchivoCorreo archivo = null;
+					recipientes = recipientes + ","
+							+ orden.getCorreo();
 					//SE INVOCA EL RETORNO DE UNA INSTANCIA ARCHIVO QUE CONTIENE EL BYTEARRAY DEL REPORTE GENERADO
 					archivo = llenarArchivoCorreo(orden,tipoOrden,"XLS",realPath, contt++);
 					if(tipoOrden.equals("dejada"))
@@ -70,8 +72,16 @@ public class GenerarReporteOrdenesDejadasRecolectadasPUP {
 					listaArchivo.add(archivo);
 					//LA SIGUIENTE LINEA NO SE USARÍA, YA QUE EL METODO mandarArchivosCorreo ESTÁ AMARRADO 
 					//A LA REGLA DE NEGOCIO PERTENECIENTE A LA OTRA FUNCIONALIDAD
-					String resultado = envioMail.mandarArchivosCorreo(listaArchivo, idLDC,
-							recipientes, "Reporte de Liquidación de Reparto");
+					String resultado = null;
+					if(tipoOrden.equals("dejada")) {
+						resultado = envioMail.mandarArchivosCorreo(listaArchivo, idLDC,
+								recipientes, "Ordenes Dejadas en PUPs");
+					}
+					else {
+						resultado = envioMail.mandarArchivosCorreo(listaArchivo, idLDC,
+								recipientes, "Ordenes Recolectadas en PUPs");
+					}
+
 					
 					String tipoLiquidacion = null;
 					if(tipoOrden.equals("dejada"))

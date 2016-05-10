@@ -2249,9 +2249,6 @@ public class JasperGenerator {
     public ByteArrayOutputStream generaReporteEmailOrdenesDejadasRecolectadasPUP(
             ModelOrdenesDejadasRecolectadas orden,String tipoOrden,String formato, String realPath) throws IOException {
      ByteArrayOutputStream archivo = null;
-     
-        
-       
 
         // Llenamos la lista de parametros
         Map<String, Object> parameters = new HashMap<String, Object>();
@@ -2269,8 +2266,7 @@ public class JasperGenerator {
          parameters.put("fechaHoraRecoleccion", orden.getFechaHoraRecoleccion());
             nombreJasper = "/ReporteOrdenesRecolectadas.jasper";
         }
-        System.out.println("el realPath: " + realPath);
-        System.out.println("mas reporte: " + realPath+nombreJasper);
+
         List<ModelOrdenesDejadasRecolectadas> lista = new ArrayList<ModelOrdenesDejadasRecolectadas>();
         lista.add(orden);
         archivo = generarReporteExcelArchivo(archivoSalida, parameters,

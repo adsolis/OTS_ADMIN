@@ -164,8 +164,9 @@ public class EnvioReporteDejadosMail {
 			param2.setIdLDC(idLDC);
 			respuesta = stub.obtenerDatosCorreoCuentaMaestra(param2);
 			DatosCorreo datosC = respuesta.get_return();
-			String texto = (generarCuerpoAsuntoCorreo("1", datosC.getRazonSocial())).get("cuerpo");
-			String asunto = (generarCuerpoAsuntoCorreo("1", datosC.getRazonSocial())).get("asunto");
+			Map<String, String> mapa = generarCuerpoAsuntoCorreo(nombreReporte, datosC.getRazonSocial());
+			String texto = mapa.get("cuerpo");
+			String asunto = mapa.get("asunto");
 			
 			param.setAsunto(asunto);
 			param.setContrasenia(datosC.getPassword());
@@ -250,9 +251,11 @@ public class EnvioReporteDejadosMail {
 		} catch (AxisFault e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("error: " + e.getMessage());
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("error: " + e.getMessage());
 		}
 		return error;
 	}
@@ -288,7 +291,14 @@ public class EnvioReporteDejadosMail {
 			mapaCuerpoAsunto.put("asunto", asunto.toString());
 		}
         else if(tipoReporte.equals("Ordenes Recolectadas en PUPs")) {
-			
+        	cuerpoCorreo.append("<br/><br/><br/>");
+			cuerpoCorreo.append("A través del presente se adjunta las Órdenes, Premios e Inventario que le fueron recolectados de PUP para su entrega.");
+			cuerpoCorreo.append("<br/><br/>");
+			cuerpoCorreo.append("Atte:");
+			cuerpoCorreo.append(razonSocial);
+			asunto.append("OTS_").append(razonSocial).append(": Envío de relación de mercancía recolectada para su entrega");
+			mapaCuerpoAsunto.put("cuerpo", cuerpoCorreo.toString());
+			mapaCuerpoAsunto.put("asunto", asunto.toString());
 		}
 		
 		return mapaCuerpoAsunto;

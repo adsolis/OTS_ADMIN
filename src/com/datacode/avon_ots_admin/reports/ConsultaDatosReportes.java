@@ -4384,15 +4384,11 @@ public class ConsultaDatosReportes {
 		List<ModelOrdenesDejadasRecolectadas> ordenesDejadasRecolectadas = null;
 		
 		ordenesDejadasRecolectadas = obtenerOrdenesPup(liquidaciones, estatus, stubOrdenes, 1);
-		System.out.println("total de ordenes " + ordenesDejadasRecolectadas.size());
 		if(ordenesDejadasRecolectadas != null && ordenesDejadasRecolectadas.size()>0) {
 			for(ModelOrdenesDejadasRecolectadas orden: ordenesDejadasRecolectadas) {
 				orden.setDetalleCajas(recuperarCajasPorOrdenPup(estatus, orden.getIdSalidaReparto(), orden.getIdPup(), 1, stubOrdenes));
-				System.out.println("orden " + orden.getIdSalidaReparto() + " con cajas " + orden.getDetalleCajas().size());
 				orden.setDetallePremios(recuperarPremiosPorOrdenPup(estatus, orden.getIdSalidaReparto(), orden.getIdPup(), 1, stubOrdenes));
-				System.out.println("orden " + orden.getIdSalidaReparto() + " premios " + orden.getDetallePremios().size());
 				orden.setDetalleDocumentos(recuperarDocumentosPorOrdenPup(estatus, orden.getIdSalidaReparto(), orden.getIdPup(), 1, stubOrdenes));
-				System.out.println("orden " + orden.getIdSalidaReparto() + " documentos " + orden.getDetalleDocumentos());
 			}
 		}
 		
