@@ -18,7 +18,7 @@
 	<field name="dejadoPup" class="java.lang.Integer">
 		<fieldDescription><![CDATA[dejadoPup]]></fieldDescription>
 	</field>
-	<columnHeader>
+	<title>
 		<band height="31">
 			<staticText>
 				<reportElement mode="Opaque" x="0" y="0" width="99" height="31" forecolor="#000000" backcolor="#FDE9D9" uuid="59604540-5f15-4838-a701-a113f390c666"/>
@@ -81,7 +81,7 @@
 				<text><![CDATA[Dejado en PUP]]></text>
 			</staticText>
 		</band>
-	</columnHeader>
+	</title>
 	<detail>
 		<band height="51" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
@@ -123,7 +123,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true" pattern="$ #,##0.00">
+			<textField isStretchWithOverflow="true" pattern="">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="300" y="0" width="95" height="49" isPrintWhenDetailOverflows="true" uuid="85a65827-a3d4-47ab-a0c9-56749bcf9b31"/>
 				<box>
 					<topPen lineWidth="0.25"/>

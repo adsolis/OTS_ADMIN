@@ -21,13 +21,13 @@
 	<field name="recibidosRemitos" class="java.lang.Integer">
 		<fieldDescription><![CDATA[recibidosRemitos]]></fieldDescription>
 	</field>
-    <field name="recolectadosRemitos" class="java.lang.Integer">
+	<field name="recolectadosRemitos" class="java.lang.Integer">
 		<fieldDescription><![CDATA[recolectadosRemitos]]></fieldDescription>
 	</field>
-    <field name="recolectadosCods" class="java.lang.Integer">
+	<field name="recolectadosCods" class="java.lang.Integer">
 		<fieldDescription><![CDATA[recolectadosCods]]></fieldDescription>
 	</field>
-	<columnHeader>
+	<title>
 		<band height="31">
 			<staticText>
 				<reportElement mode="Opaque" x="0" y="0" width="99" height="31" forecolor="#000000" backcolor="#FDE9D9" uuid="59604540-5f15-4838-a701-a113f390c666"/>
@@ -135,7 +135,7 @@
 				<text><![CDATA[Recolectados]]></text>
 			</staticText>
 		</band>
-	</columnHeader>
+	</title>
 	<detail>
 		<band height="51" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
@@ -177,7 +177,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{recibidosCods}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true" pattern="$ #,##0.00">
+			<textField isStretchWithOverflow="true" pattern="">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="401" y="0" width="95" height="49" isPrintWhenDetailOverflows="true" uuid="85a65827-a3d4-47ab-a0c9-56749bcf9b31"/>
 				<box>
 					<topPen lineWidth="0.25"/>
@@ -190,7 +190,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{enviadosRemitos}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true" pattern="$ #,##0.00">
+			<textField isStretchWithOverflow="true" pattern="">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="496" y="0" width="93" height="49" isPrintWhenDetailOverflows="true" uuid="1b6a09ef-fa1a-406e-9723-344b8a043344"/>
 				<box>
 					<topPen lineWidth="0.25"/>
@@ -203,7 +203,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{recibidosRemitos}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true" pattern="$ #,##0.00">
+			<textField isStretchWithOverflow="true" pattern="">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="300" y="0" width="101" height="49" isPrintWhenDetailOverflows="true" uuid="b99d95fd-b575-4517-93f5-2c5deb19911c"/>
 				<box>
 					<topPen lineWidth="0.25"/>
@@ -216,7 +216,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{recolectadosCods}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true" pattern="$ #,##0.00">
+			<textField isStretchWithOverflow="true" pattern="">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="589" y="0" width="101" height="49" isPrintWhenDetailOverflows="true" uuid="548531f1-41f0-47d8-9f85-dd40d1127410"/>
 				<box>
 					<topPen lineWidth="0.25"/>

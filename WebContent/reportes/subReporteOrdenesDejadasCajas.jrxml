@@ -27,7 +27,7 @@
 	<field name="dejadoPup" class="java.lang.Integer">
 		<fieldDescription><![CDATA[dejadoPup]]></fieldDescription>
 	</field>
-	<columnHeader>
+	<title>
 		<band height="31">
 			<staticText>
 				<reportElement mode="Opaque" x="0" y="0" width="54" height="31" forecolor="#000000" backcolor="#FDE9D9" uuid="59604540-5f15-4838-a701-a113f390c666"/>
@@ -135,7 +135,7 @@
 				<text><![CDATA[Item]]></text>
 			</staticText>
 		</band>
-	</columnHeader>
+	</title>
 	<detail>
 		<band height="49" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
@@ -203,7 +203,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{item}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true" pattern="$ #,##0.00">
+			<textField isStretchWithOverflow="true" pattern="">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="433" y="0" width="100" height="49" isPrintWhenDetailOverflows="true" uuid="85a65827-a3d4-47ab-a0c9-56749bcf9b31"/>
 				<box>
 					<topPen lineWidth="0.25"/>
@@ -216,7 +216,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{codigoBarras}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true" pattern="$ #,##0.00">
+			<textField isStretchWithOverflow="true" pattern="">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="533" y="0" width="147" height="49" isPrintWhenDetailOverflows="true" uuid="85a65827-a3d4-47ab-a0c9-56749bcf9b31"/>
 				<box>
 					<topPen lineWidth="0.25"/>

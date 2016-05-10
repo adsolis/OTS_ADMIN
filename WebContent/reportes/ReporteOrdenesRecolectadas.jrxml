@@ -29,7 +29,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="49">
+		<band height="125">
 			<staticText>
 				<reportElement x="139" y="0" width="472" height="49" uuid="3c5be408-8dc7-452b-9f23-bf02bafc5ddd"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -37,44 +37,36 @@
 				</textElement>
 				<text><![CDATA[Órdenes recolectadas de Pick Up Point]]></text>
 			</staticText>
-		</band>
-	</title>
-	<pageHeader>
-		<band height="26">
 			<textField>
-				<reportElement x="37" y="0" width="263" height="24" uuid="9ae78e62-36ba-45a7-ab6a-c1d929bfd57a"/>
+				<reportElement x="39" y="77" width="263" height="24" uuid="9ae78e62-36ba-45a7-ab6a-c1d929bfd57a"/>
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nombrePup}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="0" width="37" height="24" uuid="3c5be408-8dc7-452b-9f23-bf02bafc5ddd"/>
+				<reportElement x="2" y="77" width="37" height="24" uuid="3c5be408-8dc7-452b-9f23-bf02bafc5ddd"/>
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[PUP:]]></text>
 			</staticText>
-		</band>
-	</pageHeader>
-	<columnHeader>
-		<band height="28">
 			<textField>
-				<reportElement x="167" y="0" width="263" height="24" uuid="9ae78e62-36ba-45a7-ab6a-c1d929bfd57a"/>
+				<reportElement x="152" y="101" width="263" height="24" uuid="9ae78e62-36ba-45a7-ab6a-c1d929bfd57a"/>
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fechaHoraRecoleccion}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="0" width="152" height="24" uuid="3c5be408-8dc7-452b-9f23-bf02bafc5ddd"/>
+				<reportElement x="0" y="101" width="152" height="24" uuid="3c5be408-8dc7-452b-9f23-bf02bafc5ddd"/>
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Fecha/Hora Recolección:]]></text>
 			</staticText>
 		</band>
-	</columnHeader>
+	</title>
 	<detail>
 		<band height="26">
 			<staticText>

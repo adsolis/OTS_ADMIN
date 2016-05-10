@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="listaNAR1" pageWidth="790" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="780" leftMargin="0" rightMargin="10" topMargin="0" bottomMargin="0" uuid="cb5207f2-eb23-4699-b133-8e753e136a0b">
 	<property name="ireport.zoom" value="1.2100000000000006"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="48"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[]]>
@@ -27,13 +27,13 @@
 	<field name="dejadoPup" class="java.lang.Integer">
 		<fieldDescription><![CDATA[dejadoPup]]></fieldDescription>
 	</field>
-    <field name="nombre" class="java.lang.String">
+	<field name="nombre" class="java.lang.String">
 		<fieldDescription><![CDATA[nombre]]></fieldDescription>
 	</field>
-    <field name="recolectadoPup" class="java.lang.Integer">
+	<field name="recolectadoPup" class="java.lang.Integer">
 		<fieldDescription><![CDATA[recolectadoPup]]></fieldDescription>
 	</field>
-	<columnHeader>
+	<title>
 		<band height="31">
 			<staticText>
 				<reportElement mode="Opaque" x="0" y="0" width="43" height="31" forecolor="#000000" backcolor="#FDE9D9" uuid="59604540-5f15-4838-a701-a113f390c666"/>
@@ -171,7 +171,7 @@
 				<text><![CDATA[Nombre]]></text>
 			</staticText>
 		</band>
-	</columnHeader>
+	</title>
 	<detail>
 		<band height="49" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
@@ -239,7 +239,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{item}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true" pattern="$ #,##0.00">
+			<textField isStretchWithOverflow="true" pattern="">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="475" y="0" width="100" height="49" isPrintWhenDetailOverflows="true" uuid="85a65827-a3d4-47ab-a0c9-56749bcf9b31"/>
 				<box>
 					<topPen lineWidth="0.25"/>
@@ -252,7 +252,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{codigoBarras}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true" pattern="$ #,##0.00">
+			<textField isStretchWithOverflow="true" pattern="">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="575" y="0" width="93" height="49" isPrintWhenDetailOverflows="true" uuid="85a65827-a3d4-47ab-a0c9-56749bcf9b31"/>
 				<box>
 					<topPen lineWidth="0.25"/>
@@ -265,7 +265,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{dejadoPup}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true" pattern="$ #,##0.00">
+			<textField isStretchWithOverflow="true" pattern="">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="668" y="0" width="110" height="49" isPrintWhenDetailOverflows="true" uuid="59c3c782-a52c-4ef2-98e5-181fb39ebb2a"/>
 				<box>
 					<topPen lineWidth="0.25"/>

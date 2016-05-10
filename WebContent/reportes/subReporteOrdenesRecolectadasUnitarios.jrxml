@@ -21,7 +21,7 @@
 	<field name="recolectadoPup" class="java.lang.Integer">
 		<fieldDescription><![CDATA[recolectadoPup]]></fieldDescription>
 	</field>
-	<columnHeader>
+	<title>
 		<band height="31">
 			<staticText>
 				<reportElement mode="Opaque" x="0" y="0" width="99" height="31" forecolor="#000000" backcolor="#FDE9D9" uuid="59604540-5f15-4838-a701-a113f390c666"/>
@@ -99,7 +99,7 @@
 				<text><![CDATA[Recolectado en PUP]]></text>
 			</staticText>
 		</band>
-	</columnHeader>
+	</title>
 	<detail>
 		<band height="51" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
@@ -141,7 +141,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true" pattern="$ #,##0.00">
+			<textField isStretchWithOverflow="true" pattern="">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="300" y="0" width="83" height="49" isPrintWhenDetailOverflows="true" uuid="85a65827-a3d4-47ab-a0c9-56749bcf9b31"/>
 				<box>
 					<topPen lineWidth="0.25"/>
@@ -154,7 +154,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{dejadoPup}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true" pattern="$ #,##0.00">
+			<textField isStretchWithOverflow="true" pattern="">
 				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="383" y="0" width="107" height="49" isPrintWhenDetailOverflows="true" uuid="795156b4-e4ca-4b10-8405-5f1eb5e94023"/>
 				<box>
 					<topPen lineWidth="0.25"/>

@@ -14,6 +14,13 @@
 		<managed-bean-class>com.datacode.avon_ots_admin.reports.ControllerGeneradorReportes</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	
+	 <managed-bean>
+		<description>Operaciones de Reportes Ordenes Dejadas y Recolectadas</description>
+		<managed-bean-name>reportOrdenes</managed-bean-name>
+		<managed-bean-class>com.datacode.avon_ots_admin.reports.GenerarReporteOrdenesDejadasRecolectadasPUP</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
     <!-- CU001 INICIO -->
 	<managed-bean>
 		<description>Operaciones de Catalogo Rutas</description>

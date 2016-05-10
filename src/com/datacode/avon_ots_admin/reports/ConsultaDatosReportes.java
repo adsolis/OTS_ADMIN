@@ -4439,6 +4439,7 @@ public class ConsultaDatosReportes {
 						ordenPup.setIdPup(pup.getIdPUP());
 						ordenPup.setCorreo(pup.getCorreo());
 						ordenPup.setIdSalidaReparto(salida.getIdSalidaReparto());
+						ordenPup.setNombrePup(pup.getNombre());
 						ordenesPup.add(ordenPup);
 					}
 				}
