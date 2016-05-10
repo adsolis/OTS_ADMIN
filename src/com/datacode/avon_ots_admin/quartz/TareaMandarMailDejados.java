@@ -247,15 +247,16 @@ public class TareaMandarMailDejados implements Job {
 		ConsultaDatosReportes consulta = new ConsultaDatosReportes();
 		GenerarReporteOrdenesDejadasRecolectadasPUP generadorReporte = new GenerarReporteOrdenesDejadasRecolectadasPUP();
 		List<ModelOrdenesDejadasRecolectadas> ordenesDejadasRecolectadasReportes = null;
-		Configuracion config = null;
-		int estatus = 0;
+		int estatus = 22;
 		
-		if(tipoSubreporte.equals("recolectada"))
-			estatus = 1;
+		if(tipoSubreporte.equals("recolectada")) {
+			estatus = 24;
+		}
 		
 		try {
 			ordenesDejadasRecolectadasReportes = 
-					consulta.generarListaReportesOrdenesDejadasRecolectadas(lista, estatus, config.getIdUsuario());
+					consulta.generarListaReportesOrdenesDejadasRecolectadas(lista, estatus);
+			
 			generadorReporte.generarReporteMail(ordenesDejadasRecolectadasReportes, tipoSubreporte, realPath1, ldcConf);
 		} catch (AxisFault e) {
 			e.printStackTrace();
@@ -274,22 +275,23 @@ public class TareaMandarMailDejados implements Job {
 		List<LiquidacionRepartoDTO> listaTemporal = new ArrayList<LiquidacionRepartoDTO>();
 		if(tipoLiquidacion==1) {
 			for(LiquidacionRepartoDTO liquidacion: lista) {
-				if(liquidacion.getEstatusCorreo().equals(null) || liquidacion.equals("") 
-						|| liquidacion.equals("P") || liquidacion.equals("N"))
+
+				if(liquidacion.getEstatusCorreo() == null || liquidacion.getEstatusCorreo().equals(" ") 
+						|| liquidacion.getEstatusCorreo().equals("P") || liquidacion.getEstatusCorreo().equals("N"))
 					listaTemporal.add(liquidacion);
 			}
 		}
 		else if(tipoLiquidacion==2) {
 			for(LiquidacionRepartoDTO liquidacion: lista) {
-				if(liquidacion.getEstatusCorreoDejadasPUP().equals(null) || liquidacion.equals("") 
-						|| liquidacion.equals("P") || liquidacion.equals("N"))
+				if(liquidacion.getEstatusCorreoDejadasPUP() == null || liquidacion.getEstatusCorreoDejadasPUP().equals(" ") 
+						|| liquidacion.getEstatusCorreoDejadasPUP().equals("P") || liquidacion.getEstatusCorreoDejadasPUP().equals("N"))
 					listaTemporal.add(liquidacion);
 			}
 		}
-		else {
+		else if(tipoLiquidacion==3){
 			for(LiquidacionRepartoDTO liquidacion: lista) {
-				if(liquidacion.getEstatusCorreoRecolectadasPUP().equals(null) || liquidacion.equals("") 
-						|| liquidacion.equals("P") || liquidacion.equals("N"))
+				if(liquidacion.getEstatusCorreoRecolectadasPUP() == null || liquidacion.getEstatusCorreoRecolectadasPUP().equals(" ") 
+						|| liquidacion.getEstatusCorreoRecolectadasPUP().equals("P") || liquidacion.getEstatusCorreoRecolectadasPUP().equals("N"))
 					listaTemporal.add(liquidacion);
 			}
 		}

@@ -5,7 +5,9 @@ import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.activation.DataHandler;
 
@@ -162,11 +164,9 @@ public class EnvioReporteDejadosMail {
 			param2.setIdLDC(idLDC);
 			respuesta = stub.obtenerDatosCorreoCuentaMaestra(param2);
 			DatosCorreo datosC = respuesta.get_return();
-			String texto = null;
-			texto = generarCuerpoCorreo("1", datosC.getRazonSocial());
-			String asunto = "";
-			asunto += "OTS_" + datosC.getRazonSocial()
-					+ ": Envío de relación de mercancía dejada para su entrega";
+			String texto = (generarCuerpoAsuntoCorreo("1", datosC.getRazonSocial())).get("cuerpo");
+			String asunto = (generarCuerpoAsuntoCorreo("1", datosC.getRazonSocial())).get("asunto");
+			
 			param.setAsunto(asunto);
 			param.setContrasenia(datosC.getPassword());
 			param.setDe(datosC.getCuenta());
@@ -189,53 +189,55 @@ public class EnvioReporteDejadosMail {
 				param3.setUsuario(datosC.getUsuario());
 				CorreoControllerStub.RegistrarEnvioMailResponse res = stub
 						.registrarEnvioMail(param3);
-				if (res != null && res.get_return() > 0) {
-					int idMail = res.get_return();
-					CorreoControllerStub.RegistrarEnvioMailReporteSubbodega param4 = new CorreoControllerStub.RegistrarEnvioMailReporteSubbodega();
-					param4.setIdCorreoEnviado(idMail);
-					param4.setIdUsuario(1);
-					CorreoControllerStub.RegistrarEnvioMailReporteSubbodegaResponse resReg = stub
-							.registrarEnvioMailReporteSubbodega(param4);
-					if (resReg != null && resReg.get_return() > 0) {
-						// for (ArchivoCorreo archivo : archivos) {
-						// int cont = 0;
-						// String itemsS = "";
-						// for (int idItem : archivo.getListaItems()) {
-						// if (cont == 0) {
-						// itemsS += "" + idItem;
-						// } else {
-						// itemsS += "," + idItem;
-						// }
-						// cont++;
-						// }
-						// //se comenta porque no se tiene el idcampaña para
-						// actualizar los items
-						// /*CorreoControllerStub.ActualizaEnviadoReporteSubBodega
-						// param5 = new
-						// CorreoControllerStub.ActualizaEnviadoReporteSubBodega();
-						// param5.setListaItems(itemsS);
-						// param5.setIdReporteMailDejadoSubBodega(resReg
-						// .get_return());
-						// param5.setIdCampania(archivo.getIdCampania());
-						// CorreoControllerStub.ActualizaEnviadoReporteSubBodegaResponse
-						// resAct = stub
-						// .actualizaEnviadoReporteSubBodega(param5);
-						// if (resAct != null
-						// && resAct.get_return().equals("")) {
-						//
-						// } else {
-						// error =
-						// "Ocurrio un error al actualizar los items del mail enviado a subbodga";
-						// }*/
-						// }
+				if(nombreReporte.equals("Reporte de Liquidación de Reparto")) {
+					if (res != null && res.get_return() > 0) {
+						int idMail = res.get_return();
+						CorreoControllerStub.RegistrarEnvioMailReporteSubbodega param4 = new CorreoControllerStub.RegistrarEnvioMailReporteSubbodega();
+						param4.setIdCorreoEnviado(idMail);
+						param4.setIdUsuario(1);
+						CorreoControllerStub.RegistrarEnvioMailReporteSubbodegaResponse resReg = stub
+								.registrarEnvioMailReporteSubbodega(param4);
+						if (resReg != null && resReg.get_return() > 0) {
+							// for (ArchivoCorreo archivo : archivos) {
+							// int cont = 0;
+							// String itemsS = "";
+							// for (int idItem : archivo.getListaItems()) {
+							// if (cont == 0) {
+							// itemsS += "" + idItem;
+							// } else {
+							// itemsS += "," + idItem;
+							// }
+							// cont++;
+							// }
+							// //se comenta porque no se tiene el idcampaña para
+							// actualizar los items
+							// /*CorreoControllerStub.ActualizaEnviadoReporteSubBodega
+							// param5 = new
+							// CorreoControllerStub.ActualizaEnviadoReporteSubBodega();
+							// param5.setListaItems(itemsS);
+							// param5.setIdReporteMailDejadoSubBodega(resReg
+							// .get_return());
+							// param5.setIdCampania(archivo.getIdCampania());
+							// CorreoControllerStub.ActualizaEnviadoReporteSubBodegaResponse
+							// resAct = stub
+							// .actualizaEnviadoReporteSubBodega(param5);
+							// if (resAct != null
+							// && resAct.get_return().equals("")) {
+							//
+							// } else {
+							// error =
+							// "Ocurrio un error al actualizar los items del mail enviado a subbodga";
+							// }*/
+							// }
 
+						} else {
+							error = "Ocurrio un error al registrar el mail enviado a subodega";
+							
+						}
 					} else {
-						error = "Ocurrio un error al registrar el mail enviado a subodega";
+						error = "Ocurrio un error al registrar el mail enviado";
 						
 					}
-				} else {
-					error = "Ocurrio un error al registrar el mail enviado";
-					
 				}
 			} else {
 				error = "Ocurrio un error al enviar el mail";
@@ -261,18 +263,22 @@ public class EnvioReporteDejadosMail {
 	 * @param razonSocial
 	 * @return
 	 */
-	private String generarCuerpoCorreo(String tipoReporte, String razonSocial) {
+	private Map<String, String> generarCuerpoAsuntoCorreo(String tipoReporte, String razonSocial) {
 		StringBuilder cuerpoCorreo = new StringBuilder();
-		
+		StringBuilder asunto = new StringBuilder();
+		Map<String, String> mapaCuerpoAsunto = new HashMap<String, String>();
 		if(tipoReporte.equals("")) {
 			cuerpoCorreo.append("<br/><br/><br/>");
 			cuerpoCorreo.append("A través del presente se adjunta las órdenes, premios e inventario que le fueron dejados en su sub bodega:");
 			cuerpoCorreo.append("<br/><br/>");
 			cuerpoCorreo.append("Atte:");
 			cuerpoCorreo.append(razonSocial);
+			asunto.append("OTS_").append(razonSocial).append(": Envío de relación de mercancía dejada para su entrega");
+			mapaCuerpoAsunto.put("cuerpo", cuerpoCorreo.toString());
+			mapaCuerpoAsunto.put("asunto", asunto.toString());
 		}
 		
-		return cuerpoCorreo.toString();
+		return mapaCuerpoAsunto;
 	}
 
 	private List<ArchivoCorreo> llenarModelosCajas(ItemSubBodega[] items,

@@ -4374,18 +4374,25 @@ public class ConsultaDatosReportes {
 	 *previamente recuperado
 	 * @throws AxisFault 
 	 */
-	public List<ModelOrdenesDejadasRecolectadas> generarListaReportesOrdenesDejadasRecolectadas(List<LiquidacionRepartoDTO> liquidaciones, int estatus, int idUsuario) throws AxisFault {
+	public List<ModelOrdenesDejadasRecolectadas> generarListaReportesOrdenesDejadasRecolectadas(List<LiquidacionRepartoDTO> liquidaciones, int estatus) throws AxisFault {
 		OrdenesDejadasRecolectadasStub stubOrdenes = new OrdenesDejadasRecolectadasStub();
-		
+		/*if(config==null) {
+			config = (Configuracion) FacesContext.getCurrentInstance()
+					.getExternalContext().getSessionMap()
+					.get("configuracion");
+		}*/
 		List<ModelOrdenesDejadasRecolectadas> ordenesDejadasRecolectadas = null;
 		
-		ordenesDejadasRecolectadas = obtenerOrdenesPup(liquidaciones, estatus, stubOrdenes, idUsuario);
-		
+		ordenesDejadasRecolectadas = obtenerOrdenesPup(liquidaciones, estatus, stubOrdenes, 1);
+		System.out.println("total de ordenes " + ordenesDejadasRecolectadas.size());
 		if(ordenesDejadasRecolectadas != null && ordenesDejadasRecolectadas.size()>0) {
 			for(ModelOrdenesDejadasRecolectadas orden: ordenesDejadasRecolectadas) {
-				orden.setDetalleCajas(recuperarCajasPorOrdenPup(estatus, orden.getIdSalidaReparto(), orden.getIdPup(), idUsuario, stubOrdenes));
-				orden.setDetallePremios(recuperarPremiosPorOrdenPup(estatus, orden.getIdSalidaReparto(), orden.getIdPup(), idUsuario, stubOrdenes));
-				orden.setDetalleDocumentos(recuperarDocumentosPorOrdenPup(estatus, orden.getIdSalidaReparto(), orden.getIdPup(), idUsuario, stubOrdenes));
+				orden.setDetalleCajas(recuperarCajasPorOrdenPup(estatus, orden.getIdSalidaReparto(), orden.getIdPup(), 1, stubOrdenes));
+				System.out.println("orden " + orden.getIdSalidaReparto() + " con cajas " + orden.getDetalleCajas().size());
+				orden.setDetallePremios(recuperarPremiosPorOrdenPup(estatus, orden.getIdSalidaReparto(), orden.getIdPup(), 1, stubOrdenes));
+				System.out.println("orden " + orden.getIdSalidaReparto() + " premios " + orden.getDetallePremios().size());
+				orden.setDetalleDocumentos(recuperarDocumentosPorOrdenPup(estatus, orden.getIdSalidaReparto(), orden.getIdPup(), 1, stubOrdenes));
+				System.out.println("orden " + orden.getIdSalidaReparto() + " documentos " + orden.getDetalleDocumentos());
 			}
 		}
 		
@@ -4439,6 +4446,7 @@ public class ConsultaDatosReportes {
 						ordenesPup.add(ordenPup);
 					}
 				}
+				System.out.println("consulto con la liquidacion " + salida.getIdSalidaReparto() + " y obtuvo estos resultados " + ordenesPup.size() + " con estatus " + estatus);
 			}
 			
 		}catch (AxisFault e) {

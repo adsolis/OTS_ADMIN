@@ -33,7 +33,7 @@ public class GenerarReporteOrdenesDejadasRecolectadasPUP {
 			EnvioReporteDejadosMail envioMail = new EnvioReporteDejadosMail();
 			List<ArchivoCorreo> listaArchivo = null;
 			TareaMandarMailDejados tarea = new TareaMandarMailDejados();
-			if (listaOrdenes != null) {
+			if (listaOrdenes != null && !listaOrdenes.isEmpty()) {
 				//OBTENER DESTINATARIOS
 				List<DestinatarioReporte> destinatarios = null;
 				if (tipoOrden.equals("dejada"))
