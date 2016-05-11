@@ -29,7 +29,6 @@ public class GenerarReporteOrdenesDejadasRecolectadasPUP {
 	public String generarReporteMail (List<ModelOrdenesDejadasRecolectadas> listaOrdenes,String tipoOrden, String realPath,int idLDC) {
 		try {
 			FacesContext context = FacesContext.getCurrentInstance();
-			System.out.println("Comienza proceso de generacion:::::::::::");
 			ConsultaDatosReportes consulta = new ConsultaDatosReportes();
 			EnvioReporteDejadosMail envioMail = new EnvioReporteDejadosMail();
 			List<ArchivoCorreo> listaArchivo = null;
@@ -54,7 +53,6 @@ public class GenerarReporteOrdenesDejadasRecolectadasPUP {
 					}
 					cont++;
 				}
-				System.out.println("DESTINATARIOS:::::::::::::::::::::::::::::::::::::::::::: "+recipientes);
 				//RECORRER LISTA DE ORDENES PARA GENERAR Y ENVIAR CORREO DE CADA UNA POR PUP
 				int contt = 0;
 				for (ModelOrdenesDejadasRecolectadas orden : listaOrdenes) {
@@ -70,8 +68,6 @@ public class GenerarReporteOrdenesDejadasRecolectadasPUP {
 						archivo = setNombreTipoArchivo(archivo, "Ordendes Recolectadas en PUPs", "xls", "application/x-excel");
 					listaArchivo = new ArrayList<ArchivoCorreo>();
 					listaArchivo.add(archivo);
-					//LA SIGUIENTE LINEA NO SE USARÍA, YA QUE EL METODO mandarArchivosCorreo ESTÁ AMARRADO 
-					//A LA REGLA DE NEGOCIO PERTENECIENTE A LA OTRA FUNCIONALIDAD
 					String resultado = null;
 					if(tipoOrden.equals("dejada")) {
 						resultado = envioMail.mandarArchivosCorreo(listaArchivo, idLDC,
@@ -118,6 +114,7 @@ public class GenerarReporteOrdenesDejadasRecolectadasPUP {
 	public ArchivoCorreo llenarArchivoCorreo(ModelOrdenesDejadasRecolectadas orden,String tipoOrden, String formato, String realPath, int cont) throws IOException {
 		JasperGenerator generador = new JasperGenerator();
 		ArchivoCorreo archivo = new ArchivoCorreo();
+		orden.setFechaHoraRecoleccion(new SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date()));
 		archivo.setNombreArchivo(orden.getIdPup() + "_"
 				+ simpleDateformat.format(new Date().getTime()) + ".xls");
 		archivo.setBytes(generador.generaReporteEmailOrdenesDejadasRecolectadasPUP(
