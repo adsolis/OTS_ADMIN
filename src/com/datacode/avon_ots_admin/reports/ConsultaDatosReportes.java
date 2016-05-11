@@ -4545,7 +4545,7 @@ public class ConsultaDatosReportes {
 				for(PremioUnitarioOrdenDejadaRecolectadaPUPDTO premio: premioDTO) {
 					detallePremio = new ModelDetallePremios();
 					detallePremio.setCantidad(premio.getCantidad());
-					detallePremio.setDejadoPup(Integer.toString(premio.getDejadoPUP()));
+					detallePremio.setDejadoPup(premio.getDejadoPUP());
 					detallePremio.setEan13(premio.getEan13());
 					detallePremio.setFsc(premio.getFsc());
 					detallePremio.setRecolectadoPup(premio.getRecolectadoPUP());
