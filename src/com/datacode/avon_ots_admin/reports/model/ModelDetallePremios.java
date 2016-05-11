@@ -20,7 +20,7 @@ public class ModelDetallePremios implements Serializable{
 	
 	private int cantidad;
 	
-	private int dejadoPup;
+	private String dejadoPup;
 	
 	private int recolectadoPup;
 
@@ -48,11 +48,11 @@ public class ModelDetallePremios implements Serializable{
 		this.cantidad = cantidad;
 	}
 
-	public int getDejadoPup() {
+	public String getDejadoPup() {
 		return dejadoPup;
 	}
 
-	public void setDejadoPup(int dejadoPup) {
+	public void setDejadoPup(String dejadoPup) {
 		this.dejadoPup = dejadoPup;
 	}
 
