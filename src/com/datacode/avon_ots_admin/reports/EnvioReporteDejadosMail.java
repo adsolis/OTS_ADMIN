@@ -282,11 +282,11 @@ public class EnvioReporteDejadosMail {
 		}
 		else if(tipoReporte.equals("Ordenes Dejadas en PUPs")) {
 			cuerpoCorreo.append("<br/><br/><br/>");
-			cuerpoCorreo.append("A través del presente se adjunta las Órdenes, Premios e Inventario que le fueron dejados en PUP para su entrega.:");
+			cuerpoCorreo.append("A través del presente se adjunta las Órdenes, Premios e Inventario que le fueron dejados en PUP para su entrega.");
 			cuerpoCorreo.append("<br/><br/>");
-			cuerpoCorreo.append("Atte:");
+			cuerpoCorreo.append("Atte: ");
 			cuerpoCorreo.append(razonSocial);
-			asunto.append("OTS_").append(razonSocial).append(": Envío de relación de mercancía dejada para su entrega");
+			asunto.append("OTS_").append(razonSocial).append(": Envío de relación de mercancía dejada en PUP para su entrega");
 			mapaCuerpoAsunto.put("cuerpo", cuerpoCorreo.toString());
 			mapaCuerpoAsunto.put("asunto", asunto.toString());
 		}
@@ -294,9 +294,9 @@ public class EnvioReporteDejadosMail {
         	cuerpoCorreo.append("<br/><br/><br/>");
 			cuerpoCorreo.append("A través del presente se adjunta las Órdenes, Premios e Inventario que le fueron recolectados de PUP para su entrega.");
 			cuerpoCorreo.append("<br/><br/>");
-			cuerpoCorreo.append("Atte:");
+			cuerpoCorreo.append("Atte: ");
 			cuerpoCorreo.append(razonSocial);
-			asunto.append("OTS_").append(razonSocial).append(": Envío de relación de mercancía recolectada para su entrega");
+			asunto.append("OTS_").append(razonSocial).append(": Envío de relación de mercancía recolectada en PUP para su entrega");
 			mapaCuerpoAsunto.put("cuerpo", cuerpoCorreo.toString());
 			mapaCuerpoAsunto.put("asunto", asunto.toString());
 		}
