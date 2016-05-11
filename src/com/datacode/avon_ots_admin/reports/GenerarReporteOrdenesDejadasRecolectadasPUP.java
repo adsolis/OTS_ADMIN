@@ -38,10 +38,10 @@ public class GenerarReporteOrdenesDejadasRecolectadasPUP {
 				List<DestinatarioReporte> destinatarios = null;
 				if (tipoOrden.equals("dejada"))
 					destinatarios = consulta.obtenerDestinatariosReportePorTipoReporte(
-							"Reporte de Liquidación de Reparto", 0, 1);
+							"Pedidos Dejados en PUPs", 0, 1);
 				else if (tipoOrden.equals("recolectada"))
 					destinatarios = consulta.obtenerDestinatariosReportePorTipoReporte(
-							"Reporte de Liquidación de Reparto", 0, 1);
+							"Pedidos Recolectados en PUPs", 0, 1);
 				String recipientes = "";
 				int cont = 0;
 				for (DestinatarioReporte destinatario : destinatarios) {
